@@ -70,7 +70,33 @@
     Въведете 3 различни числа от конзолата и ги разпечатайте в низходящ ред.
     ```
     
-    - solution
+    - solution 1
+    ```java
+    Scanner scan = new Scanner(System.in);
+ 
+    System.out.print("Въведете първото число: ");
+    int a = scan.nextInt();
+    System.out.print("Въведете второто число: ");
+    int b = scan.nextInt();
+    System.out.print("Въведете третото число: ");
+    int c = scan.nextInt();
+
+    if (a >= b && b >= c) {
+        System.out.println(a + ", " + b + ", " + c);
+    } else if (a >= c && c >= b) {
+        System.out.println(a + ", " + c + ", " + b);
+    } else if (b >= a && a >= c) {
+        System.out.println(b + ", " + a + ", " + c);
+    } else if (b >= c && c >= a) {
+        System.out.println(b + ", " + c + ", " + a);
+    } else if (c >= a && a >= b) {
+        System.out.println(c + ", " + a + ", " + b);
+    } else if (c >= b && b >= a) {
+        System.out.println(c + ", " + b + ", " + a);
+    }
+    ```
+    
+    - solution 2
     
     ```java
     Scanner number = new Scanner(System.in);
@@ -335,33 +361,24 @@
     - solution
     
     ```java
-    Scanner scanner = new Scanner(System.in);
+     Scanner scanner = new Scanner(System.in);
 
-    System.out.print("Enter a number: ");
-    int number = scanner.nextInt();
+     System.out.print("Enter a number: ");
+     int number = scanner.nextInt();
 
-    boolean isPrime = true;
+     boolean isPrime = true;
+     for (int i = 2; i <= number / 2; i++) {
+         if (number % i == 0) {
+             isPrime = false;
+             break;
+         }
+     }
 
-    if (number < 2) {
-        isPrime = false;
-    } else if (number == 2) {
-        isPrime = true;
-    } else if (number % 2 == 0) {
-        isPrime = false;
-    } else {
-        for (int i = 2; i <= number / 2; i++) {
-            if (number % i == 0) {
-                isPrime = false;
-                break;
-            }
-        }
-    }
-
-    if (isPrime) {
-        System.out.println(number + " is a prime number");
-    } else {
-        System.out.println(number + " is NOT a prime number");
-    }
+     if (isPrime) {
+         System.out.println(number + " is a prime number");
+     } else {
+         System.out.println(number + " is NOT a prime number");
+     }
     ```
 
 - Task 13

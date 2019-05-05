@@ -267,6 +267,35 @@ public class Homework2 {
         }
     }
 
+
+    /**
+     * Въведете 3 различни числа от конзолата и ги разпечатайте в низходящ ред.
+     */
+    private static void task3Print3NumInDescOrder2(){
+        Scanner scan = new Scanner(System.in);
+
+        System.out.print("Въведете първото число: ");
+        int a = scan.nextInt();
+        System.out.print("Въведете второто число: ");
+        int b = scan.nextInt();
+        System.out.print("Въведете третото число: ");
+        int c = scan.nextInt();
+
+        if (a >= b && b >= c) {
+            System.out.println(a + ", " + b + ", " + c);
+        } else if (a >= c && c >= b) {
+            System.out.println(a + ", " + c + ", " + b);
+        } else if (b >= a && a >= c) {
+            System.out.println(b + ", " + a + ", " + c);
+        } else if (b >= c && c >= a) {
+            System.out.println(b + ", " + c + ", " + a);
+        } else if (c >= a && a >= b) {
+            System.out.println(c + ", " + a + ", " + b);
+        } else if (c >= b && b >= a) {
+            System.out.println(c + ", " + b + ", " + a);
+        }
+    }
+
     /**
      * Въведете 3 различни числа от конзолата и ги разпечатайте в низходящ ред.
      */
@@ -323,6 +352,59 @@ public class Homework2 {
         }
 
         System.out.println(max + " " + mid + " " + min);
+    }
+
+    private static void task3PrintInAscOrder() {
+        Scanner scan = new Scanner(System.in);
+
+        System.out.print("A1 = ");
+        int a = scan.nextInt();
+        System.out.print("A2 = ");
+        int b = scan.nextInt();
+        System.out.print("A3 = ");
+        int c = scan.nextInt();
+
+        System.out.println();
+
+        if (a < b && a < c) {
+            if (b < c) {
+                System.out.println(a + " " + b + " " + c);
+            } else {
+                System.out.println(a + " " + c + " " + b);
+            }
+        }
+
+        if (b < a && b < c) {
+            if (a < c) {
+                System.out.println(b + " " + a + " " + c);
+            } else {
+                System.out.println(b + " " + c + " " + a);
+            }
+        }
+
+        if (c < a && c < b) {
+            if (a < b) {
+                System.out.println(c + " " + a + " " + b);
+            } else {
+                System.out.println(c + " " + b + " " + a);
+            }
+        }
+
+        System.out.println();
+
+        if (a < b && b < c) {
+            System.out.print(a + " " + b + " " + c);
+        } else if (b < a && a < c) {
+            System.out.println(b + " " + a + " " + c);
+        } else if (c < a && a < b) {
+            System.out.println(c + " " + a + " " + b);
+        } else if (a < c && c < b) {
+            System.out.println(a + " " + c + " " + b);
+        } else if (b < c && c < a) {
+            System.out.println(b + " " + c + " " + a);
+        } else if (c < b && b < a) {
+            System.out.println(c + " " + b + " " + a);
+        }
     }
 
     /**
