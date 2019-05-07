@@ -172,6 +172,6 @@
     
     double celsius = (fahrenheit - 32) * 5d / 9d;
   
-   System.out.println(fahrenheit + "°F = " + celsius + "°C");
+    System.out.println(fahrenheit + "°F = " + celsius + "°C");
     ```
     
