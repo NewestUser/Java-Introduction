@@ -1,14 +1,103 @@
 # Lecture 5
-### Two Dimensional Arrays Exercises
-
 #java course#
 
+## Recap
+
+###### variable names
+- имената на променливите започват с малка буква, като всяка следваща дума е с главна (camel case)
+
+    - пример
+    ```java
+    int myVariable;
+    ```
+
+###### method names
+- имената на методите започват с малка буква, като всяка следваща дума е с главна (camel case)
+
+    - пример
+    ```java
+    void myMethod() {
+      ...
+    }
+    ```
+
+###### class names
+- имената на класовете започват с главна буква, както и вся следваща дума (upper case)
+
+    - пример
+    ```java
+    class MyClass {
+      ...
+    }
+    ```
+
+
+###### null value
+- референтните типове (reference types) могат да бъдат `null`
+
+- пример
+
+    ```java
+    int[] array = null;
+    
+    Scanner scanner = null;
+    
+    String foo = null;
+    ```
+
+
+##### Big O notation
+
+Big O notation е математическа нотация, която описва ограничаващото поведение на дадена функция, 
+когато аргументът се стреми към определена стойност или безкрайност.
+
+[Time Complexity Chart](https://adrianmejia.com/images/big-o-running-time-complexity.png)  
+
+[Big O Notation Cheat Sheet](https://cooervo.github.io/Algorithms-DataStructures-BigONotation/index.html)
+
+###### O(1) constant time (константно време)
+
+- пример
+    ```java
+    int a = 10;
+    int b = 20;
+    int c = a * b;
+    ```
+
+###### O(n) linear time (линейно време)
+
+- пример
+    ```java
+    int n = 10;
+    
+    int sum = 0;
+    for (int i = 0; i < n; i++){
+      sum += i;  
+    }
+    ```
+
+###### O(n^2) polynomial time (полиномно време)
+
+- пример
+    ```java
+    int n = 10;
+    
+    int sum = 0;
+    for (int i = 0; i < n; i++){
+      for (int j =0; j < n; j++){
+          sum += j;  
+      }
+    }
+    ```
+
+
+## Two Dimensional Arrays Exercises
 
 ### Task 1
 
 ```text
 Създайте двумерен масив с 2 реда и 3 колони.
-Задайте стойност на келтка в ред 1-ви и колкона 2-ра.
+Задайте стойност на клетка в ред 1-ви и колкона 2-ра.
 Принтирайте двумерния масив.
 ```
 

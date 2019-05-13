@@ -1,7 +1,7 @@
-# Homework Lecture 5
+# Homework Lecture 4
 #java course#
 
-### Arrays 
+## Arrays 
 
 ### Task 1
 
