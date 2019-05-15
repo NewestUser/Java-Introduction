@@ -20,8 +20,12 @@
 
 - [Exercises](https://gist.github.com/NewestUser/0f1df0d5fed0cf81c846521d3f94b4d6)
 
-- [TODO Homework](#)
+- [Homework](https://gist.github.com/NewestUser/d6a4a1700722a4dd68291df86551095b)
 
 #### Lecture 5 - Two Dimensional Arrays
 
-- [Exercises](https://gist.github.com/NewestUser/912564a0ce97e56fe6db0f30891679f5)
+- [Exercises & Homework](https://gist.github.com/NewestUser/912564a0ce97e56fe6db0f30891679f5)
+
+#### Lecture 6 - Introduction to Object Oriented Programming
+
+- [Exercises](https://gist.github.com/NewestUser/94997efecc0bd26c9e9c7f846c326fb4)

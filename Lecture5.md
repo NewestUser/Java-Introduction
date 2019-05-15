@@ -6,7 +6,7 @@
 ###### variable names
 - имената на променливите започват с малка буква, като всяка следваща дума е с главна (camel case)
 
-    - пример
+- пример
     ```java
     int myVariable;
     ```
@@ -14,7 +14,7 @@
 ###### method names
 - имената на методите започват с малка буква, като всяка следваща дума е с главна (camel case)
 
-    - пример
+- пример
     ```java
     void myMethod() {
       ...
@@ -24,13 +24,12 @@
 ###### class names
 - имената на класовете започват с главна буква, както и вся следваща дума (upper case)
 
-    - пример
+- пример
     ```java
     class MyClass {
       ...
     }
     ```
-
 
 ###### null value
 - референтните типове (reference types) могат да бъдат `null`
@@ -44,6 +43,37 @@
     
     String foo = null;
     ```
+
+##### Formatting
+
+- `%d` - цели числа (**int**, **long**)
+- `%f` - числа с плаваща запетая (**float**, **double**)
+- `%.2f` - закръгляне на числа до 2-рия знак (**float**, **double**)
+- `%s` - текст (**String**)
+- `%S` - текст с главни букви (**String**)
+
+    - пример
+    ```java
+    // Днес е Май 2019 и часът е 21.30
+    System.out.printf("Днес е %s %d и часът е %.2f", "Май", 2019, 21.3);
+    ```
+
+
+|Format Specifier  |Data Type	                                                  |Output                                                                                                                   |
+|------------------|--------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------|
+|%a                |floating point (except BigDecimal)	                          |Returns Hex output of floating point number.                                                                             |           
+|%b                |Any type	                                                  |"true" if non-null, "false" if null                                                                                      |           
+|%c                |character	                                                  |Unicode character                                                                                                        |           
+|%d                |integer (incl. byte, short, int, long, bigint)	              |Decimal Integer                                                                                                          |           
+|%e                |floating point	                                              |decimal number in scientific notation                                                                                    |           
+|%f                |floating point                                  	          |decimal number                                                                                                           |           
+|%g                |floating point                                  	          |decimal number, possibly in scientific notation depending on the precision and value.                                    |           
+|%h                |any type                                        	          |Hex String of value from hashCode() method.                                                                              |           
+|%n                |none                                            	          |Platform-specific line separator.                                                                                        |           
+|%o                |integer (incl. byte, short, int, long, bigint)  	          |Octal number                                                                                                             |           
+|%s                |any type                                        	          |String value                                                                                                             |           
+|%t                |Date/Time (incl. long, Calendar, Date and TemporalAccessor)   |%t is the prefix for Date/Time conversions. More formatting flags are needed after this. See Date/Time conversion below. |           
+|%x                |integer (incl. byte, short, int, long, bigint)                |Hex string.                                                                                                              |           
 
 
 ##### Big O notation
