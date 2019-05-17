@@ -1,7 +1,7 @@
 # Java Course 
 
 
-##### [Table of Contents](https://gist.github.com/NewestUser/cd205412a512b3a2e0ca171875415370)
+##### [Table of Contents 🗺️](https://gist.github.com/NewestUser/cd205412a512b3a2e0ca171875415370)
 
 
 #### Lecture 1 - Primitive Types
@@ -29,3 +29,7 @@
 #### Lecture 6 - Introduction to Object Oriented Programming
 
 - [Exercises](https://gist.github.com/NewestUser/94997efecc0bd26c9e9c7f846c326fb4)
+
+#### Lecture 7 - String & OOP Exercises
+
+- [Exercises](https://gist.github.com/NewestUser/da89ff704abc2f37a6b807ecf920acec)
