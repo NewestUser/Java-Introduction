@@ -6,6 +6,8 @@
 
 #### Lecture 1 - Primitive Types
 
+- [Exercises](https://gist.github.com/NewestUser/b9376fd5fc8cbc9b7d2014c30c63148d)
+
 - [Homework](https://gist.github.com/NewestUser/bc0bad92711322bdc9df5647ebb03c38)
 
 #### Lecture 2 - if/else and Loops
