@@ -1,4 +1,4 @@
-package lecture6;
+package lecture6.exercise;
 
 public class Person {
 
