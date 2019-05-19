@@ -34,6 +34,6 @@
 
 - [Homework](https://gist.github.com/NewestUser/22313372d103cf08d29e7f78d5f371cb)
 
-#### Lecture 7 - String & OOP Exercises
+#### Lecture 7 - Strings & Constructors & OOP Exercises
 
 - [Exercises](https://gist.github.com/NewestUser/da89ff704abc2f37a6b807ecf920acec)
