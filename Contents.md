@@ -37,3 +37,7 @@
 #### Lecture 7 - Strings & Constructors & OOP Exercises
 
 - [Exercises](https://gist.github.com/NewestUser/da89ff704abc2f37a6b807ecf920acec)
+
+#### Lecture 8 - Access modifiers, final, static, packages
+
+- [Exercises](https://gist.github.com/NewestUser/04df24b3b053d490937d31dd3deada7e)
