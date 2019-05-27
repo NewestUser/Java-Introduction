@@ -26,7 +26,9 @@
 
 #### Lecture 5 - Two Dimensional Arrays
 
-- [Exercises & Homework](https://gist.github.com/NewestUser/912564a0ce97e56fe6db0f30891679f5)
+- [Exercises](https://gist.github.com/NewestUser/912564a0ce97e56fe6db0f30891679f5)
+
+- [Homework](https://gist.github.com/NewestUser/806feb5601d2816b6a50f3f7ffb9db72)
 
 #### Lecture 6 - Introduction to Object Oriented Programming
 
