@@ -1,4 +1,4 @@
-package lecture8.exercises.heiarchy;
+package lecture9.exercises.heiarchy;
 
 public class Animal {
 

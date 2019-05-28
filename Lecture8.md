@@ -243,7 +243,7 @@ class Person {
 че не пренадлежат към инстанцираните обекти, а пренадлежат на самия клас.
 
 С други думи ако до сега разглеждахме едно `property` или един `method`, като част от вече инстанциран обект,
-то добавяйки ключовата дума `static` пред дефиницията на това `property` или `method` то започва
+то добавяйки ключовата дума `static` пред дефиницията на това `property` или `method` то той започва
 да принадлежи на самия клас. 
 Това означава че това `property` или `method` може да бъде достъпвано директно от класът без да бъде инстанциран.
 
@@ -256,3 +256,113 @@ class Person {
 ![static-class-example](https://i.ibb.co/wNYRsyz/static-class-example.png)
 > Класът Car има статично property model, което означава, че това property ще е споделено
 м/у всички инстанции
+
+
+---
+
+
+### Exercises
+
+#### Task 1
+
+Създайте клас `Car` който се характеризира с:
+- свойства
+    - модел (model) (задължително поле)
+    - година на производство (year) (задължително поле)
+    - дали е автоматик (is automatic) (задължително поле)
+    - цвят (color)
+    - максимална скорост (max speed)
+
+- методи
+    - смяна на цвят (change color), като методът приема новия цвят на колата и го записва
+    в свойството цвят
+    - принтиране на детайлите на колата (print details)
+
+- конструктори
+    - първият да приема само задължителните полета **model**, **year** и **isAutomatic**
+    - вторият да приема всички полета
+
+- Нека всички полета на този клас да бъдат видими само вътре в класът (`private`).
+
+- Нека полета **model**, **year** и **isAutomatic** да бъдат `final`
+
+- Инстанцирайте 2 коли с различни параметри и принтирайте детайлите им след всяко инстанциране и 
+всяка промяна на цвета
+    - Пробвайте същото обаче добавяйки ключовата дума `static` на полето за цвят и отново принтирайте.
+    Обърнете внимание на това как промяната на цвета на едната кола афектира цвета на другата кола.
+     
+
+- solution
+
+    - Car.java
+    ```java
+    public class Car {
+    
+        // полета които са final (не могат да бъдат променяни)
+        private final String model;
+        private final int year;
+        private final boolean isAutomatic;
+    
+        // полета които могат да бъдат променяни след инстанцирането
+        private int maxSpeed;
+        private static String color; // пробвайте със и без ключовата дума static
+    
+        Car(String model, int year, boolean isAutomatic) { // конструктор със задължителните полета
+            this.model = model;
+            this.year = year;
+            this.isAutomatic = isAutomatic;
+        }
+    
+        Car(String model, int year, boolean isAutomatic, int maxSpeed, String color) { // конструктор с всички полета
+            this.model = model;
+            this.year = year;
+            this.isAutomatic = isAutomatic;
+            this.maxSpeed = maxSpeed;
+            this.color = color;
+        }
+    
+        /**
+         * Методът примеа новия цвят на колата и го записва в property-то за цвят.
+         * @param color новия цвят на колата
+         */
+        void changeColor(String color) {
+            this.color = color;
+        }
+    
+        /**
+         * Този метод принтира детайлите на колата.
+         * Като добавя отстояние на полето color, за да може по лесно да се наблюдава.
+         */
+        void printCarDetails() {
+            System.out.println("===============");
+            System.out.println("model: " + model);
+            System.out.println("year: " + year);
+            System.out.println("isAutomatic: " + isAutomatic);
+            System.out.println("maxSpeed: " + maxSpeed);
+            System.out.println("        color: " + color);
+        }
+    }
+    ```
+
+    - CarDemo.java
+    ```java
+    public class CarDemo {
+    
+        public static void main(String[] args) {
+    
+            // използваме конструктора със задължителните полета
+            Car bmw = new Car("BMW", 2010, true);
+    
+            bmw.printCarDetails();
+    
+            // използваме конструктора с всички полета
+            Car ford = new Car("Ford", 2000, false, 220, "Green");
+            ford.printCarDetails();
+    
+            bmw.changeColor("Red"); // сменяме цвета на bmw
+    
+            bmw.printCarDetails();
+            ford.printCarDetails();
+        }
+    }
+    ```

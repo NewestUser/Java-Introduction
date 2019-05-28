@@ -1,4 +1,4 @@
-package lecture8.exercises.hospital;
+package lecture9.exercises.hospital;
 
 public class HospitalDemo {
 

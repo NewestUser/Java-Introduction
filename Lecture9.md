@@ -278,7 +278,11 @@
 |View Documentation         |**CTRL + Q**   |
 |View Parameters            |**CTRL + P**   |
 
-## Exercises
+
+---
+
+
+### Exercises
 
 ### Task 1
 Създайте програма, която симулира работата на болница.  
