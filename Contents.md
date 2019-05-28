@@ -43,3 +43,7 @@
 #### Lecture 8 - Access modifiers, final, static, packages
 
 - [Exercises](https://gist.github.com/NewestUser/04df24b3b053d490937d31dd3deada7e)
+
+### Lecture 9 - Inheritance
+
+- [Exercises](https://gist.github.com/NewestUser/1509a937ea59bb80495e88bb97f20a1b)
