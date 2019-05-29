@@ -1,4 +1,4 @@
-package lecture9.exercises.methodoverload;
+package lecture9.exercises.methodoverride;
 
 class Animal {
 

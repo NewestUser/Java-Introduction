@@ -40,6 +40,8 @@
 
 - [Exercises](https://gist.github.com/NewestUser/da89ff704abc2f37a6b807ecf920acec)
 
+- [Homework](https://gist.github.com/NewestUser/be7684d18c8dc77a8031780e4c1afee1)
+
 #### Lecture 8 - Access modifiers, final, static, packages
 
 - [Exercises](https://gist.github.com/NewestUser/04df24b3b053d490937d31dd3deada7e)
