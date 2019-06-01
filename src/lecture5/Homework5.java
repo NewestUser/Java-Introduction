@@ -279,7 +279,52 @@ public class Homework5 {
      * { 5     13   8     13 }
      * { 2     8    4      5 }
      */
-    private static void task5RotateMatrixClockWise() {
+    private static void task5RotateMatrixClockWiseSolution1() {
+
+        int[][] matrix = {
+                {1, 12, 13, 5},
+                {6, 17, 8, 4},
+                {3, 2, 13, 8},
+                {0, 14, 5, 2},
+        };
+
+        printMatrix(matrix);
+        System.out.println("===============");
+
+        int[][] rotatedMatrix = new int[matrix[0].length][matrix.length];
+
+        for (int col = 0; col < matrix.length; col++) {
+            for (int row = 0; row < matrix[col].length; row++) {
+
+                int lastRow = matrix.length - col - 1;
+
+                rotatedMatrix[row][col] = matrix[lastRow][row];
+            }
+
+            printMatrix(rotatedMatrix);
+        }
+
+        System.out.println("===============");
+        printMatrix(rotatedMatrix);
+    }
+    /**
+     * Да се завърти двумерен масив (за по-лесно квадратен с четен брой елементи – 4х4, 6х6 и т.н.)
+     * по часовниковата стрелка:
+     * Например за дадената матрица:
+     * <p>
+     * { 1     12   13     5 }
+     * { 6     17   8      4 }
+     * { 3     2    13     8 }
+     * { 0     14   5      2 }
+     * <p>
+     * След завъртането да се получи:
+     * <p>
+     * { 0     3    6      1 }
+     * { 14    2    17    12 }
+     * { 5     13   8     13 }
+     * { 2     8    4      5 }
+     */
+    private static void task5RotateMatrixClockWiseSolution2() {
 
         int[][] matrix = {
                 {1, 12, 13, 5},
