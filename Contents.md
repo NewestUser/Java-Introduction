@@ -49,3 +49,7 @@
 #### Lecture 9 - Inheritance
 
 - [Exercises](https://gist.github.com/NewestUser/1509a937ea59bb80495e88bb97f20a1b)
+
+#### Lecture 10 - Inheritance Exercises and Theory
+
+- [Exercises](https://gist.github.com/NewestUser/10c512f9ac9660bf3fe1cc7af2079064)
