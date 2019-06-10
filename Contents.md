@@ -1,7 +1,7 @@
-# Java Course 
+# ☕ Java Course
 
 
-##### [Table of Contents 🗺️](https://gist.github.com/NewestUser/cd205412a512b3a2e0ca171875415370)
+##### 🗺️ [Table of Contents](https://gist.github.com/NewestUser/cd205412a512b3a2e0ca171875415370)
 
 
 #### Lecture 1 - Primitive Types
@@ -53,3 +53,7 @@
 #### Lecture 10 - Inheritance Exercises and Theory
 
 - [Exercises](https://gist.github.com/NewestUser/10c512f9ac9660bf3fe1cc7af2079064)
+
+#### Lecture 11 - Abstraction, Interfaces and Polymorphism
+
+- [Exercises](https://gist.github.com/NewestUser/70a07999cb4fc50b73d451ac1201c62e)
