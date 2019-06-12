@@ -57,3 +57,7 @@
 #### Lecture 11 - Abstraction, Interfaces and Polymorphism
 
 - [Exercises](https://gist.github.com/NewestUser/70a07999cb4fc50b73d451ac1201c62e)
+
+#### Lecture 12 - Collections
+
+- [Exercises](https://gist.github.com/NewestUser/1bd74af277f66656f22f5ad5f9fe56e9)

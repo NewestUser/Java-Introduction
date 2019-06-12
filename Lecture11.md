@@ -75,6 +75,41 @@ class DigitalWatch implements Watch {
 Също така един клас може и да наследява друг клас и едновременно да имплементира интерфейс.
 Имплементиращия клас е длъжен да презапише (override) всички методи на interface, освен ако класът не е абстрактен.
 
+Един интерфейс също така може да наследява друг интерфейст. Като за разлика от класовете интерфейсът няма ограничение на
+броя интерфейси, които ще наследява. Обикновенно причината, поради която се налага един интерфейс да наследява друг е
+ако трябва да се създаде някаква йерархична връзка м/у тези интерфейси. В този случай класът, които имплементира
+такъв интерфейс е длъжен да презапише (override) всички методи идващи от интерфейсите.
+
+- приемер
+
+```java
+interface Animal {
+    
+    void breathe();
+}
+
+interface Human extends Animal {
+    
+    void think();
+}
+
+class Person implements Human {
+    
+    @Override
+    public void breathe() {
+        System.out.println("The person is breathing...");
+    }
+    
+    @Override
+    public void think() {
+        System.out.println("The person is thinking...");
+    }
+}
+```
+
+> Класът `Person` е длъжен да презапише методите `breathe` и `think` понеже имплементира `Human`,
+който от своя страна наследява `Animal`.
+
 
 ### Abstract class vs Interface
 
