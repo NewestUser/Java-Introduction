@@ -72,7 +72,7 @@ char[] chars = {'J', 'o', 'h', 'n'}
 String myString = "John";
 ```
 
-> `String` е изграден от `char[]`, който е изграден от множество `char`
+> `String` е изграден от `char[]`, който е изграден от множество `char`.
 
 #### Създаване на `String`
 
@@ -110,7 +110,7 @@ String secondString = new String("John");
     System.out.println(firstString.equals(secondString));  // true
     System.out.println(firstString.equals(thirdString));   // true
     ```
-    > Методът `equals` има 1 аргумент (параметър)
+    > Методът `equals` има 1 аргумент (параметър).
 
 
 ### Конструктори (constructors)
@@ -156,7 +156,7 @@ String secondString = new String("John");
         
         String model;
         
-        Car(String newModel) { // конструкорът на класът Car с един параметър
+        Car(String newModel) { // конструкторът на класът Car с един параметър
             model = newModel; // подадения параметър на конструктора бива записан в свойстово model на класът
         }
     }
