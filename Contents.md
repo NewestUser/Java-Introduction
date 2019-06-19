@@ -61,3 +61,7 @@
 #### Lecture 12 - Collections
 
 - [Exercises](https://gist.github.com/NewestUser/1bd74af277f66656f22f5ad5f9fe56e9)
+
+#### Lecture 13 - Exceptions
+
+- [Exercises](https://gist.github.com/NewestUser/0388861481d4985f35ee564ac5fa2e51)
