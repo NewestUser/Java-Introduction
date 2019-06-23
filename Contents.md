@@ -65,3 +65,7 @@
 #### Lecture 13 - Exceptions
 
 - [Exercises](https://gist.github.com/NewestUser/0388861481d4985f35ee564ac5fa2e51)
+
+#### Lecture 14 - Files & IO
+
+- [Exercises](https://gist.github.com/NewestUser/15fed6af19887d75d396bc2cd176e0cf)

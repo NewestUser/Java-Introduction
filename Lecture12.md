@@ -23,7 +23,7 @@
 
 В тази лецкия ще разгледамя някои от основните структори от данни и тяхните имплементации в Java.
 
-> За повече информация относно това какво са структурите от данни 
+> ℹ️ За повече информация относно това какво са структурите от данни 
 вижте това [youtube видео](https://www.youtube.com/watch?v=bum_19loj9A).
 
 
@@ -67,7 +67,7 @@
 
 ![dynamic_array](https://www.interviewcake.com/images/svgs/dynamic_arrays__capacity_size_end_index.svg?bust=203).
 
-> За повече информация вижте това [youtube видео](https://www.youtube.com/watch?v=qTb1sZX74K0).
+> ℹ️ За повече информация вижте това [youtube видео](https://www.youtube.com/watch?v=qTb1sZX74K0).
 
 - Предимства
     - Не е необходимо да се знае предварително размера на масива
@@ -78,6 +78,8 @@
     - Добавянето на елементи в началото или средата на масива изисква да преместване на елементите от дясно.
     - При достигане на капацитета на масива е необходимо да се създаде нов масив с по-голям размер 
     и да се копират старите стойности
+
+**Пример**
 
 ```java
 List<String> myArrayList = new ArrayList<>();
@@ -96,11 +98,13 @@ for (String myString : myArrayList) {
 }
 ```
 
-- LinkedList
+##### LinkedList
 
 ![linked_list_insertion_animation](https://i.pinimg.com/originals/bf/db/8c/bfdb8c10a7e844f1ded4a5252d11f444.gif)
 
-За повече информация вижте това [youtube видео](https://www.youtube.com/watch?v=_jQhALI4ujg).
+> ℹ️ За повече информация вижте това [youtube видео](https://www.youtube.com/watch?v=_jQhALI4ujg).
+
+**Пример**
 
 ```java
 List<String> myLinkedList = new LinkedList<>();
@@ -122,6 +126,8 @@ for (String myString : myLinkedList) {
 #### Stack
 
 ![stack_push_pop_animation](https://cdn-images-1.medium.com/max/1600/1*kkK3EZNOzBsuwkDNvSVR9g.gif)
+
+**Пример**
 
 ```java
 Stack<String> myStack = new Stack<>();
@@ -145,7 +151,9 @@ for (String myString : myStack) {
 
 ![queue_enqueue_dequeue_animation](https://cdn-images-1.medium.com/max/1600/1*UKVABqYxsiR6YvV2385nFQ.gif)
 
-За повече информация вижте това [youtube видео](https://www.youtube.com/watch?v=wjI1WNcIntg)
+> ℹ️ За повече информация вижте това [youtube видео](https://www.youtube.com/watch?v=wjI1WNcIntg)
+
+**Пример**
 
 ```java
 Queue<String> myQueue = new LinkedList<>();
@@ -166,12 +174,15 @@ for (String myString : myQueue) {
 ```
 
 #### Trees 
-- TreeSet
+
+##### TreeSet
 
 ![binary_search_tree](http://web.augsburg.edu/~crockett/210/graphics/BinarySearchTreeArrayAnimation.gif)
 
-За да придобиете по ясна представа, какво се случва, когато се добавят
-и премахват елементи от списъците вижте това [youtube видео](https://www.youtube.com/watch?v=oSWTXtMglKE)
+> ℹ️ За да придобиете по ясна представа, какво се случва, когато се добавят
+и премахват елементи от списъците вижте това [youtube видео](https://www.youtube.com/watch?v=oSWTXtMglKE).
+
+**Пример**
 
 ```java
 TreeSet<String> myTree = new TreeSet<>();
@@ -190,12 +201,15 @@ for (String myString : myTree) {
 ```
 
 #### Set
-- HashSet
+
+##### HashSet
 
 ![hash_set](https://i.stack.imgur.com/CnWBG.png)
 
-За повече информация прочетете [тази статия](https://www.thecshandbook.com/hash_set)
+> ℹ️ За повече информация прочетете [тази статия](https://www.thecshandbook.com/hash_set)
 или вижте това [youtube видео](https://www.youtube.com/watch?v=WPcKwA5WF7s).
+
+**Пример**
 
 ```java
 Set<Integer> mySet = new HashSet<>();
@@ -214,13 +228,16 @@ for (Integer number : mySet) {
 ```
 
 #### Hash Tables
-- HashMap
+
+##### HashMap
 
 ![hashmap](https://www.codenuclear.com/wp-content/uploads/2017/11/bucket_entries.jpg)
 
-За да придобиете по ясна представа, какво се случва, когато се добавят
+> ℹ️ За да придобиете по ясна представа, какво се случва, когато се добавят
 и премахват елементи от списъците вижте [това](https://www.youtube.com/watch?v=MfhjkfocRR0) 
 и [това](https://www.youtube.com/watch?v=shs0KM3wKv8) youtube видео.
+
+**Пример**
 
 ```java
 Map<String, Integer> myMap = new HashMap<>();
@@ -285,7 +302,7 @@ public interface Iterator<E> {
 
 - `remove()` - премахва текущия елемент, на който се намира итератора
 
-- Пример
+**Пример**
 
 ```java
 List<String> myList = ...;
@@ -302,7 +319,6 @@ while (myListIterator.hasNext()) {
 ```
 
 > С Java 8 бяха добавени още няколко метода в интерфейса, които не са от значение за тази лекция.
-
 
 
 #### Compare to
@@ -334,7 +350,7 @@ public interface Comparable<T> {
 като резултат. Класът имплементиращ този интерфейс е длъжен да върне `-1`, `0` или `+1` ако текущия елемент е по-малък,
 равен или по-голям от другия.
 
-- Пример
+**Пример**
 
 ```java
 class Person implements Comparable<Person> {
@@ -529,6 +545,55 @@ public class Task2 {
 > Използвайте `Map<String, Integer> wordCount = new HashMap<>();` за да броите всяка дума, колко пъти е въвеждана.
 За ключ ползвайте думата, а за стойност броя повторения на тази дума.
 
+##### solution
+
+```java
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+public class Task3 {
+
+    public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+
+        Map<String, Integer> wordCount = new HashMap<>();
+
+        while (true) {
+            String word = scanner.nextLine();
+
+            if ("stop".equalsIgnoreCase(word)) {
+                break;
+            }
+
+            Integer occurrence = wordCount.get(word);
+
+            if (occurrence == null) {
+                wordCount.put(word, 1);
+            } else {
+                wordCount.put(word, occurrence + 1);
+            }
+        }
+
+        String maxWord = null;
+        int max = 0;
+
+        for (Map.Entry<String, Integer> currentEntry : wordCount.entrySet()) {
+
+            String currentWord = currentEntry.getKey();
+            int occurrence = currentEntry.getValue();
+
+            if (max < occurrence) {
+                maxWord = currentWord;
+                max = occurrence;
+            }
+        }
+
+        System.out.println("Most frequent word is '" + maxWord + "' with " + max + " ocurrances.");
+    }
+}
+```
 
 ### Task 4
 
@@ -549,8 +614,72 @@ RPN е математически запис, използван от калку
 **Решете примерите 1 и 2**  
 При условие че вече имате получения запис в RPN напишете програма, която да може да тълкува този запис
 и да извършва правилно матиматическите изчисления.
+
+##### solution
+
+```java
+import java.util.Arrays;
+import java.util.Stack;
+
+public class RPMDemo {
     
-> За повече информация как да се реши тази задача вижте това 
+    public static void main(String[] args) {
+
+        Stack<String> stack = new Stack<>();
+
+        stack.push("3");
+        stack.push("4");
+        stack.push("+");
+
+        String item = stack.pop();
+
+        handleItem(stack, item);
+
+        System.out.println(Arrays.toString(stack.toArray()));
+    }
+
+    private static void handleItem(Stack<String> stack, String operator) {
+
+        if (isOperator(operator)) {
+
+            String operand2 = stack.pop();
+            String operand1 = stack.pop();
+
+            double value1 = Double.parseDouble(operand1);
+            double value2 = Double.parseDouble(operand2);
+
+            double result = handleOperator(value1, value2, operator);
+
+            stack.push(Double.toString(result));
+        }
+    }
+
+    private static double handleOperator(double value1, double value2, String operator) {
+        if ("+".equals(operator)) {
+            return value1 + value2;
+        }
+
+        if ("-".equals(operator)) {
+            return value1 - value2;
+        }
+
+        if ("*".equals(operator)) {
+            return value1 * value2;
+        }
+
+        return value1 / value2;
+    }
+
+    private static boolean isOperator(String item) {
+        return "+".equals(item)
+                || "-".equals(item)
+                || "*".equals(item)
+                || "/".equals(item);
+    }
+}
+```
+
+> ℹ️ За повече информация как да се реши тази задача вижте това 
 [youtube видео](https://www.youtube.com/watch?v=7ha78yWRDlE).
 
 ### Task 5
@@ -772,6 +901,7 @@ public class Chicken {
 ```
 
 - Barn.java
+
 ```java
 import java.util.ArrayList;
 import java.util.Iterator;

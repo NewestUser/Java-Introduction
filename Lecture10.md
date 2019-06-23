@@ -8,7 +8,7 @@
 В софтуерното инжеженрство **design pattern** (шаблон на дизайн) е прилагането на определен тип решение,
 на често срещан проблем. Това решение не е конкретен код, а по скоро описание как да се реши този проблем.
 
-> За повече информация прочетете [тук](https://sourcemaking.com/design_patterns)
+> ℹ️ За повече информация прочетете [тук](https://sourcemaking.com/design_patterns).
 
 #### Singleton
 
@@ -147,7 +147,9 @@ class Main {
  `is a or has a? (това е или това има)`.
 
 **Пример:** Ябълката **е** плод или ябълката **има** плод? В този случай според това правило трябва да се ползва
-наследяване, защото ябълката **е** плод. За повече информация прочетете [тук](https://www.javaworld.com/article/2076814/inheritance-versus-composition--which-one-should-you-choose-.html)
+наследяване, защото ябълката **е** плод. 
+
+>ℹ️ За повече информация прочетете [тук](https://www.javaworld.com/article/2076814/inheritance-versus-composition--which-one-should-you-choose-.html)
 и [тук](https://stackoverflow.com/questions/49002/prefer-composition-over-inheritance).
 
 #### SOLID
@@ -160,7 +162,7 @@ SOLID е акроним отговарящ на няколко основни п
 - **I**nterface Segregation Principle
 - **D**ependency Inversion Principle
 
-> За повече информация прочетете [тук](https://medium.com/@dhkelmendi/solid-principles-made-easy-67b1246bcdf)
+> ℹ️ За повече информация прочетете [тук](https://medium.com/@dhkelmendi/solid-principles-made-easy-67b1246bcdf)
 или изгледайте това [youtube видео](https://www.youtube.com/watch?v=TMuno5RZNeE).
 
 ### Anti Patterns
@@ -175,7 +177,7 @@ SOLID е акроним отговарящ на няколко основни п
 Това е мнго широко разпространен pattern, който гласи един клас трябва да има default constructor, private properties,
 getters и setters (методи които могат да записват стойности и да четат стойности)
 
-За повече информация прочетете [тук](https://nicogiangregorio.wordpress.com/2012/12/28/javabeans-an-anti-pattern-or-not/)
+> ℹ️ За повече информация прочетете [тук](https://nicogiangregorio.wordpress.com/2012/12/28/javabeans-an-anti-pattern-or-not/).
 
 #### Magic Numbers & Strings
 
@@ -216,7 +218,9 @@ class Deck {
 
 Това, което е важно да се спомене, е че при рекурсия, която не може да достигне дъното си ще се получи грешка.
 Това е така, защото всяко едно извикване на метод в програмата заделя памет в [stack](#stack-vs-heap), 
-който ще бъде изчерпан в даден момент от време. За по-детайлно обяснение
+който ще бъде изчерпан в даден момент от време.
+
+> ℹ️ За по-детайлно обяснение
 изгледайте това [youtube video](https://www.youtube.com/watch?v=Mv9NEXX1VHc).
 
 ###### Fibonacci
@@ -232,7 +236,8 @@ private static int fibonacci(int n) {
 ```    
     
 ![recursive_fibonacci_call_stack](https://i.stack.imgur.com/keYhd.png)    
-> Как изглеждат породените рекурсивни извиквания на fibonacci
+
+> Как изглеждат породените рекурсивни извиквания на fibonacci.
 
 
 ### Stack vs Heap
@@ -271,7 +276,7 @@ Java нарича **Stack Frame** моделировата на извикван
 какви са параметри на тези методи и с какви променливи борави всеки един метод. Променливите от референтен тип, 
 които са записани в Stack-a представляват адреса на стойността на тази променлива намираща се в Heap-a.
 
-> За по детайлно обяснение вижте това [youtube видео](https://www.youtube.com/watch?v=_8-ht2AKyH4).
+> ℹ️ За по детайлно обяснение вижте това [youtube видео](https://www.youtube.com/watch?v=_8-ht2AKyH4).
 
 ### Garbage Collection
 
@@ -288,7 +293,7 @@ Java нарича **Stack Frame** моделировата на извикван
 
 ![garbage_collection](http://www.fortwright.com/Portals/fortwright/Images/News/Trash.jpg)
 
-> За по детайлно обяснение вижте това [youtube видео][garbage-collection-vid]
+> ℹ️ За по детайлно обяснение вижте това [youtube видео][garbage-collection-vid]
 
 [garbage-collection-vid]: https://www.youtube.com/watch?v=UnaNQgzw4zY
 

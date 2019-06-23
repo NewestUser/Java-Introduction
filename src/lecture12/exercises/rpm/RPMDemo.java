@@ -5,16 +5,13 @@ import java.util.Stack;
 
 public class RPMDemo {
 
-
     public static void main(String[] args) {
 
         Stack<String> stack = new Stack<>();
 
         stack.push("3");
         stack.push("4");
-        stack.push("5");
-        stack.push("*");
-        stack.push("-");
+        stack.push("+");
 
         String item = stack.pop();
 
@@ -24,7 +21,6 @@ public class RPMDemo {
     }
 
     private static void handleItem(Stack<String> stack, String operator) {
-
 
         if (isOperator(operator)) {
 
@@ -62,6 +58,4 @@ public class RPMDemo {
                 || "*".equals(item)
                 || "/".equals(item);
     }
-
-
 }

@@ -170,6 +170,8 @@ try {
 
 > Имаме два `catch` блока. Единия хваща грешки от типът `NumberFormatException`, а другия `ArithmeticException`.
 
+ℹ️ За допълнителна информация относно **try-catch** вижте това [youtube видео](https://www.youtube.com/watch?v=JTjeGpSUL2M).
+
 #### finally блок
 
 В Java има концепцията за блок (пърче от код), който може да бъде изпълняван винаги, независимо дали е настъпила
@@ -427,6 +429,10 @@ private static User findUser(String id) {
 
 > Не прекалявайте със **try-catch**. Тези клаузи трябва да се използват там, където има логически смисъл.
 Код, който няма възможност да хвърли грешка, няма смисъл да бъде в **try-catch**. 
+
+ℹ️ За повече информация относно **Exceptions** в Java вижте това [youtube видео](https://www.youtube.com/watch?v=EWj60p8esD0). 
+
+## Tasks
 
 ### Task 1
 
