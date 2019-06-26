@@ -69,3 +69,7 @@
 #### Lecture 14 - Files & IO
 
 - [Exercises](https://gist.github.com/NewestUser/15fed6af19887d75d396bc2cd176e0cf)
+
+#### Lecture 15 - Generics & Boxing/Unboxing
+
+- [Exercises](https://gist.github.com/NewestUser/41be26679e8cab3396f3d99f85d04f9f)
