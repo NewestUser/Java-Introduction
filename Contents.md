@@ -73,3 +73,6 @@
 #### Lecture 15 - Generics & Boxing/Unboxing
 
 - [Exercises](https://gist.github.com/NewestUser/41be26679e8cab3396f3d99f85d04f9f)
+
+
+### 📚 [Further Reading](https://gist.github.com/NewestUser/88aa6c0b60c75b894381c51836eb1c92)
