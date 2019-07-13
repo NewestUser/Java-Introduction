@@ -298,3 +298,70 @@ String secondString = new String("John");
 
 Пример:
 Думата `alpha` има тежест `1 + 12 + 16 + 8 + 1 = 38`
+
+### Task 5
+
+Напишете програма, която проверява дали даден списък от числа е подреден.
+Един списък е подреден, когато следващото число **НЕ** е по-малко от предишното.
+
+- Пример за подреден спиък: `-8,3,4,5,5,10`
+
+- Пример за неподреден списък: `-8,-10,3,4`
+
+Програмата, първо трябва да изисква число `n`, представляващо броя редове, които ще се въведат.
+След това програмата, изисква редовете с числа. Един ред представлява числа разделени със запетая.
+
+Програмата, като краен резултат трябва да изпише `n` на брой пъти `true` или `false`, съответно
+за сортиран или несортиран списък.
+
+- Пример
+
+```
+Въведете брой редове: 2
+Въведете списък с числа:
+1,2,3,3,4
+Въведете списък с числа:
+8,9,4,10
+
+true
+false
+```
+
+- Solution
+
+```java
+Scanner userInput = new Scanner(System.in);
+
+System.out.print("Въведете брой редове: ");
+int n = userInput.nextInt();
+
+boolean[] sortedLists = new boolean[n];
+
+for (int i = 0; i < n; i++) {
+    System.out.println("Въведете списък с числа:");
+
+    String input = userInput.next();
+    String[] firstList = input.split(",");
+
+    if (firstList.length == 0 || firstList.length == 1) {
+        sortedLists[i] = true;
+        continue;
+    }
+
+    for (int j = 1; j < firstList.length; j++) {
+        int previous = Integer.parseInt(firstList[j - 1]);
+        int current = Integer.parseInt(firstList[j]);
+
+        if (previous <= current) {
+            sortedLists[i] = true;
+        } else {
+            sortedLists[i] = false;
+            break;
+        }
+    }
+}
+
+for (boolean isSorted : sortedLists) {
+    System.out.println(isSorted);
+}
+```
