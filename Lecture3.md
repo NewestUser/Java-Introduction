@@ -114,6 +114,7 @@
     ``` 
     
 3. What is Scope ?
+
     ```java
     { // scope 1
      	int a = 0;
@@ -134,6 +135,9 @@
     ```
 
 
+![variable_scope](http://3.bp.blogspot.com/_ynkoLGkpwXY/TDmvY3T0wQI/AAAAAAAAAjo/iy3tga3v7x4/s400/local_variable_in_c.bmp)
+
+> Във вътрешния блок има достъп до променливата `var1` и `var2`. Във външния блок имаме достъп до `var1` и `var`. 
 
 ## Recap Loops	
 1. `for`

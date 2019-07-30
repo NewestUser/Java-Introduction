@@ -121,7 +121,7 @@ Java всъщност е вид кафе.
         
     - Дробни числа (Decimal numbers)
         - `float` 32 bit = -3.4E+38…3.4E+38
-        - `double` 16 bit = -1.7E+308…1.7E+308
+        - `double` 64 bit = -1.7E+308…1.7E+308
         
 ### Типове символи
 
@@ -194,3 +194,6 @@ public class Main {
 
 [hello-world]: https://en.wikipedia.org/wiki/%22Hello,_World!%22_program
 [b-language]: https://en.wikipedia.org/wiki/B_(programming_language)
+
+ℹ️ За повече информация относно типовете данни изгледайте това [youtube видео](https://www.youtube.com/watch?v=TBWX97e1E9g&list=PLE7E8B7F4856C9B19)
+и това [youtube видео](https://www.youtube.com/watch?v=yYN8u90MKCg&list=PLE7E8B7F4856C9B19&index=2).

@@ -9,7 +9,17 @@
 Да се изведат съобщения към потребителя и да се прочетат 2 числа от клавиатурата A и B
 (може да са с плаваща запетая – double). После да се прочете 3-то число C и да се провери
 дали то е м/у A и B. Да се изведе подходящо съобщение за това дали C е между A и B.
+
 Пример:
+
+Въведете A:
+13.2
+Въвдете B:
+29.5
+Въведете C:
+22.1
+
+Числото 22.1 е между 13.2 и 29.5
 ```
 
 - solution
@@ -24,7 +34,7 @@ int b = scanner.nextInt();
 System.out.print("C = ");
 int c = scanner.nextInt();
 
-if (c > a && c < b) {
+if (c > a && c < b || c > b && c < a) {
     System.out.println("Number C=" + c + " is between Number A=" + a + " and Number B=" + b);
 } else {
     System.out.println("Number C=" + c + " is NOT between Number A=" + a + " and Number B=" + b);
@@ -335,17 +345,16 @@ System.out.println("sum 1..." + number + " = " + sum);
 ```java
 Scanner scanner = new Scanner(System.in);
 
-System.out.print("Enter number greater than 3: ");
+System.out.print("Enter a number: ");
 int number = scanner.nextInt();
 
-if (number <= 3) {
-    System.out.println("The number must be grater than 3");
-    return;
-}
+int count = 0;
 
-for (int i = 3; i <= number; i++) {
+System.out.println("First " + number + " numbers divisible by 3 are:");
+for (int i = 3; count < number; i++) {
     if (i % 3 == 0) {
-        System.out.print(i + " ");
+        System.out.print(i + ", ");
+        count++;
     }
 }
 ```
