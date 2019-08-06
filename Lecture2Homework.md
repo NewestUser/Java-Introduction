@@ -348,10 +348,8 @@ Scanner scanner = new Scanner(System.in);
 System.out.print("Enter a number: ");
 int number = scanner.nextInt();
 
-int count = 0;
-
 System.out.println("First " + number + " numbers divisible by 3 are:");
-for (int i = 3; count < number; i++) {
+for (int i = 3, count = 0; count < number; i++) {
     if (i % 3 == 0) {
         System.out.print(i + ", ");
         count++;
