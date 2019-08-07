@@ -76,3 +76,5 @@
 
 
 ### 📚 [Further Reading](https://gist.github.com/NewestUser/88aa6c0b60c75b894381c51836eb1c92)
+
+###  ![intellij-small-logo](https://i.ibb.co/6rJFbZg/idea-small-logo.png) [IntelliJ IDEA Cheat Sheet](https://gist.github.com/NewestUser/ea6d3a9d621fadfdcad900821465107a)

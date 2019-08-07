@@ -30,7 +30,7 @@
     ```
 
     > Начина по който достъпваме дължината на текста се различава от начина,
-     по който достъпваме дължината на масив. В първия случай ползваме **method** `length()`,
+     по който достъпваме дължината на масив. В първия случай използваме **method** `length()`,
      а във втория **property** `length`.
 
 
@@ -87,13 +87,15 @@ String secondString = new String("John");
 
 
 #### Как да проверяваме за еднаквост (equality)?
+
 `String` е сложен тип или също така референтен тип.
-Това означава,цче ако използваме оператор за сравнение `==`, 
-ние ще сръвним адреси в паметта. За да сравним текста,
+Това означава, че ако използваме оператор за сравнение `==`, 
+ние ще сравним адреси в паметта. За да сравним текста,
 който е репрезентиран от конкретния `String`, може да 
 ползваме **method** `equals()`
 
 - Пример
+
     ```java
     String firstString = "John";
     
@@ -112,6 +114,9 @@ String secondString = new String("John");
     ```
     > Методът `equals` има 1 аргумент (параметър).
 
+ℹ️ За повече информация относно това, как може да обработваме един **String** вижте 
+това [youtube видео](https://www.youtube.com/watch?v=AMy6Io917b4) 
+и това [youtube видео](https://www.youtube.com/watch?v=ylIwjw1_xpY).
 
 ### Конструктори (constructors)
 
@@ -127,19 +132,21 @@ String secondString = new String("John");
 последвана от името на класът и кръгли скоби `new <ClassName>()`.
 
 - Пример
+
     ```java
     Car myCar = new Car();
     ```
 
     > В този пример **създаваме (инстанцираме)** нова променлива с име `myCar`.
-    За да осъществим това инстанциране ние ползваме **конструкторът (constructor)** на класът `Car`
+    За да осъществим това инстанциране ние използваме **конструкторът (constructor)** на класът `Car`
     (това е дясната част на уравнението) и ключовата дума `new`. 🔑
 
 
 #### Какво приложение намират конструкторите?
+
 Конструкторът е първото нещо което трябва да бъде изпълнено от програмата 
 преди да бъде създаден обект от даден тип. Това го прави подходящо място за подаване на параметри на обекта.
-Като тези параметри могат да служат, като начални стойности на обекта.
+Тези параметри могат да служат, като начални стойности на обекта.
 
 **Пример**
 
@@ -188,6 +195,7 @@ String secondString = new String("John");
 един конструктор без параметри.
 
 - Пример
+
     ```java
     class Person {
 
@@ -257,6 +265,29 @@ String secondString = new String("John");
 
 > Смяната на цвят ще е **method**, който има 1 параметър, новият цвят 🦎
 
+- Solution
+
+```java
+public class Chameleon {
+    String color;
+    double weight;
+
+    /**
+     * Change the color of the chameleon. If the desired color is gray then the color won't be changed.
+     *
+     * @param color the new color of the chameleon.
+     */
+    void changeColor(String color) {
+        if ("gray".equals(color)) {
+            return;
+        }
+
+        this.color = color;
+    }
+
+}
+```
+
 ### Task 2
 
 Моделирайте човек. Един човек се характеризира с
@@ -278,6 +309,36 @@ String secondString = new String("John");
 > Изчисляването на годините ще представлява **method**, който ще има същия **return type**, като
 типът на полето години. Методът ще изчислява и ще връща получените години. 🤸
 
+- Solution
+
+```java
+public class Person {
+    String name;
+    int age;
+    boolean isWoman;
+
+    void eat() {
+        System.out.println("Eating...");
+    }
+
+    void growUp() {
+        age++;
+    }
+
+    void drinkWater(double liters) {
+        if (liters > 1) {
+            System.out.println("This is too much water!");
+        } else {
+            System.out.printf("%s is drinking %.2f liters of watter", name, liters);
+        }
+    }
+
+    int calculateAge(int years) {
+        return age + years;
+    }
+}
+```
+
 ### Таск 3
 
 Напишете програма, която намира най-дългата дума в даден текст.
@@ -287,6 +348,38 @@ String secondString = new String("John");
 
 > Класът `String` има метод `split()` (раздели), който приема като аргумент
 нещото, по което ще бъде разделен текстът. Резултатът от този метод е `String[]`
+
+- Solution
+
+```java
+public class Task3 {
+
+    public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+
+        String input = scanner.nextLine();
+        String[] words = input.split("\\s"); // раздели текста на space-ове
+
+        String longestWord = findLongest(words);
+
+        System.out.printf("length: %d word: %s", longestWord.length(), longestWord);
+    }
+
+    private static String findLongest(String[] words) {
+        String longestWord = null;
+        int maxLength = 0;
+
+        for (String word : words) {
+            if (word.length() > maxLength) {
+                longestWord = word;
+            }
+        }
+
+        return longestWord;
+    }
+}
+```
 
 ### Task 4
 
@@ -298,6 +391,52 @@ String secondString = new String("John");
 
 Пример:
 Думата `alpha` има тежест `1 + 12 + 16 + 8 + 1 = 38`
+
+- Solution
+
+```java
+import java.util.Scanner;
+
+public class Task4 {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        String input = scanner.nextLine();
+        String[] words = input.split("\\s");
+
+        int maxWeight = 0;
+        String heaviestWord = null;
+
+        for (String word : words) {
+            int weight = computeWeight(word);
+
+            if (weight > maxWeight) {
+                maxWeight = weight;
+                heaviestWord = word;
+            }
+        }
+
+        System.out.printf("weight: %d word: %s", maxWeight, heaviestWord);
+    }
+
+    static int computeWeight(String word) {
+        int weight = 0;
+
+        for (int i = 0; i < word.length(); i++) {
+            char symbol = word.charAt(i);
+            weight += computeWeight(symbol);
+        }
+
+        return weight;
+    }
+
+    static int computeWeight(char letter) {
+        // 'A' is 10 and 'Z' is 35 that's why I subtract 9 so that I can fit between 1 and 26
+        return Character.getNumericValue(letter) - 9;
+    }
+}
+```
 
 ### Task 5
 

@@ -34,10 +34,10 @@ Example:
 
 ### Generic things to improve
 
-- [ ] Add missing shortcuts in previous lectures
+- [x] Add missing shortcuts in previous lectures
 - [ ] Add table of contents in each lecture
 - [ ] Add additional reading materials in each lecture and videos
-- [ ] Restructure curse content and separate Collections if applicable into several lectures
+- [ ] Restructure course content and separate Collections if applicable into several lectures
 
 ### Lecture 1
 
@@ -56,7 +56,7 @@ Example:
 
 ### Lecture 7
 
-- [ ] Add homework solutions for tasks
+- [X] Add homework solutions for tasks
 
 
 ### Lecture 12

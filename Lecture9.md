@@ -268,17 +268,6 @@
     
     > `new Animal().speak()` ще изпише `Speaking...`, а `new Dog().speak()` ще изпише `Woff woff...`
 
-###### Useful Shortcuts
-
-![intellij-logo](https://upload.wikimedia.org/wikipedia/commons/d/d5/IntelliJ_IDEA_Logo.svg)
-
-|   Action                  |Shortcut       |
-|---------------------------|---------------|
-|Navigate to Declaration    |**CTRL + B**   |
-|View Documentation         |**CTRL + Q**   |
-|View Parameters            |**CTRL + P**   |
-
-
 ---
 
 
