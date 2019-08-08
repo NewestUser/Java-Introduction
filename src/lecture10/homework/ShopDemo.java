@@ -1,7 +1,7 @@
 package lecture10.homework;
 
 
-import lecture10.homework.shop.PurchaseRecipe;
+import lecture10.homework.shop.PurchaseReceipt;
 import lecture10.homework.shop.Shop;
 import lecture10.homework.shop.TwoForOnePrice;
 
@@ -13,23 +13,23 @@ public class ShopDemo {
 
         shop.add("banana", 20, 2);
 
-        PurchaseRecipe bananaRecipe = shop.buy("banana", 20);
+        PurchaseReceipt bananaRecipe = shop.buy("banana", 20);
 
         System.out.println(bananaRecipe);
 
         shop.add("chocolate", new TwoForOnePrice(10), 2);
 
-        PurchaseRecipe chocolateRecipe = shop.buy("chocolate", 10, 2);
+        PurchaseReceipt chocolateRecipe = shop.buy("chocolate", 10, 2);
 
         System.out.println(chocolateRecipe);
 
-        PurchaseRecipe firstBananaPurchase = shop.buy("banana", 20);
-        PurchaseRecipe secondBananaPurchase = shop.buy("banana", 25);
-        PurchaseRecipe thirdBananaPurchase = shop.buy("banana", 30);
-        PurchaseRecipe fourthBananaPurchase = shop.buy("banana", 20);
+        PurchaseReceipt firstBananaPurchase = shop.buy("banana", 20);
+        PurchaseReceipt secondBananaPurchase = shop.buy("banana", 25);
+        PurchaseReceipt thirdBananaPurchase = shop.buy("banana", 30);
+        PurchaseReceipt fourthBananaPurchase = shop.buy("banana", 20);
 
-        PurchaseRecipe firstApplePurchase = shop.buy("apple", 20);
-        PurchaseRecipe fifthBananaPurchase = shop.buy("banana", 20);
+        PurchaseReceipt firstApplePurchase = shop.buy("apple", 20);
+        PurchaseReceipt fifthBananaPurchase = shop.buy("banana", 20);
 
         System.out.println("\nPurchased ==========\n");
         System.out.println(firstBananaPurchase);
@@ -45,9 +45,9 @@ public class ShopDemo {
 
         shop.add("carrot", 10, 5);
 
-        PurchaseRecipe firstCarrotPurchase = shop.buy("carrot", 10, 1);
-        PurchaseRecipe secondCarrotPurchase = shop.buy("carrot", 10, 4);
-        PurchaseRecipe thirdCarrotPurchase = shop.buy("carrot", 40, 4);
+        PurchaseReceipt firstCarrotPurchase = shop.buy("carrot", 10, 1);
+        PurchaseReceipt secondCarrotPurchase = shop.buy("carrot", 10, 4);
+        PurchaseReceipt thirdCarrotPurchase = shop.buy("carrot", 40, 4);
 
         System.out.print("Purchased     ========== ");
         System.out.println(firstCarrotPurchase);
@@ -60,8 +60,8 @@ public class ShopDemo {
 
         shop.add("chocolate", new TwoForOnePrice(10), 2);
 
-        PurchaseRecipe firstChocolatePromotion = shop.buy("chocolate", 10, 2);
-        PurchaseRecipe secondChocolatePromotion = shop.buy("chocolate", 10, 2);
+        PurchaseReceipt firstChocolatePromotion = shop.buy("chocolate", 10, 2);
+        PurchaseReceipt secondChocolatePromotion = shop.buy("chocolate", 10, 2);
 
         System.out.println(firstChocolatePromotion);
         System.out.println(secondChocolatePromotion);
@@ -71,7 +71,7 @@ public class ShopDemo {
         shop.add("peanuts", new TwoForOnePrice(10), 2);
         shop.add("peanuts", new TwoForOnePrice(10), 2);
 
-        PurchaseRecipe firstPeanutPromotion = shop.buy("peanuts", 10, 2);
+        PurchaseReceipt firstPeanutPromotion = shop.buy("peanuts", 10, 2);
 
         System.out.println(firstPeanutPromotion);
         System.out.println(shop.buy("peanuts", 15, 2));

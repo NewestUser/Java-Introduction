@@ -4,7 +4,7 @@ package lecture10.homework.shop;
  * Този клас моделира касова бележка. Той съдържа името на продукта, който е закупен,
  * цената на която е закупен, количеството което е закупено, и сумата пари платена от клиента.
  */
-public class PurchaseRecipe {
+public class PurchaseReceipt {
 
     private final String productName;
     private final Price price;
@@ -19,7 +19,7 @@ public class PurchaseRecipe {
      * @param boughtQuantity количеството което е закупено.
      * @param paidAmount     платената сума от клиента.
      */
-    PurchaseRecipe(String productName, Price price, int boughtQuantity, double paidAmount) {
+    PurchaseReceipt(String productName, Price price, int boughtQuantity, double paidAmount) {
         this.productName = productName;
         this.price = price;
         this.boughtQuantity = boughtQuantity;
@@ -28,7 +28,7 @@ public class PurchaseRecipe {
 
     @Override
     public String toString() {
-        return "PurchaseRecipe{" +
+        return "PurchaseReceipt{" +
                 "productName='" + productName + '\'' +
                 ", boughtQuantity=" + boughtQuantity +
                 ", price=" + price +

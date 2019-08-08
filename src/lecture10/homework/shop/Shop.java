@@ -59,9 +59,9 @@ public class Shop {
      * @param productQuery името на продукта, който клиента иска да закупи.
      * @param amount       цената на продукта.
      * @param quantity     количеството от продукта.
-     * @return при успешно закупуване се връща {@link PurchaseRecipe} в противен случай null.
+     * @return при успешно закупуване се връща {@link PurchaseReceipt} в противен случай null.
      */
-    public PurchaseRecipe buy(String productQuery, int amount, int quantity) {
+    public PurchaseReceipt buy(String productQuery, int amount, int quantity) {
 
         for (int i = 0; i < inventory.length; i++) {
             ProductStorage item = inventory[i];
@@ -70,7 +70,7 @@ public class Shop {
                 continue;
             }
 
-            PurchaseRecipe recipe = item.tryToSell(productQuery, amount, quantity);
+            PurchaseReceipt recipe = item.tryToSell(productQuery, amount, quantity);
 
             if (item.isDepleted()) {
                 inventory[i] = null; // избягваме Memory Leak
@@ -90,9 +90,9 @@ public class Shop {
      *
      * @param productQuery името на продукта, който клиента иска да закупи.
      * @param amount       сумата пари, която клиента има налична.
-     * @@return при успешно закупуване се връща {@link PurchaseRecipe} в противен случай null.
+     * @@return при успешно закупуване се връща {@link PurchaseReceipt} в противен случай null.
      */
-    public PurchaseRecipe buy(String productQuery, int amount) {
+    public PurchaseReceipt buy(String productQuery, int amount) {
 
         return buy(productQuery, amount, 1);
     }

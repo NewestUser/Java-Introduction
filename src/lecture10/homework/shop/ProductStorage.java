@@ -30,16 +30,16 @@ class ProductStorage {
      * @param productQuery името на продукта, който клиента иска да закупи.
      * @param amount       сумата която клиента има налична.
      * @param quantity     количеството, което клиента иска да закупи.
-     * @return при покриване на критерия за продажба се връща {@link PurchaseRecipe} с детайлите за продажбата,
+     * @return при покриване на критерия за продажба се връща {@link PurchaseReceipt} с детайлите за продажбата,
      * в противен случай се връща null.
      */
-    PurchaseRecipe tryToSell(String productQuery, int amount, int quantity) {
+    PurchaseReceipt tryToSell(String productQuery, int amount, int quantity) {
 
         if (canBeBought(productQuery, amount, quantity)) {
 
             reduceQuantity(quantity);
 
-            return new PurchaseRecipe(productQuery, price, quantity, amount);
+            return new PurchaseReceipt(productQuery, price, quantity, amount);
         }
 
         return null;

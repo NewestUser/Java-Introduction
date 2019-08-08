@@ -109,6 +109,7 @@ class Main {
     }
 }
 ```
+
 > В този случай `Apple` налседява `Fruit` и получава достъп до неговата функционалност.
 
 ###### Композиция
@@ -247,7 +248,7 @@ private static int fibonacci(int n) {
 
 #### Stack
 
-**Stack** е подредена структора от данни тип LIFO (last in first out (първия влязъл е първия излязъл)).
+**Stack** е подредена структора от данни тип LIFO (last in first out (последният влязъл е първият излязъл)).
 Стека в конетекста на памет се използва за записването на така наречения **Stack Frame**.
 
 Java нарича **Stack Frame** моделировата на извикването на даден метод от програмата. 
@@ -378,8 +379,8 @@ public class ShopDemo {
         shop.add("banana", 20, 2); // зареждаме 2 банана, като цената за 1 е 20 пари
         shop.add("chocolate", new TwoForOnePrice(10), 2); // зареждаме 2 шоколад на промоция, където цената и за 2-та е 10 пари
         
-        PurchaseRecipe bananaRecipe = shop.buy("banana", 20); // купуваме 1 банан като даваме 20 пари
-        PurchaseRecipe chocolateRecipe = shop.buy("chocolate", 10, 2); // купуваме 2 шоколада за 10 пари
+        PurchaseReceipt bananaRecipe = shop.buy("banana", 20); // купуваме 1 банан като даваме 20 пари
+        PurchaseReceipt chocolateRecipe = shop.buy("chocolate", 10, 2); // купуваме 2 шоколада за 10 пари
 
         System.out.println(bananaRecipe);
         System.out.println(chocolateRecipe);
@@ -502,14 +503,14 @@ public class TwoForOnePrice extends Price {
 }
 ```
 
-- PurchaseRecipe.java
+- PurchaseReceipt.java
 
 ```java
 /**
  * Този клас моделира касова бележка. Той съдържа името на продукта, който е закупен,
  * цената на която е закупен, количеството което е закупено, и сумата пари платена от клиента.
  */
-public class PurchaseRecipe {
+public class PurchaseReceipt {
 
     private final String productName;
     private final Price price;
@@ -524,7 +525,7 @@ public class PurchaseRecipe {
      * @param boughtQuantity количеството което е закупено.
      * @param paidAmount     платената сума от клиента.
      */
-    PurchaseRecipe(String productName, Price price, int boughtQuantity, double paidAmount) {
+    PurchaseReceipt(String productName, Price price, int boughtQuantity, double paidAmount) {
         this.productName = productName;
         this.price = price;
         this.boughtQuantity = boughtQuantity;
@@ -533,7 +534,7 @@ public class PurchaseRecipe {
 
     @Override
     public String toString() {
-        return "PurchaseRecipe{" +
+        return "PurchaseReceipt{" +
                 "productName='" + productName + '\'' +
                 ", boughtQuantity=" + boughtQuantity +
                 ", price=" + price +
@@ -587,16 +588,16 @@ class ProductStorage {
      * @param productQuery името на продукта, който клиента иска да закупи.
      * @param amount       сумата която клиента има налична.
      * @param quantity     количеството, което клиента иска да закупи.
-     * @return при покриване на критерия за продажба се връща {@link PurchaseRecipe} с детайлите за продажбата,
+     * @return при покриване на критерия за продажба се връща {@link PurchaseReceipt} с детайлите за продажбата,
      * в противен случай се връща null.
      */
-    PurchaseRecipe tryToSell(String productQuery, int amount, int quantity) {
+    PurchaseReceipt tryToSell(String productQuery, int amount, int quantity) {
 
         if (canBeBought(productQuery, amount, quantity)) {
 
             reduceQuantity(quantity);
 
-            return new PurchaseRecipe(productQuery, price, quantity, amount);
+            return new PurchaseReceipt(productQuery, price, quantity, amount);
         }
 
         return null;
@@ -738,9 +739,9 @@ public class Shop {
      * @param productQuery името на продукта, който клиента иска да закупи.
      * @param amount       цената на продукта.
      * @param quantity     количеството от продукта.
-     * @return при успешно закупуване се връща {@link PurchaseRecipe} в противен случай null.
+     * @return при успешно закупуване се връща {@link PurchaseReceipt} в противен случай null.
      */
-    public PurchaseRecipe buy(String productQuery, int amount, int quantity) {
+    public PurchaseReceipt buy(String productQuery, int amount, int quantity) {
 
         for (int i = 0; i < inventory.length; i++) {
             ProductStorage item = inventory[i];
@@ -749,7 +750,7 @@ public class Shop {
                 continue;
             }
 
-            PurchaseRecipe recipe = item.tryToSell(productQuery, amount, quantity);
+            PurchaseReceipt recipe = item.tryToSell(productQuery, amount, quantity);
 
             if (item.isDepleted()) {
                 inventory[i] = null; // избягваме Memory Leak
@@ -769,9 +770,9 @@ public class Shop {
      *
      * @param productQuery името на продукта, който клиента иска да закупи.
      * @param amount       сумата пари, която клиента има налична.
-     * @@return при успешно закупуване се връща {@link PurchaseRecipe} в противен случай null.
+     * @@return при успешно закупуване се връща {@link PurchaseReceipt} в противен случай null.
      */
-    public PurchaseRecipe buy(String productQuery, int amount) {
+    public PurchaseReceipt buy(String productQuery, int amount) {
 
         return buy(productQuery, amount, 1);
     }
