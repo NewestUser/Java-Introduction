@@ -10,7 +10,7 @@ public class Bank {
     /**
      * Всички валути, които банката поддържа.
      */
-    private static String[] SUPPORTED_CURRENCIES = {"EUR", "GBP", "BGN", "CAD"};
+    private static final String[] SUPPORTED_CURRENCIES = {"EUR", "GBP", "BGN", "CAD"};
 
     /**
      * Списъкът с акаунти, които банката е отворила.

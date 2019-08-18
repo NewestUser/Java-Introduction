@@ -64,12 +64,12 @@ public class Account {
     /**
      * Константа за тип на акаунта "ДЕБИТ"
      */
-    public static String DEBIT = "DEBIT";
+    public static final String DEBIT = "DEBIT";
 
     /**
      * Константа за тип на акаунта "КРЕДИТ"
      */
-    public static String CREDIT = "CREDIT";
+    public static final String CREDIT = "CREDIT";
 
     private final String currency;
     private final String type;
@@ -222,7 +222,7 @@ public class Bank {
     /**
      * Всички валути, които банката поддържа.
      */
-    private static String[] SUPPORTED_CURRENCIES = {"EUR", "GBP", "BGN", "CAD"};
+    private static final String[] SUPPORTED_CURRENCIES = {"EUR", "GBP", "BGN", "CAD"};
 
     /**
      * Списъкът с акаунти, които банката е отворила.

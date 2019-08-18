@@ -23,6 +23,7 @@ public class Task3 {
         for (String word : words) {
             if (word.length() > maxLength) {
                 longestWord = word;
+                maxLength = word.length();
             }
         }
 

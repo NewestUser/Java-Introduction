@@ -5,12 +5,12 @@ public class Account {
     /**
      * Константа за тип на акаунта "ДЕБИТ"
      */
-    public static String DEBIT = "DEBIT";
+    public final static String DEBIT = "DEBIT";
 
     /**
      * Константа за тип на акаунта "КРЕДИТ"
      */
-    public static String CREDIT = "CREDIT";
+    public final static String CREDIT = "CREDIT";
 
     private final String currency;
     private final String type;
