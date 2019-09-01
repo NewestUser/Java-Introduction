@@ -12,6 +12,8 @@
 
 #### Lecture 2 - if/else and Loops
 
+- [Exercises](https://gist.github.com/NewestUser/a69b3511a131ca3126de8d805a8311c4)
+
 - [Homework](https://gist.github.com/NewestUser/1724898ada8ca30d3b0199f1ae5370e7)
 
 #### Lecture 3 - Recap Primitive Types
