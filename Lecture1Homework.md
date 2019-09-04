@@ -12,7 +12,8 @@
 в конзолата. Опитайте същото с числа с плаваща запетая.  
 ```
 
-- solution
+<br/><details><summary><b>Solution</b> 👀</summary> 
+<p>
 
 ```java
 Scanner scanner = new Scanner(System.in);
@@ -51,7 +52,10 @@ System.out.println("rationalMultiplication = " + rationalMultiplication);
 System.out.println("rationalQuotient = " + rationalQuotient);
 System.out.println("rationalReminder = " + rationalReminder);
 ```
-  
+
+</p>
+</details>
+
 ### Task 2
 
 ```text
@@ -59,7 +63,10 @@ System.out.println("rationalReminder = " + rationalReminder);
 Разпечатайте новите стойности.
 ```
 
-- solution 1 (използвайки временна променлива `int tmp`)
+<br/><details><summary><b>Solution</b> 👀</summary> 
+<p>
+
+###### Solution 1 (използвайки временна променлива `int tmp`)
 
 ```java
 Scanner scanner = new Scanner(System.in);
@@ -78,7 +85,7 @@ System.out.print("first number: " + first);
 System.out.print("second number: " + second);
 ```
 
-- solution 2 (без временна променлива)
+###### Solution 2 (без временна променлива)
 
 ```java
 Scanner scanner = new Scanner(System.in);
@@ -96,7 +103,10 @@ first = first - second;
 System.out.print("first number: " + first);
 System.out.print("second number: " + second);
 ```
-    
+
+</p>
+</details>
+
 ### Task 3
 
 ```text
@@ -105,7 +115,9 @@ System.out.print("second number: " + second);
 а2 да има стойността на а3, а а3 да има старата стойност на а1.
 ```
 
-- solution
+<br/><details><summary><b>Solution</b> 👀</summary> 
+<p>
+
 ```java
 Scanner scanner = new Scanner(System.in);
 
@@ -126,7 +138,10 @@ System.out.print("a1 = " + a1);
 System.out.print("a2 = " + a2);
 System.out.print("a3 = " + a3);
 ``` 
-    
+
+</p>
+</details>
+ 
 ### Task 4
 
 ```text
@@ -139,7 +154,9 @@ System.out.print("a3 = " + a3);
 където: °C е градуси в Целзий, а °F е градуси във Фаренхайт
 ```
 
-- solution
+<br/><details><summary><b>Solution</b> 👀</summary> 
+<p>
+
 ```java
 Scanner scanner = new Scanner(System.in);
 
@@ -150,7 +167,10 @@ double fahrenheit = celsius * 9d / 5d + 32;
 
 System.out.println(celsius + "°C = " + fahrenheit + "°F");
 ```
-        
+
+</p>
+</details>
+     
 ### Task 5
 
 ```text
@@ -162,7 +182,9 @@ System.out.println(celsius + "°C = " + fahrenheit + "°F");
 където: °C е градуси в Целзий, а °F е градуси във Фаренхайт
 ```
 
-- solution
+<br/><details><summary><b>Solution</b> 👀</summary> 
+<p>
+
 ```java
 Scanner scanner = new Scanner(System.in);
 
@@ -173,3 +195,6 @@ double celsius = (fahrenheit - 32) * 5d / 9d;
 
 System.out.println(fahrenheit + "°F = " + celsius + "°C");
 ```    
+
+</p>
+</details>

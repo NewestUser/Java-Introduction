@@ -12,7 +12,11 @@
 Може да се опитате и без първото да е кратно на 3.
 ```
 
-- solution 1
+<br/><details><summary><b>Solution</b> 👀</summary> 
+<p>
+
+###### Solution 1
+
 ```java
 Scanner scanner = new Scanner(System.in);
 
@@ -41,7 +45,8 @@ for (int i = 1; i < myArray.length; i++) {
 System.out.println("The smallest element multiple of 3 is: " + min);
 ```  
 
-- solution 2
+###### solution 2
+
 ```java
 Scanner scanner = new Scanner(System.in);
 
@@ -81,6 +86,9 @@ if (minIsInitialized) {
 }
 ```
 
+</p>
+</details>
+
 ### Task 2
 
 ```text
@@ -104,7 +112,9 @@ if (minIsInitialized) {
 10 12 1 -4 10 12 1 -4
 ```
 
-- solution
+<br/><details><summary><b>Solution</b> 👀</summary> 
+<p>
+
 ```java
 Scanner scanner = new Scanner(System.in);
 
@@ -131,6 +141,9 @@ for (int i = 0; i < array.length; i++) {
 }
 ```  
 
+</p>
+</details>
+
 ### Task 3
 
 ```text
@@ -149,7 +162,11 @@ for (int i = 0; i < array.length; i++) {
 3 3 6 9 15 24 39 63 102 167 🐚
 ```
 
-- solution 1
+<br/><details><summary><b>Solution</b> 👀</summary> 
+<p>
+
+###### Solution 1
+
 ```java
 Scanner scanner = new Scanner(System.in);
 
@@ -176,7 +193,8 @@ for (int i = 0; i < fibonacciArray.length; i++) {
 }
 ```  
 
-- solution 2
+###### Solution 2
+
 ```java
 Scanner number = new Scanner(System.in);
 
@@ -196,6 +214,9 @@ for (int i = 0; i < myArray.length; i++) {
     System.out.print(myArray[i] + " ");
 }
 ```
+
+</p>
+</details>
 
 ### Task 4
 
@@ -219,7 +240,9 @@ for (int i = 0; i < myArray.length; i++) {
 Масивът е огледален
 ```
 
-- solution 
+<br/><details><summary><b>Solution</b> 👀</summary> 
+<p>
+
 ```java
 Scanner number = new Scanner(System.in);
 
@@ -250,6 +273,9 @@ if (isMirrored) {
 }
 ```
 
+</p>
+</details>
+
 ### Task 5
 
 ```text
@@ -259,7 +285,9 @@ if (isMirrored) {
 Да се изведат елементите на екрана закръглени до втори знак след десетичната запетая.
 ```
 
-- solution 
+<br/><details><summary><b>Solution</b> 👀</summary> 
+<p>
+
 ```java
 double[] myArray = new double[10];
 double sum = 0.0;
@@ -278,6 +306,9 @@ for (int i = 0; i < myArray.length; i++) {
     System.out.printf("%.2f ", myArray[i]);
 }
 ```
+
+</p>
+</details>
 
 ### Task 6
 
@@ -310,7 +341,9 @@ for (int i = 0; i < myArray.length; i++) {
 логиката е аналогична на тази при първото число. Тъй като няма елемент на индекс `4`, 
 то е равно на числото с индекс `3` от входния масив `(-11 + 0 = -11)`.
 
-- solution 
+<br/><details><summary><b>Solution</b> 👀</summary> 
+<p>
+
 ```java
 Scanner scanner = new Scanner(System.in);
 
@@ -344,6 +377,9 @@ for (int i = 0; i < result.length; i++) {
 }
 ```
 
+</p>
+</details>
+
 ### Task 7
 
 ```text
@@ -365,7 +401,9 @@ for (int i = 0; i < result.length; i++) {
 Максималната редица е: 2 2 2
 ```
 
-- solution 
+<br/><details><summary><b>Solution</b> 👀</summary> 
+<p>
+
 ```java
 Scanner scanner = new Scanner(System.in);
 
@@ -406,6 +444,9 @@ for (int i = 0; i < maxCount; i++) {
 }
 ```
 
+</p>
+</details>
+
 ### Task 8
 
 ```text
@@ -429,7 +470,9 @@ for (int i = 0; i < maxCount; i++) {
 Масивите имат еднакъв размер.
 ```
 
-- solution 
+<br/><details><summary><b>Solution</b> 👀</summary> 
+<p>
+
 ```java
 Scanner number = new Scanner(System.in);
 
@@ -475,3 +518,5 @@ if (firstArray.length == secondArray.length) {
 }
 ```
 
+</p>
+</details>

@@ -22,7 +22,8 @@
 Числото 22.1 е между 13.2 и 29.5
 ```
 
-- solution
+<br/><details><summary><b>Solution</b> 👀</summary> 
+<p>
 
 ```java
 Scanner scanner = new Scanner(System.in);
@@ -41,13 +42,17 @@ if (c > a && c < b || c > b && c < a) {
 }
 ```
 
+</p>
+</details>
+
 ### Task 2
 
 ```text
 Въведете 2 различни числа от конзолата и ги разпечатайте в нарастващ ред. 📈
 ```
 
-- solution
+<br/><details><summary><b>Solution</b> 👀</summary> 
+<p>
 
 ```java
 Scanner scanner = new Scanner(System.in);
@@ -73,13 +78,19 @@ for (int i = min; i <= max; i++) {
 }
 ```
 
+</p>
+</details>
+
 ### Task 3
 
 ```text
 Въведете 3 различни числа от конзолата и ги разпечатайте в низходящ ред. 📉
 ```
 
-- solution 1
+<br/><details><summary><b>Solution</b> 👀</summary> 
+<p>
+
+###### Solution 1
 ```java
 Scanner scan = new Scanner(System.in);
 
@@ -105,7 +116,7 @@ if (a >= b && b >= c) {
 }
 ```
 
-- solution 2
+###### Solution 2
 
 ```java
 Scanner number = new Scanner(System.in);
@@ -162,6 +173,9 @@ if (c < a && c < b) {
 System.out.println(max + " " + mid + " " + min);
 ```
 
+</p>
+</details>
+
 ### Task 4
 
 ```text
@@ -177,7 +191,8 @@ System.out.println(max + " " + mid + " " + min);
 Полученото решение покажете като съобщение в конзолата. 💵
 ```
 
-- solution
+<br/><details><summary><b>Solution</b> 👀</summary> 
+<p>
 
 ```java
 Scanner scanner = new Scanner(System.in);
@@ -209,13 +224,17 @@ if (isHealthy) {
 }
 ```
 
+</p>
+</details>
+
 ### Task 5
 
 ```text
 Да се изведат на екрана числата от 1 до 100. 💯
 ```
 
-- solution
+<br/><details><summary><b>Solution</b> 👀</summary> 
+<p>
 
 ```java
 for (int i = 0; i < 100; i++) {
@@ -223,13 +242,17 @@ for (int i = 0; i < 100; i++) {
 }
 ```
 
+</p>
+</details>
+
 ### Task 6
 
 ```text
 Да се изведат на екрана числат от -20 до 50.
 ```
 
-- solution
+<br/><details><summary><b>Solution</b> 👀</summary> 
+<p>
 
 ```java
 for (int i = -20; i <= 50; i++) {
@@ -237,13 +260,17 @@ for (int i = -20; i <= 50; i++) {
 }
 ```
 
+</p>
+</details>
+
 ### Task 7
 
 ```text
 Да се изведат на екрана всички нечетни числа от -10 до 10.
 ```
 
-- solution
+<br/><details><summary><b>Solution</b> 👀</summary> 
+<p>
 
 ```java
 for (int i = -10; i <= 10; i++) {
@@ -253,19 +280,26 @@ for (int i = -10; i <= 10; i++) {
 }
 ```
 
+</p>
+</details>
+
 ### Task 8
 
 ```text
 Да се изведат на екрана числата от 10 до 1 в обратен ред.
 ```
 
-- solution
+<br/><details><summary><b>Solution</b> 👀</summary> 
+<p>
 
 ```java
 for (int i = 10; i >= 1; i--) {
     System.out.print(i + " ");
 }
 ```
+
+</p>
+</details>
 
 ### Task 9
 
@@ -274,7 +308,8 @@ for (int i = 10; i >= 1; i--) {
 И да се изведат на екрана всички числа от по-малкото до по-голямото.
 ```
 
-- solution
+<br/><details><summary><b>Solution</b> 👀</summary> 
+<p>
 
 ```java
 Scanner scanner = new Scanner(System.in);
@@ -305,14 +340,17 @@ for (int i = min; i <= max; i++) {
 }
 ```
 
+</p>
+</details>
+
 ### Task 10
 
 ```text
 Да се прочете число от екрана(конзолата) и да се изведе сбора на всички числа между 1 и въведеното число.
-
 ```
 
-- solution
+<br/><details><summary><b>Solution</b> 👀</summary> 
+<p>
 
 ```java
 Scanner scanner = new Scanner(System.in);
@@ -333,6 +371,9 @@ for (int i = 1; i <= number; i++) {
 System.out.println("sum 1..." + number + " = " + sum);
 ```
 
+</p>
+</details>
+
 ### Task 11
 
 ```text
@@ -340,7 +381,8 @@ System.out.println("sum 1..." + number + " = " + sum);
 Числата да са разделени със запетая.
 ```
 
-- solution
+<br/><details><summary><b>Solution</b> 👀</summary> 
+<p>
 
 ```java
 Scanner scanner = new Scanner(System.in);
@@ -357,6 +399,9 @@ for (int i = 3, count = 0; count < number; i++) {
 }
 ```
 
+</p>
+</details>
+
 ### Task 12
 
 ```text
@@ -364,7 +409,8 @@ for (int i = 3, count = 0; count < number; i++) {
 Просто число е това което се дели САМО на 1 и на себе си.
 ```
 
-- solution
+<br/><details><summary><b>Solution</b> 👀</summary> 
+<p>
 
 ```java
  Scanner scanner = new Scanner(System.in);
@@ -386,6 +432,9 @@ for (int i = 3, count = 0; count < number; i++) {
      System.out.println(number + " is NOT a prime number");
  }
 ```
+
+</p>
+</details>
 
 ### Task 13
 
@@ -414,7 +463,8 @@ for (int i = 3, count = 0; count < number; i++) {
 666
 ```
 
-- solution
+<br/><details><summary><b>Solution</b> 👀</summary> 
+<p>
 
 ```java
 Scanner number = new Scanner(System.in);
@@ -433,6 +483,9 @@ for (int row = 0; row < n; row++) {
 }
 ```
 
+</p>
+</details>
+
 ### Task 14
 
 ```text
@@ -444,7 +497,8 @@ for (int row = 0; row < n; row++) {
 от 200, да се прекрати извеждането.
 ```
 
-- solution
+<br/><details><summary><b>Solution</b> 👀</summary> 
+<p>
 
 ```java
 Scanner number = new Scanner(System.in);
@@ -471,3 +525,6 @@ for (int i = a; i <= b; i++) {
     }
 }
 ```
+
+</p>
+</details>

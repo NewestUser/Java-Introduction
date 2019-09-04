@@ -143,7 +143,8 @@ fileStream.close();
 
 > Използвайте `File.mkdir()` за създаване на директория. 
 
-##### solution
+<br/><details><summary><b>Solution</b> 👀</summary> 
+<p>
 
 ```java
 import java.io.File;
@@ -163,6 +164,9 @@ public class Task1 {
     }
 }
 ```
+
+</p>
+</details>
 
 ### Task 2
 
@@ -186,7 +190,8 @@ public class Task1 {
 
 > Използвайте `PrintWriter.println()` за да записвате всяка дума на нов ред.
 
-##### solution
+<br/><details><summary><b>Solution</b> 👀</summary> 
+<p>
 
 ```java
 import java.io.File;
@@ -240,3 +245,6 @@ public class WriteDemo {
     }
 }
 ```
+
+</p>
+</details>

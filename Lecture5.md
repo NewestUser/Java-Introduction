@@ -131,19 +131,24 @@ Big O notation е математическа нотация, която опис
 Задайте стойност на клетка в ред 1-ви и колкона 2-ра.
 Принтирайте двумерния масив.
 
-- solution
-    ```java
-    int[][] matrix = new int[2][3];
+<br/><details><summary><b>Solution</b> 👀</summary> 
+<p>
+
+```java
+int[][] matrix = new int[2][3];
+
+matrix[0][1] = 555;
+
+for (int i = 0; i < matrix.length; i++) {
+    System.out.print("[\t");
     
-    matrix[0][1] = 555;
-    
-    for (int i = 0; i < matrix.length; i++) {
-        System.out.print("[\t");
-        
-        for (int j = 0; j < matrix[i].length; j++) {
-            System.out.print(matrix[i][j] + "\t");
-        }
-    
-        System.out.println("]\t");
+    for (int j = 0; j < matrix[i].length; j++) {
+        System.out.print(matrix[i][j] + "\t");
     }
-    ```
+
+    System.out.println("]\t");
+}
+```
+
+</p>
+</details>

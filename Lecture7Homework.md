@@ -53,8 +53,8 @@
 
 ![bank-uml-diagram](https://i.ibb.co/hZH7rkN/bank-uml-diagram.png)
 
-
-##### solution
+<br/><details><summary><b>Solution</b> 👀</summary> 
+<p>
 
 ###### Account.java
 
@@ -404,3 +404,6 @@ public class BankDemo {
     }
 }
 ```
+
+</p>
+</details>

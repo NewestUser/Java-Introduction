@@ -166,6 +166,20 @@ SOLID е акроним отговарящ на няколко основни п
 > ℹ️ За повече информация прочетете [тук](https://medium.com/@dhkelmendi/solid-principles-made-easy-67b1246bcdf)
 или изгледайте това [youtube видео](https://www.youtube.com/watch?v=TMuno5RZNeE).
 
+#### Други често прилагани принципи и шаблони
+
+- **DRY**
+- **KISS**
+- **YAGNI**
+- **Law of Demeter**
+- **Robustness principle (Postel's Law)**
+- **Law of Demeter**
+- **Occam’s Razor**
+- **POJO**
+- **Immutability**
+- **Overengineering**
+- **Dependency Injection**
+
 ### Anti Patterns
 
 Съществуват също така често прилагни практики (patterns) в писането на код, които се смятат за лоши.
@@ -294,7 +308,8 @@ Java нарича **Stack Frame** моделировата на извикван
 
 ![garbage_collection](http://www.fortwright.com/Portals/fortwright/Images/News/Trash.jpg)
 
-> ℹ️ За по детайлно обяснение вижте това [youtube видео][garbage-collection-vid]
+> ℹ️ За повече информация прочетете [Java Garbage Collection Basics](https://www.oracle.com/webfolder/technetwork/tutorials/obe/java/gc01/index.html)
+и [Getting Started with the G1 Garbage Collector](https://www.oracle.com/technetwork/tutorials/tutorials-1876574.html).
 
 [garbage-collection-vid]: https://www.youtube.com/watch?v=UnaNQgzw4zY
 
@@ -365,8 +380,8 @@ Java нарича **Stack Frame** моделировата на извикван
         - Ако са заредени 3 кутии бисвкити с тази промоция, не могат да бъдат закупени 2 или 5 кутии.
 
 
-###### Solution
-
+<br/><details><summary><b>Solution</b> 👀</summary> 
+<p>
 
 - ShopDemo.java
 ```java
@@ -779,3 +794,5 @@ public class Shop {
 
 }
 ```
+</p>
+</details>

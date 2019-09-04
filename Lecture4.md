@@ -12,7 +12,9 @@
 Умножете третия елемент със 2 и го принтирайте.
 ```
 
-- solution
+<br/><details><summary><b>Solution</b> 👀</summary> 
+<p>
+
 ```java
 int[] array = new int[10];
 
@@ -26,14 +28,19 @@ array[2] = 2 * array[2];
 
 System.out.println("array[2] = " + array[2]);
 ```
-    
+
+</p>
+</details>
+
 ### Task 2
 
 ```text
 Създайте масив с дробни числа и принтирайте сойностите на масива.
 ```
 
-- solution
+<br/><details><summary><b>Solution</b> 👀</summary> 
+<p>
+
 ```java
 double[] array = new double[]{2.5, 3, 5, 8, -12.9, 7.0};
 
@@ -41,14 +48,19 @@ for (int i = 0; i < array.length; i++) {
     System.out.print(array[i] + " ");
 }
 ```
-    
+
+</p>
+</details>
+ 
 ### Task 3
 
 ```text
 Запишете 10 числа от клавиатурата в масив. И после ги принтирайте.
 ```
 
-- solution
+<br/><details><summary><b>Solution</b> 👀</summary> 
+<p>
+
 ```java
 Scanner scanner = new Scanner(System.in);
 
@@ -65,7 +77,10 @@ for (int i = 0; i < array.length; i++) {
     System.out.println("array[" + i + "] = " + array[i]);
 }
 ```
-    
+
+</p>
+</details>
+
 ### Task 4
 
 ```text
@@ -75,7 +90,9 @@ for (int i = 0; i < array.length; i++) {
 Принтирайте най-голямото число.
 ```
 
-- solution
+<br/><details><summary><b>Solution</b> 👀</summary> 
+<p>
+
 ```java
 Scanner scanner = new Scanner(System.in);
 System.out.print("Enter array size: ");
@@ -100,7 +117,10 @@ for (int i = 0; i < array.length; i++) {
 
 System.out.println("max = " + max);
 ```
-    
+
+</p>
+</details>
+
 ### Task 5
 
 ```text
@@ -109,7 +129,11 @@ System.out.println("max = " + max);
 - Без да използвате втори масив
 ```
 
-- solution 1
+<br/><details><summary><b>Solution</b> 👀</summary> 
+<p>
+
+###### Solution 1
+
 ```java
 int[] array = new int[]{1, 2, 3, 4, 5};
 int[] inverted = new int[array.length];
@@ -123,7 +147,8 @@ for (int i = 0; i < inverted.length; i++) {
 }
 ```
 
-- solution 2
+###### Solution 2
+
 ```java
 int[] array = new int[]{1, 2, 3, 4, 5};
 
@@ -138,7 +163,10 @@ for (int i = 0; i < array.length; i++) {
     System.out.print(array[i] + " ");
 }
 ```
-    
+
+</p>
+</details>
+
 ### Task 6
 
 ```text
@@ -158,7 +186,9 @@ array  =    [   9   -2     4      -3    7       5  ]
 result =    [   9   9*1    -2*2   4*3   -3*4    7*5     5*6 ] = [ 9 9 4 12 -12 35 30 ]  
 ```
 
-- solution
+<br/><details><summary><b>Solution</b> 👀</summary> 
+<p>
+
 ```java
 Scanner scanner = new Scanner(System.in);
 System.out.print("Enter array size: ");
@@ -186,6 +216,9 @@ for (int i = 0; i < derivedArray.length; i++) {
 }
 ```
 
+</p>
+</details>
+
 ### Task 7
 
 ```text
@@ -202,7 +235,9 @@ Enter number: -1
 You entered: 10 32 -41
 ```
 
-- solution
+<br/><details><summary><b>Solution</b> 👀</summary> 
+<p>
+
 ```java
 Scanner scanner = new Scanner(System.in);
 
@@ -242,3 +277,6 @@ for (int j = 0; j < array.length - 1; j++) {
     System.out.print(array[j] + " ");
 }
 ```
+
+</p>
+</details>

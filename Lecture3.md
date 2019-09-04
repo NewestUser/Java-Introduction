@@ -200,7 +200,8 @@
     „5 5 5 5 5 !“
 ```
 
-- Solution
+<br/><details><summary><b>Solution</b> 👀</summary> 
+<p>
 
 ```java
 System.out.print("Enter number: ");
@@ -215,12 +216,16 @@ for (int i = 0; i < num; i++) {
 System.out.println("!");
 ```
 
+</p>
+</details>
+
 ### Task 2
 ```
 • Sum all the numbers between 1 and 100 but omit all the numbers between 51 and 74.
 ```
 
-- Solution
+<br/><details><summary><b>Solution</b> 👀</summary> 
+<p>
 
 ```java
 int sum = 0;
@@ -236,13 +241,17 @@ for (int i = 1; i <= 100; i++) {
 System.out.println("sum = " + sum);
 ```
 
+</p>
+</details>
+
 ### Task 3
 ```
 • Calculate factorial of a number, where the numer is entered by the user
 • Hint: n! = 1 * 2 * 3 ... (n - 2) * (n - 1) * n;
 ```
 
-- Solution
+<br/><details><summary><b>Solution</b> 👀</summary> 
+<p>
 
 ```java
 Scanner scanner = new Scanner(System.in);
@@ -259,13 +268,17 @@ for (int i = 1; i <= n; i++) {
 System.out.println(n + "! = " + factorial);
 ```
 
+</p>
+</details>
+
 ### Task 4
 ```
 • Calculate the sum of the first n numers of the Fibonacci sequence:
 • Hint: F = 0 + 1 + 1 + 2 + 3 + 5 + 8 + ...
 ```
 
-- Solution
+<br/><details><summary><b>Solution</b> 👀</summary> 
+<p>
 
 ```java
 Scanner scanner = new Scanner(System.in);
@@ -292,13 +305,17 @@ for (int i = 0; i < n; i++) {
 System.out.println("\nsum fibonacci(" + n + ") = " + sum);
 ``` 
 
+</p>
+</details>
+
 ### Task 5
 ```
 • Calculate the following for user specified n:
 (1!) / (1^1) + (2!) / (2^2) + ... + (n!) / (n^n)
 ```
 
-- Solution
+<br/><details><summary><b>Solution</b> 👀</summary> 
+<p>
 
 ```java
 Scanner scanner = new Scanner(System.in);
@@ -326,6 +343,9 @@ for (int i = 1; i <= n; i++) {
 System.out.println(sum);
 ```
 
+</p>
+</details>
+
 ### Additional Task
 ```
 • You are given an array of numbers and a number N. If the group of N numbers at the start and end of
@@ -340,7 +360,8 @@ System.out.println(sum);
   We are comparing the first 3 and the last 3 numbers, but 5 and 13 are different.  
 ```
 
-- Solution
+<br/><details><summary><b>Solution</b> 👀</summary> 
+<p>
 
 ```java
 Scanner scanner = new Scanner(System.in);
@@ -387,3 +408,6 @@ if (!areElementsEqual) {
     System.out.print(differentElements[1]);
 }
 ```
+
+</p>
+</details>

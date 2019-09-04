@@ -443,7 +443,8 @@ private static User findUser(String id) {
 
 > Използвайте `Double.parseDouble(scanner.nextLine())`, за да конвертирате текста в число от тип `Double`.
 
-- solution
+<br/><details><summary><b>Solution</b> 👀</summary> 
+<p>
 
 ```java
 Scanner scanner = new Scanner(System.in);
@@ -460,6 +461,9 @@ try {
 }
 ```
 
+</p>
+</details>
+
 ### Task 2
 
 Напишете програма, която взема от потребителя 5 числа и принтира сумата им.
@@ -469,7 +473,8 @@ try {
 
 > Използвайте `Double.parseDouble(scanner.nextLine())`, за да конвертирате текста в число от тип `Double`.
 
-- solution
+<br/><details><summary><b>Solution</b> 👀</summary> 
+<p>
 
 ```java
 Scanner scanner = new Scanner(System.in);
@@ -495,3 +500,6 @@ while (count < 5) {
 
 System.out.println("Сумата от 5-те числа е: " + sum);
 ```
+
+</p>
+</details>
