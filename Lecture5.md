@@ -120,8 +120,9 @@ Big O notation е математическа нотация, която опис
     }
     ```
 
-> ℹ️ За повече информация относно **Big O Notation** вижте това 
-[youtube видео](https://www.youtube.com/watch?v=v4cd1O4zkGw).
+> ℹ️ За повече информация относно **Big O Notation** изгледайте това 
+[youtube видео](https://www.youtube.com/watch?v=v4cd1O4zkGw) и това 
+[youtube видео](https://www.youtube.com/watch?v=D6xkbGLQesk).
 
 ## Two Dimensional Arrays Exercises 🐫
 
