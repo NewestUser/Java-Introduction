@@ -14,30 +14,15 @@ IMHO it will be better to start OOP in the following sequence:
 It seems that when the students have the solutions in place 
 they do not think that hard how to write a peace of code.
 
-It would be better to have first the Tasks and at the end of the lecture
-to have the solutions
-
-Example:
-
-```
-- Tasks
-    - task 1
-    - task 2
-    - task 3
-
-- Solutions
-    - solution 1
-    - solution 2
-    - solution 3
-```    
-
+Consider moving the solutions on a separate page.
 
 ### Generic things to improve
 
 - [x] Add missing shortcuts in previous lectures
 - [ ] Add table of contents in each lecture
-- [ ] Add additional reading materials in each lecture and videos
+- [x] Add additional reading materials in each lecture and videos
 - [ ] Restructure course content and separate Collections if applicable into several lectures
+- [ ] Add more tasks to the lectures, students complain they don't have enough tasks
 
 ### Lecture 1
 
@@ -59,6 +44,11 @@ Example:
 - [X] Add homework solutions for tasks
 
 
+### Lecture 11
+
+- [ ] Remove the polymorphism example with the Bird and Airplane and give a more concrete example
+with vehicles, cars, trucks and motorcycles. Also find an appropriate image.
+
 ### Lecture 12
 
 - [ ] `Task 4` needs more clarification
@@ -67,7 +57,7 @@ Example:
 
 ### Lecture 14
 
-- [ ] Explain Buffered Writing/Reading
+- [x] Explain Buffered Writing/Reading
 - [ ] Explain Serializable
 - [ ] Examples for Reading files
 - [ ] ObjectSerializer explained with examples
@@ -78,7 +68,7 @@ Example:
 
 - [ ] tasks 
 - [ ] further theory 
-- [ ] lower bound super keyword
+- [ ] lower bound super keyword and PECS reference
 - [ ] multiple generic parameters
 - [ ] difference between generic method and generic class
 
