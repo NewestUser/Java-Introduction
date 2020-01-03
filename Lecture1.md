@@ -56,13 +56,13 @@ Java всъщност е вид кафе.
 
 Езикът Java може да се разглежда като съвкупност от инструменти/технологии
 
-- JDK - чрез него програмистите могат да създават нови Java програми, които да бъдат
+- JDK (Java Development Kit) - чрез него програмистите могат да създават нови Java програми, които да бъдат
 изпълнявани от JRE и JVM
 
-- JRE - съвкупността от библиотеки, които ще се използват по време на изпълнение на
+- JRE (Java Runtime Environment) - съвкупността от библиотеки, които ще се използват по време на изпълнение на
 програмата заедно с нещото изпълняващо програмата
 
-- JVM - това е частта, която изпълнява програмата
+- JVM (Java Virtual Machine) - това е частта, която изпълнява програмата
 
 ![jdk-jre-jvm](https://i.ibb.co/c3tgjjR/jdk-jre-jvm.png)
 
@@ -194,6 +194,29 @@ public class Main {
 
 [hello-world]: https://en.wikipedia.org/wiki/%22Hello,_World!%22_program
 [b-language]: https://en.wikipedia.org/wiki/B_(programming_language)
+
+## Hello ...
+
+Целта на втората ни задача е да напишем програма, която поздравява с това, което е въведено от потребителя.  
+Пример: потребителя въвежда `Alise`, а програмата изписва `Hello Alise`
+
+```java
+import java.util.Scanner; // описваме кое средство ще използваме за вземане на данни от клавиатурата
+
+public class Main2 {
+
+    public static void main(String[] args) {
+        Scanner myScanner = new Scanner(System.in); // създаваме средството чрез което ще вземаме данни от клавиатурата и го кръщаваме myScanner
+
+        String input = myScanner.nextLine(); // използваме myScanner за да вземем данни от клавиатурата и ги записваме в променливата input
+
+        System.out.println("Hello " + input); // принтираме слято Hello и въведената стойност от потребителя
+    }
+}
+```
+
+> Забележете програмата е написана във втори файл с име `Main2`.  
+> Когато старирате програмата въведете име от клавиатурата, след което натиснете enter. 
 
 ℹ️ За повече информация относно типовете данни изгледайте това [youtube видео](https://www.youtube.com/watch?v=TBWX97e1E9g&list=PLE7E8B7F4856C9B19)
 и това [youtube видео](https://www.youtube.com/watch?v=yYN8u90MKCg&list=PLE7E8B7F4856C9B19&index=2).
