@@ -1,4 +1,4 @@
-# Homework Lecture 4
+# 👀 Homework Solutions Lecture 4
 #java course#
 
 ## Arrays 
@@ -162,6 +162,62 @@ for (int i = 0; i < array.length; i++) {
 3 3 6 9 15 24 39 63 102 167 🐚
 ```
 
+<details><summary><b>Solution</b> 👀</summary> 
+<p>
+
+###### Solution 1
+
+```java
+Scanner scanner = new Scanner(System.in);
+
+System.out.print("Enter number: ");
+
+int startNum = scanner.nextInt();
+
+int current = startNum;
+int next = startNum;
+
+int[] fibonacciArray = new int[10];
+
+for (int i = 0; i < fibonacciArray.length; i++) {
+    fibonacciArray[i] = current;
+
+    int tmp = current + next;
+
+    current = next;
+    next = tmp;
+}
+
+for (int i = 0; i < fibonacciArray.length; i++) {
+    System.out.print(fibonacciArray[i] + ", ");
+}
+```  
+
+###### Solution 2
+
+```java
+Scanner number = new Scanner(System.in);
+
+int[] myArray = new int[10];
+
+System.out.println("Enter the first element of the array");
+myArray[0] = number.nextInt();
+myArray[1] = myArray[0];
+
+for (int i = 2; i < myArray.length; i++) {
+    myArray[i] = myArray[i - 1] + myArray[i - 2];
+}
+
+System.out.println("Array:");
+
+for (int i = 0; i < myArray.length; i++) {
+    System.out.print(myArray[i] + " ");
+}
+```
+
+</p>
+</details>
+
 ### Task 4
 
 ```text
@@ -184,6 +240,42 @@ for (int i = 0; i < array.length; i++) {
 Масивът е огледален
 ```
 
+<details><summary><b>Solution</b> 👀</summary> 
+<p>
+
+```java
+Scanner number = new Scanner(System.in);
+
+System.out.print("Enter size of the array: ");
+int size = number.nextInt();
+
+int[] array = new int[size];
+
+for (int i = 0; i < array.length; i++) {
+    System.out.println("Enter the " + (i + 1) + " element of the array");
+    array[i] = number.nextInt();
+}
+
+boolean isMirrored = true;
+
+for (int i = 0, j = array.length - 1; i < j; i++, j--) {
+
+    if (array[i] != array[j]) {
+        isMirrored = false;
+        break;
+    }
+}
+
+if (isMirrored) {
+    System.out.println("The array is mirrored");
+} else {
+    System.out.println("The array is not mirrored");
+}
+```
+
+</p>
+</details>
+
 ### Task 5
 
 ```text
@@ -192,6 +284,31 @@ for (int i = 0; i < array.length; i++) {
 равна на индекса на елемента умножен по 3 и разделен на сумата от индексите на всички елементи.
 Да се изведат елементите на екрана закръглени до втори знак след десетичната запетая.
 ```
+
+<details><summary><b>Solution</b> 👀</summary> 
+<p>
+
+```java
+double[] myArray = new double[10];
+double sum = 0.0;
+
+for (int i = 0; i < myArray.length; i++) {
+    sum += i;
+}
+
+for (int i = 0; i < myArray.length; i++){
+    myArray[i] = i * 3 / sum;
+}
+
+System.out.println("Array");
+
+for (int i = 0; i < myArray.length; i++) {
+    System.out.printf("%.2f ", myArray[i]);
+}
+```
+
+</p>
+</details>
 
 ### Task 6
 
@@ -224,6 +341,45 @@ for (int i = 0; i < array.length; i++) {
 логиката е аналогична на тази при първото число. Тъй като няма елемент на индекс `4`, 
 то е равно на числото с индекс `3` от входния масив `(-11 + 0 = -11)`.
 
+<details><summary><b>Solution</b> 👀</summary> 
+<p>
+
+```java
+Scanner scanner = new Scanner(System.in);
+
+System.out.print("Enter size of the array: ");
+
+int size = scanner.nextInt();
+
+int[] array = new int[size];
+
+for (int i = 0; i < size; i++) {
+    System.out.print("array[" + i + "] = ");
+    array[i] = scanner.nextInt();
+}
+
+int[] result = new int[array.length];
+
+for (int i = 1; i < array.length - 1; i++) {
+    result[i] = array[i - 1] + array[i + 1];
+}
+
+if (result.length == 1) {
+    result[0] = array[0];
+} else if (result.length >= 2) {
+    result[0] = array[1];
+    result[result.length - 1] = array[result.length - 2];
+}
+
+System.out.println("Result");
+for (int i = 0; i < result.length; i++) {
+    System.out.print(result[i] + " ");
+}
+```
+
+</p>
+</details>
+
 ### Task 7
 
 ```text
@@ -244,6 +400,52 @@ for (int i = 0; i < array.length; i++) {
 
 Максималната редица е: 2 2 2
 ```
+
+<details><summary><b>Solution</b> 👀</summary> 
+<p>
+
+```java
+Scanner scanner = new Scanner(System.in);
+
+System.out.println("Enter size of the array: ");
+int size = scanner.nextInt();
+
+int[] array = new int[size];
+
+for (int i = 0; i < array.length; i++) {
+    System.out.print("array[" + i + "] = ");
+    array[i] = scanner.nextInt();
+}
+
+int count = 1;
+int maxCount = 1;
+
+int element = array[0];
+int maxElement = array[0];
+
+for (int i = 1; i < array.length; i++) {
+    int current = array[i];
+
+    if (element == current) {
+        count++;
+
+        if (maxCount < count) {
+            maxCount = count;
+            maxElement = element;
+        }
+    } else {
+        element = current;
+        count = 1;
+    }
+}
+
+for (int i = 0; i < maxCount; i++) {
+    System.out.print(maxElement + " ");
+}
+```
+
+</p>
+</details>
 
 ### Task 8
 
@@ -267,3 +469,54 @@ for (int i = 0; i < array.length; i++) {
 Масивите са различни.
 Масивите имат еднакъв размер.
 ```
+
+<details><summary><b>Solution</b> 👀</summary> 
+<p>
+
+```java
+Scanner number = new Scanner(System.in);
+
+System.out.println("Enter the size of the first array");
+int size = number.nextInt();
+
+int[] firstArray = new int[size];
+
+for (int i = 0; i < firstArray.length; i++) {
+    System.out.println("Enter the " + (i + 1) + " element");
+    firstArray[i] = number.nextInt();
+}
+
+System.out.println("\nEnter the size of the second array");
+size = number.nextInt();
+
+int[] secondArray = new int[size];
+
+for (int i = 0; i < secondArray.length; i++) {
+    System.out.println("Enter the " + (i + 1) + " element");
+    secondArray[i] = number.nextInt();
+}
+
+if (firstArray.length == secondArray.length) {
+    System.out.println("Both arrays are with the same size");
+
+    boolean areTheSame = true;
+
+    for (int i = 0; i < firstArray.length; i++) {
+        if (firstArray[i] != secondArray[i]) {
+            System.out.println("Both arrays are not the same");
+            areTheSame = false;
+            break;
+        }
+    }
+
+    if (areTheSame) {
+        System.out.println("Both arrays are the same");
+    }
+
+} else {
+    System.out.println("Both arrays are not with the same size, so they can not be the same");
+}
+```
+
+</p>
+</details>

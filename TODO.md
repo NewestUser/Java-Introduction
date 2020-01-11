@@ -1,3 +1,5 @@
+# TODO
+
 ### Restructure OOP lectures
 
 The current order seems to difficult. 
@@ -19,10 +21,12 @@ Consider moving the solutions on a separate page.
 ### Generic things to improve
 
 - [x] Add missing shortcuts in previous lectures
-- [ ] Add table of contents in each lecture
 - [x] Add additional reading materials in each lecture and videos
 - [ ] Restructure course content and separate Collections if applicable into several lectures
 - [ ] Add more tasks to the lectures, students complain they don't have enough tasks
+- [ ] Resize images that are too big to fit the lecture so that I do not have to scroll to much when presenting the lecture
+- [ ] Add youtube videos that Delyan recorded
+- [x] Separate solutions that are present in homework. Consider moving solutions on a separate page.
 
 ### Lecture 1
 
@@ -32,17 +36,15 @@ Consider moving the solutions on a separate page.
 
 ### Lecture 2
 
-- [ ] Write the lecture
+- [x] Write the lecture
 
 ### Lecture 5
 
-- [ ] Homework solutions for `Task 1.4` on matrixes
-
+- [ ] Homework solutions for `Task 1.4` on matrices
 
 ### Lecture 7
 
-- [X] Add homework solutions for tasks
-
+- [x] Add homework solutions for tasks
 
 ### Lecture 11
 
@@ -72,7 +74,7 @@ with vehicles, cars, trucks and motorcycles. Also find an appropriate image.
 - [ ] multiple generic parameters
 - [ ] difference between generic method and generic class
 
-## Feedback
+# Feedback
 
 ### Lecture 4
 
@@ -94,7 +96,7 @@ https://gist.github.com/ikermedchiev/981b4e1c4438fba9fbfc6127d42daedc
 - [x] Условието на 6-та задача е неразбираемо
 
 ### Lecture 5
-- Липсва обяснението на домашното
-- Лекцията има само 1 задача
+- [ ] Липсва обяснението на домашното
+- [ ] Лекцията има само 1 задача
 
 

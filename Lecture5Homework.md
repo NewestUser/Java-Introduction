@@ -20,7 +20,7 @@
 {   4,  8,  12, 16  }
 ```
 
-<br/><details><summary><b>Solution</b> 👀</summary> 
+<details><summary><b>Solution</b> 👀</summary> 
 <p>
 
 ```java
@@ -68,7 +68,7 @@ for (int i = 0; i < row; i++) {
 {   4,  5,  12, 13  }
 ```
 
-<br/><details><summary><b>Solution</b> 👀</summary> 
+<details><summary><b>Solution</b> 👀</summary> 
 <p>
 
 ###### solution 1
@@ -169,40 +169,6 @@ for (int i = 0; i < rowCount; i++) {
 {   7,  11, 14, 16  }
 ```
 
-<br/><details><summary><b>Solution</b> 👀</summary> 
-<p>
-
-```java
-int rowCount = 4;
-int colCount = 5;
-int[][] matrix = new int[rowCount][colCount];
-
-int counter = 1;
-
-for (int row = 0; row <= rowCount + colCount - 2; row++) {
-    for (int col = 0; col <= row; col++) {
-
-        int diagonalRow = row - col;
-
-        if (diagonalRow < rowCount && col < colCount) {
-            matrix[diagonalRow][col] = counter++;
-        }
-    }
-}
-
-for (int i = 0; i < matrix.length; i++) {
-    System.out.print("[\t");
-    for (int j = 0; j < matrix[i].length; j++) {
-        System.out.print(matrix[i][j] + "\t");
-    }
-    System.out.print("]\n");
-}
-```
-> Итерираме матрицата по диагонали започвайки от горе в ляво.
-
-</p>
-</details>
-
 #### 1.3.2 
 
 ###### Пример:
@@ -214,42 +180,6 @@ for (int i = 0; i < matrix.length; i++) {
 {   1,  3,  6,  10  }
 ```
 
-<br/><details><summary><b>Solution</b> 👀</summary> 
-<p>
-
-###### (не е решена цялата)
-
-```java
-int rowCount = 4;
-int colCount = 4;
-int[][] matrix = new int[rowCount][colCount];
-
-int counter = 1;
-
-for (int row = rowCount - 1; row >= 0; row--) {
-    for (int col = 0; col < colCount - row; col++) {
-
-        int diagonalRow = row + col;
-        
-        if (row < rowCount && col < colCount) {
-            matrix[diagonalRow][col] = counter++;
-        }
-
-    }
-}
-
-for (int i = 0; i < matrix.length; i++) {
-    System.out.print("[\t");
-    for (int j = 0; j < matrix[i].length; j++) {
-        System.out.print(matrix[i][j] + "\t");
-    }
-    System.out.print("]\n");
-}
-```
-
-</p>
-</details>
-
 #### 1.4
 
 ###### Пример:
@@ -260,18 +190,6 @@ for (int i = 0; i < matrix.length; i++) {
 {   11, 16, 15, 6  }
 {   10, 9,  8,  7  }
 ```
-
-<br/><details><summary><b>Solution</b> 👀</summary> 
-<p>
-
-###### (не е решена)
-
-```java
-
-```
-
-</p>
-</details>
 
 ### Task 2
 
@@ -292,123 +210,3 @@ for (int i = 0; i < matrix.length; i++) {
 { 5     13   8     13 }
 { 2     8    4      5 }
 ``` 
-
->За решението на задачате е използван допълнителент метод `printMatrix`, чрез който се принтира съдържанието на
-матрицата при всяка итерация на цикъла, както и крайното и състояние. 💊
-
-<br/><details><summary><b>Solution</b> 👀</summary> 
-<p>
-
-###### solution 1 (с допълнителна матрица)
-
-```java
-public static void main(String[] args) {
-
-    int[][] matrix = {
-            {1, 12, 13, 5},
-            {6, 17, 8, 4},
-            {3, 2, 13, 8},
-            {0, 14, 5, 2},
-    };
-
-    printMatrix(matrix);
-    System.out.println("===============");
-
-    int[][] rotatedMatrix = new int[matrix[0].length][matrix.length];
-
-    for (int col = 0; col < matrix.length; col++) {
-        for (int row = 0; row < matrix[col].length; row++) {
-
-            int lastRow = matrix.length - col - 1;
-
-            rotatedMatrix[row][col] = matrix[lastRow][row];
-        }
-
-        printMatrix(rotatedMatrix);
-    }
-
-    System.out.println("===============");
-    printMatrix(rotatedMatrix);
-}
-
-private static void printMatrix(int[][] matrix) {
-    System.out.println();
-
-    for (int i = 0; i < matrix.length; i++) {
-        System.out.print("[\t");
-        for (int j = 0; j < matrix[i].length; j++) {
-            System.out.print(matrix[i][j] + "\t");
-        }
-        System.out.println("]");
-    }
-}
-```
-
-###### solution 2 (без допълнителна матрица)
-
-```java
-public static void main(String[] args) {
-
-    int[][] matrix = {
-            {1, 12, 13, 5},
-            {6, 17, 8, 4},
-            {3, 2, 13, 8},
-            {0, 14, 5, 2},
-    };
-
-    printMatrix(matrix);
-    System.out.println("===============");
-
-    for (int i = 0; i < matrix.length / 2; i++) {
-        for (int j = i; j < matrix.length - i - 1; j++) {
-            int topLeftRow = i;
-            int topLeftCol = j;
-
-            int topRightRow = j;
-            int topRightCol = matrix.length - 1 - i;
-
-            int bottomRightRow = matrix.length - 1 - i;
-            int bottomRightCol = matrix.length - 1 - j;
-
-            int bottomLeftRow = matrix.length - 1 - j;
-            int bottomLeftCol = i;
-
-            int topLeft = matrix[topLeftRow][topLeftCol];
-            int topRight = matrix[topRightRow][topRightCol];
-
-            int bottomRight = matrix[bottomRightRow][bottomRightCol];
-            int bottomLeft = matrix[bottomLeftRow][bottomLeftCol];
-
-            matrix[topLeftRow][topLeftCol] = bottomLeft;
-            matrix[topRightRow][topRightCol] = topLeft;
-
-            matrix[bottomRightRow][bottomRightCol] = topRight;
-            matrix[bottomLeftRow][bottomLeftCol] = bottomRight;
-
-            printMatrix(matrix);
-        }
-    }
-
-    System.out.println("===============");
-    printMatrix(matrix);
- }
-
-private static void printMatrix(int[][] matrix) {
-    System.out.println();
-
-    for (int i = 0; i < matrix.length; i++) {
-        System.out.print("[\t");
-        for (int j = 0; j < matrix[i].length; j++) {
-            System.out.print(matrix[i][j] + "\t");
-        }
-        System.out.println("]");
-    }
-}
-
-```
-> Разгледайте как се променя позицият на всеки елемент поотделно. От кой ред и коя колона в кой ред и коя колона отива.  
-Ето [примерно решение](https://www.geeksforgeeks.org/inplace-rotate-square-matrix-by-90-degrees/) с добра илюстрация 
-(с тази разлика че върти матрицата на обратно)
-
-</p>
-</details>
