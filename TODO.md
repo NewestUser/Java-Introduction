@@ -37,6 +37,7 @@ Consider moving the solutions on a separate page.
 ### Lecture 2
 
 - [x] Write the lecture
+- [x] Add logical operators table
 
 ### Lecture 5
 

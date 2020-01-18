@@ -3,74 +3,156 @@
 
 ## Recap Primitive Types
 
-1. What are all the below components and how do they fit together?
+1. Какво представляват изредените компоненти и каква е връзката м/у тях?
+
 	-  `JVM`
 	-  `JDK`
 	-  `Compiler`
 	-  `ByteCode`
 
-2. What are variables?
-	 - `TYPE` (тип)
-	 - `NAME` (име)
-	 - Optional  `VALUE` (не задължителна стойност)
-	 
-	 ```java
-	 double pi = 3.1415;
-	 
-	 boolean myBoolean;
-	 ```
+<details><summary><b>Solution</b> 👀</summary> 
+<p>
 
-3. Primitive Types?
-	- `byte` — 8 bit ( -128 — 127 )
-	- `short` — 16 bit ( -32768 — 32767 )
-	- `int` — 32 bit ( -2 147 483 648 — 2 147 483 647 )
-	- `long`— 64 bit ( -2^63 — 2^63 - 1 )
-	- `float` — 32 bit ( 1.4 E-45 — 3.4028235 E38 )
-	- `double` — 64 bit ( 4.9e-324 — 1.7976931348623157e+308)
-	- `boolean` — 1 bit ( true/false )
-	- `char` —16 bit
+- `JVM` - Java Virtual Machine - Виртуалната машина която изпълнява компилираният bytecode.
 
-4. Arithmetic functions
-	 - `+` —  addition (събиране)
-	 - `-` — subtraction (изваждане)
-	 - `*` — multiplication (умножение)
-	 - `/` — division (деление)
-	 - `%` — modulo (деление с остатък)
+- `JDK` - Java Development Kit - Съвкупността от инструменти, които използваме за разработване на едно
+Java приложение. С инсталирането на JDK ние инсталираме и JVM.
 
-6. Logical functions
-	 - `&&` — logical AND (логическо И)
-	 - `||` — logical OR (логическо ИЛИ)
-	 - `&` — logical AND (логическо И)
-	 - `|` — logical OR (логическо ИЛИ)
+- `Compiler` - Компилаторът е инструмента, който използваме за да преведем кодът написан в `.java` файловете до 
+bytecode, който се записва в файлове с разширение `.class`. 
 
-8. What are key words?
+- `ByteCode` - Това е вече компилираният java код, който JVM разбира и изпълнява.
+</p>
+</details>
 
-9. Output to the `Console`
-    ```java
-    System.out.println("Hello world");
-    ```
+2. Какво представлява променливата и от какво е съставена?
 
-11. Input from the `Console`
-    ```java
-    Scanner scanner = new Scanner(System.in);
-    
-    int myInput = scanner.nextInt();
-    ```
+<details><summary><b>Solution</b> 👀</summary> 
+<p>
 
+ - `TYPE` (тип)
+ - `NAME` (име)
+ - Optional  `VALUE` (не задължителна стойност)
+
+ ```java
+ double pi = 3.1415; // създаваме променлива и едновременно задаваме стойност
+ 
+ boolean myBoolean; // създаваме променлива без да и даваме стойност
+ ```
+
+</p>
+</details>
+
+3. Примитивни типове (Primitive Types)
+
+<details><summary><b>Solution</b> 👀</summary> 
+<p>
+
+- `byte` — 8 bit ( -128 — 127 )
+- `short` — 16 bit ( -32768 — 32767 )
+- `int` — 32 bit ( -2 147 483 648 — 2 147 483 647 )
+- `long`— 64 bit ( -2^63 — 2^63 - 1 )
+- `float` — 32 bit ( 1.4 E-45 — 3.4028235 E38 )
+- `double` — 64 bit ( 4.9e-324 — 1.7976931348623157e+308)
+- `boolean` — 1 bit ( true/false )
+- `char` —16 bit
+
+</p>
+</details>
+
+4. Аритметични оператори (Arithmetic Operators)
+
+<details><summary><b>Solution</b> 👀</summary> 
+<p>
+
+- `+` —  събиране (addition)
+- `-` — изваждане (subtraction)
+- `*` — умножение (multiplication)
+- `/` — деление (division)
+- `%` — деление с остатък (modulo)
+
+</p>
+</details>
+
+5. Логически оператори (Logical Operators)
+
+<details><summary><b>Solution</b> 👀</summary> 
+<p>
+
+- `!`  - отрицание (logical NOT)
+- `&&` — логическо И (logical AND)
+- `||` — логическо ИЛИ (logical OR)
+
+</p>
+</details>
+
+6. Оператори за сравнение (Equality and Relational Operators)
+
+<details><summary><b>Solution</b> 👀</summary> 
+<p>
+
+- `==` - оператор за равенство (equal)
+- `!=` - различно (not equal) 
+- `>` - по-голямо (greater than)
+- `>=` - по-голямо или равно (greater than or equal)
+- `<` - по-малко (less than)
+- `>=` - по-малко или равно (less than or equal)
+
+</p>
+</details>
+
+7. Какво представляват ключовите думи?
+
+<details><summary><b>Solution</b> 👀</summary> 
+<p>
+Думи, които са дефинирани от езикът за програмиране. 
+Тези думи имат точно определено значение и се използват, по определен начин в зависимост от думата.  
+Ключовите думи не могат да бъдат използвани за имена на променливи.
+</p>
+</details>
+
+8. Output to the `Console`
+
+<details><summary><b>Solution</b> 👀</summary> 
+<p>
+
+```java
+System.out.println("Hello world");
+```
+
+</p>
+</details>
+
+9. Input from the `Console`
+
+<details><summary><b>Solution</b> 👀</summary> 
+<p>
+
+```java
+Scanner scanner = new Scanner(System.in);
+
+int myInput = scanner.nextInt();
+```
+
+</p>
+</details>
 
 
 ## Recap if/else 
+
 1. Control flow
 
-2. if statements	
+2. if statements
+
     - if
     ```java
     if (condition) {
         System.out.println("condition is true");
     }
     ```
-	
+
 	- if / else
+
     ```java
     if (condition) {
         System.out.println("condition is true");
@@ -78,8 +160,9 @@
         System.out.println("condition is false");
     }
     ```
-	
+
 	- if / else if
+
     ```java
     if (condition) {
       System.out.println("condition is true");
@@ -87,8 +170,9 @@
       System.out.println("condition is false, otherCondition is true");
     }
     ``` 
-	
+
 	- if / else if / else 
+
     ```java
     if (condition) {
       System.out.println("condition is true");
@@ -98,8 +182,9 @@
       System.out.println("condition && otherCondition are false")
     }
     ```
-    
+
 	 - Example
+
     ```java
     double a = 7.5;
     if (a < 0) {
@@ -116,6 +201,7 @@
 3. What is Scope ?
 
     ```java
+
     { // scope 1
      	int a = 0;
     
@@ -140,7 +226,9 @@
 > Във вътрешния блок има достъп до променливата `var1` и `var2`. Във външния блок имаме достъп до `var1` и `var`. 
 
 ## Recap Loops	
+
 1. `for`
+
     ```java
     for (int i = 0; i < 10; i++) {
     	System.out.println(i);
@@ -148,6 +236,7 @@
     ```
 	
 2. `while`
+
     ```java
     int i = 0;
     while (i < 10) {
@@ -157,6 +246,7 @@
     ```
 	
 3. `do while`
+
     ```java
     int i = 0;
     do {
@@ -165,7 +255,8 @@
     } while (i < 10);
     ```
 
-1. Interrupt loops with `break`
+1. Прекратяване на цикли с `break`
+
     ```java
     for (int i = 0; i < 10; i++) {
       if (i % 2 == 0) {
@@ -176,7 +267,8 @@
     }
     ```
     
-2. Skip iteration with `continue`
+2. Пропускане на итерация с `continue`
+
     ```java
     for (int i = 0; i < 10; i++) {
     	if (i % 2 == 0) {
@@ -192,6 +284,7 @@
 ## Exercise 
 
 ### Task 1
+
 ```
 • Enter an integer. For example, if you enter 3, you shoud see the following:
     „3 3 3 !“
