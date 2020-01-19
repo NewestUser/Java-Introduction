@@ -217,8 +217,6 @@ for (int i = 0; i < matrix.length; i++) {
 <details><summary><b>Solution</b> 👀</summary> 
 <p>
 
-###### (не е решена цялата)
-
 ```java
 int rowCount = 4;
 int colCount = 4;
@@ -226,12 +224,12 @@ int[][] matrix = new int[rowCount][colCount];
 
 int counter = 1;
 
-for (int row = rowCount - 1; row >= 0; row--) {
-    for (int col = 0; col < colCount - row; col++) {
+for (int row = rowCount - 1; row >= -rowCount; row--) {
+    for (int col = 0; col < colCount; col++) {
 
         int diagonalRow = row + col;
-        
-        if (row < rowCount && col < colCount) {
+
+        if (diagonalRow >= 0 && diagonalRow < rowCount) {
             matrix[diagonalRow][col] = counter++;
         }
 

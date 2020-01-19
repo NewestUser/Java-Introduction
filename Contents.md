@@ -3,8 +3,14 @@
 
 ##### 🗺️ [Table of Contents](https://gist.github.com/NewestUser/cd205412a512b3a2e0ca171875415370)
 
+- [Видео урок 1 - Представяне на видеата от курса по програмиране за начинаещи](https://www.youtube.com/watch?v=ii_ZU7kDh4Q&list=PLdl8K0l65D0GVQ0mjiqdRGFk4tBFT1owN&index=2)
+- [Видео урок 2.1 - Какво значи да програмираме? Въведение в Java](https://www.youtube.com/watch?v=GJ4xARMQL2k&list=PLdl8K0l65D0GVQ0mjiqdRGFk4tBFT1owN&index=3)
+- [Видео урок 2.2 - Езикът Java и неговата платформена независимост](https://www.youtube.com/watch?v=8lEciH1BGLw&list=PLdl8K0l65D0GVQ0mjiqdRGFk4tBFT1owN&index=4)
+- [Видео урок 3 - Как да създадем проект и да стартираме първата ни програма?](https://www.youtube.com/watch?v=i3SJjyIiNjw&list=PLdl8K0l65D0GVQ0mjiqdRGFk4tBFT1owN&index=5)
 
 #### Lecture 1 - Primitive Types
+
+- [Видео урок 4 - Примитивни типове данни. Променливи. Работа с конзолата](https://www.youtube.com/watch?v=o7RQnUDhEp4&list=PLdl8K0l65D0GVQ0mjiqdRGFk4tBFT1owN&index=6)
 
 - [Exercises](https://gist.github.com/NewestUser/b9376fd5fc8cbc9b7d2014c30c63148d)
 
@@ -13,6 +19,8 @@
 - [Homework Solutions](https://gist.github.com/NewestUser/297b54662984903701edb4816d628b8f)
 
 #### Lecture 2 - if/else and Loops
+
+- [Видео урок 5 - Управление на изпълнението на програмата. If-else statement](https://www.youtube.com/watch?v=6yscC-3GyzY&list=PLdl8K0l65D0GVQ0mjiqdRGFk4tBFT1owN&index=6)
 
 - [Exercises](https://gist.github.com/NewestUser/a69b3511a131ca3126de8d805a8311c4)
 

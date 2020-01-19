@@ -179,13 +179,12 @@ public class Homework5 {
 
         int counter = 1;
 
-        // TODO (mzlatev) iterate the other half of the matrix
-        for (int row = rowCount - 1; row >= 0; row--) {
-            for (int col = 0; col < colCount - row; col++) {
+        for (int row = rowCount - 1; row >= -rowCount; row--) {
+            for (int col = 0; col < colCount; col++) {
 
                 int diagonalRow = row + col;
 
-                if (row < rowCount && col < colCount) {
+                if (diagonalRow >= 0 && diagonalRow < rowCount) {
                     matrix[diagonalRow][col] = counter++;
                 }
 
@@ -217,8 +216,8 @@ public class Homework5 {
      * </pre>
      */
     private static void task3SecondVariation() {
-        int rowCount = 4;
-        int colCount = 5;
+        int rowCount = 3;
+        int colCount = 3;
         int[][] matrix = new int[rowCount][colCount];
 
         int counter = 1;
@@ -307,6 +306,7 @@ public class Homework5 {
         System.out.println("===============");
         printMatrix(rotatedMatrix);
     }
+
     /**
      * Да се завърти двумерен масив (за по-лесно квадратен с четен брой елементи – 4х4, 6х6 и т.н.)
      * по часовниковата стрелка:
