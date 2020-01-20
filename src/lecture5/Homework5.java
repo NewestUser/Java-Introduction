@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Homework5 {
 
     public static void main(String[] args) {
-        task3();
+        task4();
     }
 
     /**
@@ -258,7 +258,47 @@ public class Homework5 {
      * </pre>
      */
     private static void task4() {
+        int rows = 4;
+        int cols = 4;
+        int counter = 1;
 
+//        00 01 02 03
+//        13 23 33
+//        32 31 30
+
+
+        int[][] matrix = new int[rows][cols];
+
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+
+                if (i == 0) {
+                    matrix[i][j] = counter++;
+                }
+//
+//                if (i == 1 && j == cols - 1) {
+//                    matrix[i][j] = counter++;
+//                }
+//
+//                if (i == 2 && j == cols - 1) {
+//                    matrix[i][j] = counter++;
+//                }
+//
+//                if (i == 3 && j == cols - 1) {
+//                    matrix[i][j] = counter++;
+//                }
+
+                if (i != 0 && j == cols - 1) {
+                    matrix[i][j] = counter++;
+                }
+
+                if (i == rows - 1 && j != cols - 1) {
+                    matrix[i][cols - 2 - j] = counter++;
+                }
+            }
+        }
+
+        printMatrix(matrix);
     }
 
     /**
