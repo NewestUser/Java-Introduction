@@ -377,6 +377,8 @@ for (int i = 1; i <= number; i++) {
 System.out.println("sum 1..." + number + " = " + sum);
 ```
 
+> Помислете какво е необходимо да се направи за да може тази прорама да работи за отрицателни числа.
+
 </p>
 </details>
 
@@ -419,24 +421,24 @@ for (int i = 3, count = 0; count < number; i++) {
 <p>
 
 ```java
- Scanner scanner = new Scanner(System.in);
+Scanner scanner = new Scanner(System.in);
 
- System.out.print("Enter a number: ");
- int number = scanner.nextInt();
+System.out.print("Enter a number: ");
+int number = scanner.nextInt();
 
- boolean isPrime = true;
- for (int i = 2; i <= number / 2; i++) {
-     if (number % i == 0) {
-         isPrime = false;
-         break;
-     }
+boolean isPrime = true;
+for (int i = 2; i <= number / 2; i++) {
+ if (number % i == 0) {
+     isPrime = false;
+     break;
  }
+}
 
- if (isPrime) {
-     System.out.println(number + " is a prime number");
- } else {
-     System.out.println(number + " is NOT a prime number");
- }
+if (isPrime) {
+ System.out.println(number + " is a prime number");
+} else {
+ System.out.println(number + " is NOT a prime number");
+}
 ```
 
 </p>
