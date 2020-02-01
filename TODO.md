@@ -39,7 +39,13 @@ Consider moving the solutions on a separate page.
 - [x] Write the lecture
 - [x] Add logical operators table
 
+### Lecture 4
+- [x] Homework 4 въведете стойности и ги запишете в масив, а не въедете масив (условието е странно)
+
 ### Lecture 5
+
+- [ ] We haven't gone through methods and class names but we are having Recap of it. 
+Maybe it would make sense to substitute it with Strings. Or just start OOP.
 
 - [ ] Homework solutions for `Task 1.4` on matrices
 
