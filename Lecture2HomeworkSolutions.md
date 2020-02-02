@@ -364,20 +364,28 @@ Scanner scanner = new Scanner(System.in);
 System.out.print("Enter number: ");
 int number = scanner.nextInt();
 
-if (number <= 1) {
-    System.out.println("The number must be grater than 1");
+if(number == 1){
+    System.out.println("sum 1...1 = 0");
     return;
 }
 
+int start;
+int end;
+if (number < 1) {
+    start = number;
+    end = 1;
+} else {
+    start = 1;
+    end = number;
+}
+
 int sum = 0;
-for (int i = 1; i <= number; i++) {
+for (int i = start; i <= end; i++) {
     sum += i;
 }
 
-System.out.println("sum 1..." + number + " = " + sum);
+System.out.println("sum " + start + "..." + end + " = " + sum);
 ```
-
-> Помислете какво е необходимо да се направи за да може тази прорама да работи за отрицателни числа.
 
 </p>
 </details>

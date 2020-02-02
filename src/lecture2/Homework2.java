@@ -137,7 +137,7 @@ public class Homework2 {
     }
 
     /**
-     * Да се въведат от потребителя 2 числа. И да се изведат на екрана всички числа от по-малкото до по-голямото.
+     * Да се прочете число от екрана(конзолата) и да се изведе сбора на всички числа от 1 до въведеното число.
      */
     private static void task10Sum1ToN() {
         Scanner scanner = new Scanner(System.in);
@@ -145,17 +145,27 @@ public class Homework2 {
         System.out.print("Enter number: ");
         int number = scanner.nextInt();
 
-        if (number <= 1) {
-            System.out.println("The number must be grater than 1");
+        if(number == 1){
+            System.out.println("sum 1...1 = 0");
             return;
         }
 
+        int start;
+        int end;
+        if (number < 1) {
+            start = number;
+            end = 1;
+        } else {
+            start = 1;
+            end = number;
+        }
+
         int sum = 0;
-        for (int i = 1; i <= number; i++) {
+        for (int i = start; i <= end; i++) {
             sum += i;
         }
 
-        System.out.println("sum 1..." + number + " = " + sum);
+        System.out.println("sum " + start + "..." + end + " = " + sum);
     }
 
     /**
@@ -271,7 +281,7 @@ public class Homework2 {
     /**
      * Въведете 3 различни числа от конзолата и ги разпечатайте в низходящ ред.
      */
-    private static void task3Print3NumInDescOrder2(){
+    private static void task3Print3NumInDescOrder2() {
         Scanner scan = new Scanner(System.in);
 
         System.out.print("Въведете първото число: ");
