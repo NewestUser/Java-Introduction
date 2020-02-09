@@ -162,6 +162,11 @@ for (int i = 0; i < array.length; i++) {
 3 3 6 9 15 24 39 63 102 167 🐚
 ```
 
+> Няколко интересни факта за Фибоначи:  
+[The magic of Fibonacci numbers](https://www.youtube.com/watch?v=SjSHVDfXHQ4&fbclid=IwAR16DatoUczikQgzwQHtpBcIQe5DhGEcXWsXv0CGMZ6yjx4QMZL1y0yVOdw)  
+[Nature by Numbers](https://www.youtube.com/watch?v=kkGeOWYOFoA&fbclid=IwAR1ClvHqnuBsG04hz7RgUZwG9D3j_mSYXCqSUuYAze1SylakjW0GMFOK5qI)  
+[Константно намиране на n-тото число от поредицата на Фибоначи](http://www.maths.surrey.ac.uk/hosted-sites/R.Knott/Fibonacci/fibFormula.html)
+
 <details><summary><b>Solution</b> 👀</summary> 
 <p>
 
