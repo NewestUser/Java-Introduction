@@ -91,6 +91,8 @@
 
 - [Видео урок 16 - Наследяване (Inheritance)](https://www.youtube.com/playlist?list=PLdl8K0l65D0GVQ0mjiqdRGFk4tBFT1owN)
 
+- [Видео урок 19 - Презаписване/Овъррайдване (Overriding)](https://www.youtube.com/watch?v=W81WSXaG9-g&list=PLdl8K0l65D0GVQ0mjiqdRGFk4tBFT1owN&index=21&t=0s)
+
 - [Видео урок 20 - Overloading](https://www.youtube.com/watch?v=Ia5rl9fl_pc&list=PLdl8K0l65D0GVQ0mjiqdRGFk4tBFT1owN&index=22&t=0s)
 
 - [Exercises](https://gist.github.com/NewestUser/1509a937ea59bb80495e88bb97f20a1b)
@@ -106,8 +108,6 @@
 - [Exercises](https://gist.github.com/NewestUser/10c512f9ac9660bf3fe1cc7af2079064)
 
 #### Lecture 11 - Abstraction, Interfaces and Polymorphism
-
-- [Видео урок 19 - Презаписване/Овъррайдване (Overriding)](https://www.youtube.com/watch?v=W81WSXaG9-g&list=PLdl8K0l65D0GVQ0mjiqdRGFk4tBFT1owN&index=21&t=0s)
 
 - [Видео урок 21 - Интерфейси (Interfaces)](https://www.youtube.com/watch?v=5TB5V-BfXmw&list=PLdl8K0l65D0GVQ0mjiqdRGFk4tBFT1owN&index=23&t=0s)
 

@@ -22,8 +22,9 @@
 |   Edit                    |Shortcut               |
 |---------------------------|-----------------------|
 |Reformat Code              |**CTRL + ALT + L**     |
-|Comment Line               |**CTRL + /**           |
+|Rename                     |**SHIFT + F6**         |
 |Extend Selection           |**CTRL + W**           |
+|Comment Line               |**CTRL + /**           |
 |Move Line Up               |**CTRL + SHIFT + ↑**   |
 |Move Line Down             |**CTRL + SHIFT + ↓**   |
 |Delete Line                |**CTRL + Y**           |
