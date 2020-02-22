@@ -271,7 +271,7 @@ Java нарича **Stack Frame** моделировата на извикван
 - локални променливи (променливи видими само за метода)
 - допълнителна информация като return адрес
 
-![stack_representation](https://www.ambrishontech.com/wp-content/uploads/2018/01/stack_representation.jpg)
+![stack_representation](https://camo.githubusercontent.com/ed8db1baa4b62e314c66cdbbdcd8debf75edbf1c/68747470733a2f2f7777772e7475746f7269616c73706f696e742e636f6d2f646174615f737472756374757265735f616c676f726974686d732f696d616765732f737461636b5f726570726573656e746174696f6e2e6a7067)
 
 #### Heap
 
