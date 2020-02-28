@@ -58,6 +58,10 @@ Maybe it would make sense to substitute it with Strings. Or just start OOP.
 - [ ] Remove the polymorphism example with the Bird and Airplane and give a more concrete example
 with vehicles, cars, trucks and motorcycles. Also find an appropriate image.
 
+- [ ] Add an example for abstract classes
+
+- [ ] Explain static and dynamic polymorphism
+
 ### Lecture 12
 
 - [ ] `Task 4` needs more clarification
