@@ -43,6 +43,6 @@ public class Car {
         System.out.println("year: " + year);
         System.out.println("isAutomatic: " + isAutomatic);
         System.out.println("maxSpeed: " + maxSpeed);
-        System.out.println("        color: " + color);
+        System.out.println("color: " + color);
     }
 }
