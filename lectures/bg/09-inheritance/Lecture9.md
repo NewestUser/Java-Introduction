@@ -9,11 +9,11 @@
 
 - Например
 
-![inheritance-illustration](https://developer.hyvor.com/tutorials/static/images/php-oop-inheritance-2.png)
+![inheritance-illustration](../../../assets/09-lecture/inheritance-illustration.png)
 > Имаме една абстракция за животно, като имаме два конкретни представителя на тази абстракция и те са Куче и Котка.  
 Или с други думи казваме че Куче и Котка наследяват абстракцията Животно
 
-![4-pillars-of-oop](https://i.ibb.co/LC9st10/4-pillars-of-oop.png)
+![4-pillars-of-oop](../../../assets/09-lecture/4-pillars-of-oop.png)
 > Четирите основни принципа на ООП
 
 При наследяването имаме `super class`, който представлява по-високото ниво в йерархията и наследяващ клас `child class`,

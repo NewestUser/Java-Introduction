@@ -221,7 +221,7 @@ int myInput = scanner.nextInt();
     ```
 
 
-![variable_scope](http://3.bp.blogspot.com/_ynkoLGkpwXY/TDmvY3T0wQI/AAAAAAAAAjo/iy3tga3v7x4/s400/local_variable_in_c.bmp)
+![variable_scope](../../../assets/03-lecture/variable_scope.jpg)
 
 > Във вътрешния блок има достъп до променливата `var1` и `var2`. Във външния блок имаме достъп до `var1` и `var`. 
 

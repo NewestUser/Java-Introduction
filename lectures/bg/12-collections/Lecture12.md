@@ -33,7 +33,7 @@
 Представлява последователна поредица от елементи с фиксиран размер.
 Знаем че всеки елемент може да бъде достъпван използвайки индекс.
 
-![array](https://migsena.com/wp-content/uploads/2017/08/arrayIllustration.png)
+![array](../../../assets/12-lecture/array.png)
 
 - Предимства
     - Константно `O(1)` време за достъпване на елемент в масива използвайки индекс.
@@ -65,7 +65,7 @@
 истинския размер на масива. Не е задължително `size` и `capacity` да са с една и съща стойност.
 
 
-![dynamic_array](https://www.interviewcake.com/images/svgs/dynamic_arrays__capacity_size_end_index.svg?bust=203).
+![dynamic_array](../../../assets/12-lecture/dynamic_array.svg).
 
 > ℹ️ За повече информация вижте това [youtube видео](https://www.youtube.com/watch?v=qTb1sZX74K0).
 
@@ -100,7 +100,7 @@ for (String myString : myArrayList) {
 
 ##### LinkedList
 
-![linked_list_insertion_animation](https://i.pinimg.com/originals/bf/db/8c/bfdb8c10a7e844f1ded4a5252d11f444.gif)
+![linked_list_insertion_animation](../../../assets/12-lecture/linked_list_insertion_animation.gif)
 
 > ℹ️ За повече информация вижте това [youtube видео](https://www.youtube.com/watch?v=_jQhALI4ujg).
 
@@ -125,7 +125,7 @@ for (String myString : myLinkedList) {
 
 #### Stack
 
-![stack_push_pop_animation](https://cdn-images-1.medium.com/max/1600/1*kkK3EZNOzBsuwkDNvSVR9g.gif)
+![stack_push_pop_animation](../../../assets/12-lecture/stack_push_pop_animation.gif)
 
 **Пример**
 
@@ -149,7 +149,7 @@ for (String myString : myStack) {
 
 #### Queue
 
-![queue_enqueue_dequeue_animation](https://cdn-images-1.medium.com/max/1600/1*UKVABqYxsiR6YvV2385nFQ.gif)
+![queue_enqueue_dequeue_animation](../../../assets/12-lecture/queue_enqueue_dequeue_animation.gif)
 
 > ℹ️ За повече информация вижте това [youtube видео](https://www.youtube.com/watch?v=wjI1WNcIntg)
 
@@ -177,7 +177,7 @@ for (String myString : myQueue) {
 
 ##### TreeSet
 
-![binary_search_tree](http://web.augsburg.edu/~crockett/210/graphics/BinarySearchTreeArrayAnimation.gif)
+![binary_search_tree](../../../assets/12-lecture/binary_search_tree_animation.gif)
 
 > ℹ️ За да придобиете по ясна представа, какво се случва, когато се добавят
 и премахват елементи от списъците вижте това [youtube видео](https://www.youtube.com/watch?v=oSWTXtMglKE).
@@ -204,7 +204,7 @@ for (String myString : myTree) {
 
 ##### HashSet
 
-![hash_set](https://i.stack.imgur.com/CnWBG.png)
+![hash_set](../../../assets/12-lecture/hash_set.png)
 
 > ℹ️ За повече информация прочетете [тази статия](https://www.thecshandbook.com/hash_set)
 или вижте това [youtube видео](https://www.youtube.com/watch?v=WPcKwA5WF7s).
@@ -231,7 +231,7 @@ for (Integer number : mySet) {
 
 ##### HashMap
 
-![hashmap](https://www.codenuclear.com/wp-content/uploads/2017/11/bucket_entries.jpg)
+![hashmap](../../../assets/12-lecture/hashmap.jpg)
 
 > ℹ️ За да придобиете по ясна представа, какво се случва, когато се добавят
 и премахват елементи от списъците вижте [това](https://www.youtube.com/watch?v=MfhjkfocRR0) 
@@ -264,7 +264,7 @@ for (int myValue : myMap.values()) { // обхождаме всички стой
 И колекциите и маповете целят да репрезентират структури от данни. Йерархично погледанто в Java
 те са представени, като две различни звена (node) в йерархичното дърво.
 
-![java_collections_and_map_hierarchy](http://file.mrbool.com/mrbool/articles/Manisha/array-list/image1.png)
+![java_collections_and_map_hierarchy](../../../assets/12-lecture/java_collections_and_map_hierarchy.png)
 
 #### Iterators
 

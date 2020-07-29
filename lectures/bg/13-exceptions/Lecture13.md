@@ -77,12 +77,12 @@ public static void main(String[] args) {
 Това търсене на код способен да обработи грешката също така може да се назове, като:  
 *Търсене на **Error Handler** от **Runtime**-a на `Java`*.
  
-![call_stack](https://i.ytimg.com/vi/2ZH_1d8TYVg/maxresdefault.jpg)
+![call_stack](../../../assets/13-lecture/call_stack.jpg)
 
 > Редът на изпълнение е &rarr; `main()` &rarr; `printSquare(4)` &rarr; `square(4)` &rarr; `multiply(4, 4)`,
 като `main()` първи е влязъл в Stack
 
-![search_for_exception_handler](https://image.slidesharecdn.com/exceptionhandling-180813200205/95/exception-handling-25-638.jpg?cb=1534190573)
+![search_for_exception_handler](../../../assets/13-lecture/search_for_exception_handler.jpg)
 
 В примера по-горе, ако настъпи грешка в `multply(...)`, първо ще се потърси там за **Error Handling**,
 ако не бъде намерен ще се потърси в `square(...)`, ако и там не бъде намерен ще се потърси още един метод назад в 
@@ -96,7 +96,7 @@ public static void main(String[] args) {
 
 За да се проследи, от кой метод е започнала грешката четенето на Stack Trace трябва да започне от долу на горе.
 
-![stack_trace](https://i.ibb.co/r3NXWg0/stack-trace.png)
+![stack_trace](../../../assets/13-lecture/stack_trace.png)
 
 > Грешката е започнала от метод `main` на 16-ти ред в класът `Demo`. 
 Като мястото, където е хвърлена е в метод `divide` на 23-ти ред в класът `Demo`.
@@ -118,7 +118,7 @@ try {
 
 > Този пример няма да компилира, защото не можем да имаме `try` без `catch` или `finally`.
 
-![unhandled_exception](https://uploads.toptal.io/blog/image/92347/toptal-blog-image-1460406405672-52ec53e6624f51828dab1aee43efe75a.jpg)
+![unhandled_exception](../../../assets/13-lecture/unhandled_exception.jpg)
 
 За да напишем, кода способен да обработи грешката **Error Handling**, ще трябва да използваме `catch block`.
 Като в този блок ще напишем логиката, за това как да обработим грешката.
@@ -138,7 +138,7 @@ try {
 Кодът, който е написан в `catch` блока ще бъде изпълнен само, когато бъде хвърлена грешка от кода който е в `try` блока.
 Ако не бъде хвърлена грешка програмата ще продължи да изпълнява кодът намиращ се след целия **try-catch**.
 
-![handled_exception](https://uploads.toptal.io/blog/image/92351/toptal-blog-image-1460406491014-f57ebec3e07dad241a050e39ccab7832.jpg)
+![handled_exception](../../../assets/13-lecture/handled_exception.jpg)
 
 Теоретично можем да слагаме **try-catch** навсякъде и така бихме предотвратили в програмата да настъпват грешки.
 Но това не би било практично. Добра практика е когато очакваме грешка и я уловим да я обработим, преди да продължим
@@ -223,7 +223,7 @@ try {
 Вече споменахме, че грешките в Java са обекти (класове). Това означава че те могат да бъдат наследявани и да има 
 йерархия в грешките. Всички грешки имат общ наследник, който е `Throwable`.
 
-![checked_vs_unchecked_exceptions](https://i.stack.imgur.com/upyMt.jpg) 
+![checked_vs_unchecked_exceptions](../../../assets/13-lecture/checked_vs_unchecked_exceptions.jpg) 
 
 - `Throwable` - Това е общия наследник на всички видове грешки (exceptions), които могат да бъдат хвърлени (и хванати)
 използвайки **try-catch**.

@@ -51,7 +51,7 @@
 
 ##### UML Diagram
 
-![bank-uml-diagram](https://i.ibb.co/hZH7rkN/bank-uml-diagram.png)
+![bank-uml-diagram](../../../assets/07-lecture/bank_uml_diagram.png)
 
 <details><summary><b>Solution</b> 👀</summary> 
 <p>

@@ -65,7 +65,7 @@
 Пример: Знаем че една кола може да се характеризира със своята `марка`, то тогава колите
 Audi, Nissan, Volvo са **обекти** от типа `Car`.
 
-![Class vs Object](https://i.stack.imgur.com/lNUAA.png)
+![Class vs Object](../../../assets/06-lecture/class-object-featured-image.png)
 
 > Всеки един от трите **обекта** в примера е представител на **класът** Car, 
 като има различна стойност записана в свойството `марка`.

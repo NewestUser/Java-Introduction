@@ -10,7 +10,7 @@
 По време на изпълнение на програмата се изчисляват тези условия и се решава, по кой клон 
 да протече изпълнението на програмата.
 
-![control-flow-graph](https://www.researchgate.net/profile/Chao_Wang287/publication/307577660/figure/fig5/AS:401918053634048@1472836139016/Control-flow-graph-of-a-C-code-and-its-dominator-tree.png)
+![control-flow-graph](../../../assets/02-lecture/control-flow-graph.png)
 > Примерно изпълнение на една програма. Във всички случаи започваме от **1**, като в зависимост от решенията, които се вземат
 в различните звена, програмата може да приключи на **5**, **7** или **9**.
 
@@ -95,7 +95,7 @@ if (age >= 18) {
 
 Често подобен тип условия се илюстрират по следния начин:
 
-![if-else-statement](https://i.ibb.co/7Y5kjy8/if-else-statement.png)
+![if-else-statement](../../../assets/02-lecture/if-else-statement.png)
 
 ### else if
 
@@ -203,7 +203,7 @@ if (b > 5 && b < 10) {
 
 ### Switch Case
 
-![switch-case-statement](https://cdn.programiz.com/sites/tutorial2program/files/c%2B%2Bswitch-case-statement.jpg)
+![switch-case-statement](../../../assets/02-lecture/switch-case-statement.jpg)
 
 **if else** не е единственият начин за изграждане на условия в Java. Езикът предлага и друга конструкция за постигане на същия резултат, която се нарича **switch case**.  
 
@@ -281,7 +281,7 @@ for ( /* инициализираща част */ ; /* условие */ ; /* с
 - **Стъпката** е последната част от **for** цикъла, в нея обикновенно се извършва действие, което изпълнено определен брой пъти ще доведе условието до `false`.
 След изпълнението на стъпката отново се преминава цикъ дса длкалдйсад  
 
-![for-loop](https://www.tutorialsteacher.com/Content/images/csharp/for-loop.png)
+![for-loop](../../../assets/02-lecture/for-loop.png)
 
 > На тази снимка е илюстриран редът на изпълнение на **for** цикълът. 
 Примерът е написан на C# но принципът на работа е еднакъв за всички езици.

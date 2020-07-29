@@ -78,7 +78,7 @@ Input и Output са механизми за четене и писане. Те 
 
 Един пример за писане на данни е `System.out.println()`, където `System.out` е вид `OutputStream`.
 
-![input_vs_output_stream](https://www.oreilly.com/library/view/learning-java-4th/9781449372477/httpatomoreillycomsourceoreillyimages1707641.png)
+![input_vs_output_stream](../../../assets/14-lecture/input_vs_output_stream.png)
 
 Обикновенно данните, които се трансферират в stream-овете се конвертират до байтове. Тези данни са подредени т.е ако
 изпратим числата 1, 2 и 3 ще ги получим в същия ред. Веднъж влезли данните в потока, те не могат да бъдат пренареждани.
@@ -90,7 +90,7 @@ Input и Output са механизми за четене и писане. Те 
 Съществува I/O Stream, който е способен да записва типовете данни, независимо вида на файловата система. Така ние можем да записваме/четем
 примитивни типове като `int`, `char`, `boolean` и тнт. Това е така наречения `DataInputStream` и `DataOutputStream`.
 
-![data_input_vs_data_output_stream](https://www.codingeek.com/wp-content/uploads/2014/11/Data-streams-in-java.png)
+![data_input_vs_data_output_stream](../../../assets/14-lecture/data_input_vs_data_output_stream.png)
 
 ###### Buffered Streams
 
@@ -102,7 +102,7 @@ Input и Output са механизми за четене и писане. Те 
 система и вместо това ги буферира, като само в определени случаи се изпълнява обръщение към операционната система.
 Например, когато се напълни буфера.
 
-![buffered_writer_stream](https://qph.fs.quoracdn.net/main-qimg-8213ea143f4e1737fb5e1a8d7ddfd92b)
+![buffered_writer_stream](../../../assets/14-lecture/buffered_writer_stream.jpeg)
 
 > ℹ️ За повече информация отновно **I/O** вижте това [youtube видео](https://www.youtube.com/watch?v=D_WDuwnaobg&t=558s).
 
@@ -118,7 +118,7 @@ Input и Output са механизми за четене и писане. Те 
 - Когато четем/пишем файл се установява връзка (stream) със този файл. При приключване на операцията този stream 
 **ТРЯБВА ДА БЪДЕ ЗАТВОРЕН**.
 
-![stream_hierarchy](https://www.tutorialspoint.com/java/images/file_io.jpg)
+![stream_hierarchy](../../../assets/14-lecture/stream_hierarchy.jpg)
 
 - Пример за четене на файл byte по byte
 

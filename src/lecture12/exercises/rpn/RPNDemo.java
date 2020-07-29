@@ -1,9 +1,9 @@
-package lecture12.exercises.rpm;
+package lecture12.exercises.rpn;
 
 import java.util.Arrays;
 import java.util.Stack;
 
-public class RPMDemo {
+public class RPNDemo {
 
     public static void main(String[] args) {
 

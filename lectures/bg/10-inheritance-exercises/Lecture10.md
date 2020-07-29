@@ -250,7 +250,7 @@ private static int fibonacci(int n) {
 }
 ```    
     
-![recursive_fibonacci_call_stack](https://i.stack.imgur.com/keYhd.png)    
+![recursive_fibonacci_call_stack](../../../assets/10-lecture/recursive_fibonacci_call_stack.png)    
 
 > Как изглеждат породените рекурсивни извиквания на fibonacci.
 
@@ -271,7 +271,7 @@ Java нарича **Stack Frame** моделировата на извикван
 - локални променливи (променливи видими само за метода)
 - допълнителна информация като return адрес
 
-![stack_representation](https://camo.githubusercontent.com/ed8db1baa4b62e314c66cdbbdcd8debf75edbf1c/68747470733a2f2f7777772e7475746f7269616c73706f696e742e636f6d2f646174615f737472756374757265735f616c676f726974686d732f696d616765732f737461636b5f726570726573656e746174696f6e2e6a7067)
+![stack_representation](../../../assets/10-lecture/stack_representation.jpg)
 
 #### Heap
 
@@ -279,13 +279,13 @@ Java нарича **Stack Frame** моделировата на извикван
 (има струкра от данни с име Heap, в момента **не** обсъждаме нея), което служи за записване на съдържанието 
 на референтни типове. Заделянето на памет в heap-a става чрез ключовата дума `new`.
 
-![stack_vs_heap_representation](https://i.stack.imgur.com/9c2VH.png)
+![stack_vs_heap_representation](../../../assets/10-lecture/stack_vs_heap_representation.png)
 
 > Stack е подреден, докато Heap не е
 
 Алокиране (заемане) на памет по време на изпълниене на програмата.
 
-![alocated_stack_and_heap_presentation](https://1.bp.blogspot.com/-gKWUcwIKWWU/VvPtKUAIFjI/AAAAAAAAFRc/WLCqWfSxlZ4ioocmBuFS3KaRhzs0I13OA/s1600/Difference%2Bbetween%2Bstack%2Band%2Bheap%2Bmemory%2Bin%2BJava.gif)
+![alocated_stack_and_heap_presentation](../../../assets/10-lecture/alocated_stack_and_heap_presentation.gif)
 
 В Stack-а се записва информация, като кои след кои методи са изпълнени, кой метод е в момента за изпълнение, 
 какви са параметри на тези методи и с какви променливи борави всеки един метод. Променливите от референтен тип, 
@@ -306,7 +306,7 @@ Java нарича **Stack Frame** моделировата на извикван
 която не е използвана (реферирана) от никой. Тук вече навлиза **Garbage Collection**. 
 Това е механизъм за почистване на паметта, който е заложен в езика Java. Той оперира в/у Heap-а.
 
-![garbage_collection](http://www.fortwright.com/Portals/fortwright/Images/News/Trash.jpg)
+![garbage_collection](../../../assets/10-lecture/garbage_collection.jpg)
 
 > ℹ️ За повече информация прочетете [Java Garbage Collection Basics](https://www.oracle.com/webfolder/technetwork/tutorials/obe/java/gc01/index.html)
 и [Getting Started with the G1 Garbage Collector](https://www.oracle.com/technetwork/tutorials/tutorials-1876574.html).

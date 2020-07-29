@@ -30,7 +30,7 @@
 Конкретно в Java интерфейсите се прилагат на ниво класове. Един интерфейс описва какви методи и свойства има без да
 предоставя тяло на методите, а класът, който имплементира този интерфейс е задължен да презапише методите от интерфейса.
 
-![mechanical_watch_interfaces](https://upload.wikimedia.org/wikipedia/commons/6/67/Pocketwatch_cutaway_drawing.jpg)
+![mechanical_watch_interfaces](../../../assets/11-lecture/mechanical_watch_interfaces.jpg)
 
 > В този случай циферблата и стрелките на часовника могат да бъдат репрезентирани чрез **interface**, 
 а механичните компоненти задвижващи стрелките са детайлите или така наречената имплементация на интерфейса.
@@ -40,7 +40,7 @@
 Това често се нарича **contract (договор)**. Различните компоненти извършват комуникацията през интерфейс,
 който е известен и за двете страни на комуникацията.
 
-![interface_contract_watch](https://sociorocketnewsen.files.wordpress.com/2012/09/367246621_417.jpg)
+![interface_contract_watch](../../../assets/11-lecture/interface_contract_watch.jpg)
 
 > Всички знаем, как да разчитаме текущия час, използвайки часовник. Това е така защото сме наясно,
 как можем да извлечем текущия час, минута и секунда от часовника използвайки неговите стрелки и циферблат (интерфейс).
@@ -118,7 +118,7 @@ class Person implements Human {
 като интерфейс).
 
 
-![abstract_class_vs_interface](http://cdncontribute.geeksforgeeks.org/wp-content/uploads/Abstract-Class-vs-Interface.png)
+![abstract_class_vs_interface](../../../assets/11-lecture/abstract_class_vs_interface.png)
 
 
 Въпреки това съществуват няколко разлики, които е хубаво да бъдат споменати.
@@ -148,7 +148,7 @@ class Person implements Human {
 един обект да приема много форми. Най-честата употреба на полиморфизъм в ООП, е когато
 се използва референция на `super class` за да се реферира `child class`. 
 
-![bird_morph_into_plain](https://i.pinimg.com/736x/12/96/d4/1296d4438573233e202c30d6c8c3656b--metamorphosis-art-high-school-art.jpg)
+![bird_morph_into_plain](../../../assets/11-lecture/bird_morph_into_plain.jpg)
 
 Така например ако имаме клас `Bird (птица)`, който имплементира или наследява `Flyer (летец)`, то тогава можем да реферираме,
 птицата чрез летеца.
