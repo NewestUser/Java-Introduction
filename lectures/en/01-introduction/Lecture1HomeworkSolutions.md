@@ -6,10 +6,10 @@
 ### Task 1
 
 ```text
-Въведете 2 различни целочислени числа от конзолата.
-Запишете тяхната сума, разлика, произведение, остатък от деление и 
-целочислено деление в отделни променливи и разпечатайте тези резултати
-в конзолата. Опитайте същото с числа с плаваща запетая.  
+Enter 2 different hole number types from the console.
+Save the sum, difference, product, quotient and modulo in different variables.
+Print each of the variables.
+Try to do the same using floating-point numbers.  
 ```
 
 <details><summary><b>Solution</b> 👀</summary> 
@@ -59,14 +59,15 @@ System.out.println("rationalReminder = " + rationalReminder);
 ### Task 2
 
 ```text
-Въведете 2 различни числа от конзолата и разменете стойностите им.
-Разпечатайте новите стойности.
+Enter 2 different numbers using the console. Save the numbers in two variables.
+Swap the values of the variables.
+Print the swapped values.
 ```
 
 <details><summary><b>Solution</b> 👀</summary> 
 <p>
 
-###### Solution 1 (използвайки временна променлива `int tmp`)
+###### Solution 1 (using a temporary variable `int tmp`)
 
 ```java
 Scanner scanner = new Scanner(System.in);
@@ -85,7 +86,7 @@ System.out.print("first number: " + first);
 System.out.print("second number: " + second);
 ```
 
-###### Solution 2 (без временна променлива)
+###### Solution 2 (without temporary variable)
 
 ```java
 Scanner scanner = new Scanner(System.in);
@@ -110,9 +111,8 @@ System.out.print("second number: " + second);
 ### Task 3
 
 ```text
-Въведете 3 числа от клавиатурата а1, а2 и а3.
-Разменете стойностите им, така че а1 да има стойността на а2,
-а2 да има стойността на а3, а а3 да има старата стойност на а1.
+Enter 3 numbers from the console a1, a2 and a3.
+Swap their values such that a1 receives the value of a2, a2 the value of a3 and a3 the value of a1.
 ```
 
 <details><summary><b>Solution</b> 👀</summary> 
@@ -145,13 +145,12 @@ System.out.print("a3 = " + a3);
 ### Task 4
 
 ```text
-Напишете конвертор на градуси от Целзий във Фаренхайт.
-Въвеждате едно число от конзолата. Това число ще бъдат градусите в Целзий.
-На конзолата трябва да бъде изведено съобщение със съответните градуси,
-но трансформиране във Фаренхайт.
+Write a Celsius to Fahrenheit temperature converter.
+First enter a number from the console. This number will be the temperature in Celsius.
+After which the program should print the temperature converted into Fahrenheit.
 
-подсказка: °C * 9/5 + 32 = °F
-където: °C е градуси в Целзий, а °F е градуси във Фаренхайт
+Hint: °C * 9/5 + 32 = °F
+Where: °C is temperature in Celsius and °F is temperature in Fahrenheit.
 ```
 
 <details><summary><b>Solution</b> 👀</summary> 
@@ -174,12 +173,12 @@ System.out.println(celsius + "°C = " + fahrenheit + "°F");
 ### Task 5
 
 ```text
-Напишете конвертор на градуси от Фаренхайт в Целзий. Въвеждате едно число от конзолата.
-Това число ще бъдат градусите във Фаренхайт. На конзолата трябва да бъде изведено
-съобщение със съответните градуси, но трансформиране във Целзий.
+Write a Fahrenheit to Celsius temperature converter.
+First enter a number from the console. This number will be the temperature in Fahrenheit.
+After which the program should print the temperature converted into Celsius.
 
-подсказка: (°F – 32) * 5/9=°C
-където: °C е градуси в Целзий, а °F е градуси във Фаренхайт
+Hint: (°F – 32) * 5/9 = °C
+Where: °C is temperature in Celsius and °F is temperature in Fahrenheit.
 ```
 
 <details><summary><b>Solution</b> 👀</summary> 
@@ -194,7 +193,7 @@ double fahrenheit = scanner.nextDouble();
 double celsius = (fahrenheit - 32) * 5d / 9d;
 
 System.out.println(fahrenheit + "°F = " + celsius + "°C");
-```    
+```
 
 </p>
 </details>

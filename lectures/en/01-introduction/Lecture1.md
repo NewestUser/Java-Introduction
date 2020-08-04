@@ -71,81 +71,80 @@ In order for these files to be executed by the computer they first need to be tr
 This happens in several steps.
 
 1. The text files `.java` are translated (compiled) by the `compiler` into `bytecode`. The resulting `bytecode` translations are actually files with a `.class` extension.
-2. Получените `.class` файлове биват зареждани от `JVM` за изпълнение
-3. `JVM` изпълнява `bytecode` като го превежда на език разбираем за конкретна операционна система и конкретен процесор
+2. The `.class` files are loaded by the `JVM` for execution.
+3. `JVM` executes `bytecode` by translating (interpreting) it into instructions that are understandable by the specific operating system and underlying CPU.
 
 ![src-javac-bytecode-jre](../../../assets/01-lecture/src-javac-bytecode-jvm-os.png)
 
-#### Какво друго трябва да знаем за Java?
+#### What else do se need to know about Java?
 
-###### Java е мултиплатформена
-Това означава че една и съща програма може да бъде изпълнявана на различни операционни системи,
-като Windows, Linux, Mac и тнт...
+###### Java is a multi platform system
+This means that a program can be executed on different operating systems like Windows, Linux, Mac etc...
+Also known as **Write once run anywhere**.
 
-###### Трябва ли ми JDK за да мога да изпълня Java програма
-Не е задължително на един компютър да има инсталирано `JDK` за да може да се изпълни една Java програма.
-Една програма може да бъде написана и компилирана на компютър с `JDK` и да бъде изпълнена на друг,
-който има само `JRE`.
+###### Do I need a JDK in order to run a Java program
+It is not required to have `JDK` installed on a computer in order to run a Java program. 
+The program can be written and compiled on a computer that has a `JDK` and can 
+be executed on another that has only `JRE` installed.
 
-###### Java е обектно ориентиран език
-Това означава че езикът има способността да моделира предмети от реалния свят. (За това ще говорим в следващите лекции).
+###### Java is an object oriented language
+This means that the language has the ability to model objects from the real world. (We will touch on this in the next lectures).
 
-###### Java e типизиран език
-Това означава че всяко едно нещо, което може да бъде моделирано от езика има конкретен тип.
-Пример за типове са числа, текст, дати и тнт...
+###### Java is a typed language
+This means that everything that can be modeled by the language has a concrete type.
+Some examples are: numbers, text, dates etc...
 
+## Primitive types
 
-## Примитивни типове (Primitive types)
+Java already has data types that model basic concepts. An example for such **primitive** types are:
+*symbol*, *hole number*, *floating-point number* etc...  
 
-В езикът Java има заложени типове данни, които репрезентират различни неща. Пример за такива **primitive** типове са:
-*символ*, *цяло число*, *дробно число* и други.  
+Primitive types are in the core of the language. They are used and will be used by us to build more complex data types.
+One such example is *text*, it is composed out of many *symbols*.
 
-Примитивните типове данни са в основата на езика, като те се използват и ще бъдат използвани от нас за изграждането 
-на по сложни типове данни. Един такъв пример е *текстът*, той е изграден от много на брой *символи*.
+### Number types
 
-### Типове числа
+Numbers can be divided in two main categories. Hole numbers `1`, `-5`, `367` and
+floating-point numbers `3.14159`, `2.718`, `-332.97`. Each of the categories can be further divided into 
+sub categories where each sub category corresponds to a number with a specific size and precision.
 
-Числата може да ги разглеждаме като два основни вида. Цели числа като `1`, `-5` , `367` както и 
-дробни числа `3.14159`, `2.718`, `-332.97`. Всеки един от двата вида се дели на числа с
-конкретен размер (максимална и минимална стойност).
+- Numbers
 
-- Числа (Numbers)
-
-    - Цели числа (Whole numbers)
+    - Whole numbers
         - `byte`  8 bit = -128…127
         - `short` 16 bit = -32 768….32 767
         - `int` 32 bit = -2 147 483 648…2 147 483 647
         - `long` 64 bit = -2^63…2^63 - 1 
         
-    - Дробни числа (Decimal numbers)
+    - Decimal numbers (floating-point numbers)
         - `float` 32 bit = -3.4E+38…3.4E+38
         - `double` 64 bit = -1.7E+308…1.7E+308
         
-### Типове символи
+### Symbol types
 
-- Символ (Symbol)
+- Symbol
 
     - `char` 16 bit unicode character = *a*,    *$*,    *4* 
 
-### Булев тип
+### Boolean types
 
 - Boolean
     - `boolean` = true/false
 
 
-## Променливи (Variables)
+## Variables
 
-Чрез тези типовете данни, ние можем да създаваме **променливи**.
-Всяка една променлива има **тип**, **име** и **стойност**.  
-Може да си представите това, като кутия с различна форма. Формата на кутията е **типът (type)**,
-Съдържанието на кутията е **стойността (value)**, а цялата кутия е **променлива (variable)**, понеже съдържанието
-в кутията може да се сменя.
-Също така си представете че има много на брой кутии, които си приличат. За да може да ги различаваме ще трябва да им 
-дадем **име (name)**.
+Using different data types we can create **variables**.
+Each variable has a **type**, **name** and **value**.
+You can imagine variables as boxes with different shapes. The shape of the box is the **type**.
+The content of the box is the **value**. The hole box itself is the **variable**, because the 
+contents of the box can change.
+Also imagine if we have many boxes with a similar shape. In order to be able to differentiate between them
+we would need to label each of the boxes. This would correspond to the **name** of the variable.
 
 ![variable-type-name-value-box](../../../assets/01-lecture/variable-type-name-value-box.jpg)
 
-- Пример
+- Example
 
     ```java
     int year = 2019;
@@ -157,33 +156,33 @@ This happens in several steps.
     char dollar = '$';
     ```
     
-#### Аритметични оператори
+#### Arithmetic operators
 
-- `+` —  събиране (addition)
-- `-` — изваждане (subtraction)
-- `*` — умножение (multiplication)
-- `/` — деление (division)
-- `%` — деление с остатък (modulo)
+- `+` —  addition
+- `-` — subtraction
+- `*` — multiplication
+- `/` — division
+- `%` — modulo
 
-#### Логически оператори
+#### Logical operators
 
-- `!`  - отрицание (logical NOT)
-- `&&` — логическо И (logical AND)
-- `||` — логическо ИЛИ (logical OR)
+- `!`  - logical NOT
+- `&&` — logical AND
+- `||` — logical OR
 
-#### Оператори за сравнение
+#### Comparison operators
 
-- `==` - оператор за равенство (equal)
-- `!=` - различно (not equal) 
-- `>` - по-голямо (greater than)
-- `>=` - по-голямо или равно (greater than or equal)
-- `<` - по-малко (less than)
-- `>=` - по-малко или равно (less than or equal)
+- `==` - equal
+- `!=` - not equal 
+- `>` - greater than
+- `>=` - greater than or equal
+- `<` - less than
+- `>=` - less than or equal
 
 ## Hello World
 
-Първата ни Java програма, ще изпише на конзолата `Hello World`. Целта на тази програма е да илюстрира синтаксиса на 
-езика.
+Our first Java program will print on the console `Hello World`. 
+The aim of the task is to get familiar with the language syntax.
 
 ```java
 public class Main {
@@ -195,33 +194,34 @@ public class Main {
 }
 ```
 
-> Знаете ли че първата *[Hello World][hello-world]* програма е написана през 1972г. на езикът [B][b-language]
+> Did you know that the first *[Hello World][hello-world]* program is written 
+back in 1972 using the programming language [B][b-language].
 
 [hello-world]: https://en.wikipedia.org/wiki/%22Hello,_World!%22_program
 [b-language]: https://en.wikipedia.org/wiki/B_(programming_language)
 
 ## Hello ...
 
-Целта на втората ни задача е да напишем програма, която поздравява с това, което е въведено от потребителя.  
-Пример: потребителя въвежда `Alise`, а програмата изписва `Hello Alise`
+The aim of our second task is to write a program which greets with whatever is entered by the user.
+Example: if the user enters `Alise` the program should print `Hello Alise`.
 
 ```java
-import java.util.Scanner; // описваме кое средство ще използваме за вземане на данни от клавиатурата
+import java.util.Scanner; // we mention what are we going to use to get user input
 
 public class Main2 {
 
     public static void main(String[] args) {
-        Scanner myScanner = new Scanner(System.in); // създаваме средството чрез което ще вземаме данни от клавиатурата и го кръщаваме myScanner
+        Scanner myScanner = new Scanner(System.in); // we create the thing that we will use to get user input and name it myScanner
 
-        String input = myScanner.nextLine(); // използваме myScanner за да вземем данни от клавиатурата и ги записваме в променливата input
+        String input = myScanner.nextLine(); // we use the variable myScanner to take whatever the user enters on the keyboard and write it into a variable called input
 
-        System.out.println("Hello " + input); // принтираме слято Hello и въведената стойност от потребителя
+        System.out.println("Hello " + input); // we print Hello along with what the user has entered
     }
 }
 ```
 
-> Забележете програмата е написана във втори файл с име `Main2`.  
-Когато стартирайте програмата въведете име от клавиатурата, след което натиснете enter. 
+> The program is written in a second file with called `Main2`.  
+When the program starts enter a name on the keyboard and press enter.
 
-ℹ️ За повече информация относно типовете данни изгледайте това [youtube видео](https://www.youtube.com/watch?v=TBWX97e1E9g&list=PLE7E8B7F4856C9B19)
-и това [youtube видео](https://www.youtube.com/watch?v=yYN8u90MKCg&list=PLE7E8B7F4856C9B19&index=2).
+ℹ️ For more info on the different data types you can watch this [youtube video](https://www.youtube.com/watch?v=TBWX97e1E9g&list=PLE7E8B7F4856C9B19)
+and this [youtube video](https://www.youtube.com/watch?v=yYN8u90MKCg&list=PLE7E8B7F4856C9B19&index=2).
