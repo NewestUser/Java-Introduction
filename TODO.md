@@ -26,8 +26,8 @@ Consider moving the solutions on a separate page.
 
 ### Lecture 1
 
-- [ ] Separate task for scanner
-- [ ] Explain comments & scanner
+- [ ] The first task of the homework should not include a scanner.
+It should be more like: create a variable and print it.
 
 ### Lecture 5
 

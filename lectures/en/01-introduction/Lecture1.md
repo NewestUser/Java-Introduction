@@ -188,7 +188,6 @@ The aim of the task is to get familiar with the language syntax.
 public class Main {
     
     public static void main(String[] args) {
-      
         System.out.println("Hello World");
     }
 }

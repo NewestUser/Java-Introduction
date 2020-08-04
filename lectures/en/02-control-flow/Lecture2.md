@@ -3,21 +3,20 @@
 
 ## if/else statements
 
-**Control flow** e редът на изпълнение на предефинирани инструкции в една програма.
-Редът на изпълнение на една програма може да е различен в зависимост от различни **условия**.   
-Например в зависимост от това, какви данни е въвел потребителя програмата може да изпълнява различни инструкции.
-
-По време на изпълнение на програмата се изчисляват тези условия и се решава, по кой клон 
-да протече изпълнението на програмата.
+The order in which individual statements/instructions are executed in a program can vary depending on different **conditions**.
+This is called **Control flow**.
+For example: the program can execute different instructions depending on the input of the user.
+While the program is running these conditions are evaluated. Then a decision is made on with which code branch/path the execution should continue.
 
 ![control-flow-graph](../../../assets/02-lecture/control-flow-graph.png)
-> Примерно изпълнение на една програма. Във всички случаи започваме от **1**, като в зависимост от решенията, които се вземат
-в различните звена, програмата може да приключи на **5**, **7** или **9**.
+> Example program execution. Regardless of any conditions the program starts from **1**. 
+Depending on the conditions in the different nodes the program execution can go down different branches.
+The program can finish in either **5**, **7** or **9**.
 
 ### if
 
-Единия от начините чрез, който може да се разклони изпълнението на програмата е използвайки `if` условният оператор.  
-Ето как изглежда той.
+One of the ways code branches can be created is by using an `if` statement.
+Example:
 
 ```java
 if (condition) {
@@ -25,14 +24,14 @@ if (condition) {
 }
 ```
 
-> В скобите `(...)` се изписва **boolean** условие. Ако условието е **true** се изпълнява тялото на **if блока**.
-Ако условието е **false** то тогава, кода в **if блока** не се изпълнява.
- 
-###### Примери
+> The brackets `(...)` must contain a condition that can be evaluated to a **boolean**. If the condition is **true** the body of the if statement (**if block**) is executed.
+If the condition is **false** then the **if block** is skipped, and the execution continues after the if statement.
+
+###### Example
 
 ```java
 if (true) {
-    System.out.println("Това винаги ще се изпълни");
+    System.out.println("This will always execute");
 }
 ``` 
 
@@ -40,7 +39,7 @@ if (true) {
 boolean myCondition = ...;
 
 if (myCondition) {
-    System.out.println("Това ще се изпълни само ако myCondition == true");
+    System.out.println("This will execute only if myCondition == true");
 }
 ```
 
@@ -48,7 +47,7 @@ if (myCondition) {
 int a = ...;
 
 if (a == 5) {
-    System.out.println("Това ще се изпълни ако a == 5");
+    System.out.println("This will execute if a == 5");
 }
 ```
 
@@ -57,16 +56,16 @@ int a = ...;
 int b = ...;
 
 if (a != 5 && b >= 10) {
-    System.out.println("Това ще се изпълни само ако a е различно от 5 и b >= 10");
+    System.out.println("This will execute only if a differs from 5 and b >= 10");
 }
 ```
 
 ### else
 
-Често имаме нужда да проверим за дадено условие и ако то не е изпълнено да извършим някакво друго действие.  
-Това става с помощта на `else` оператора.
+Often we need to check a condition and if it is not met then execute something else.
+This can be achieved by using the `else` operator.
 
-Ето как изглежда той:
+Here is an example:
 
 ```java
 boolean myCondition = ...;
@@ -77,11 +76,11 @@ if (myCondition) {
     // else block
 }
 ``` 
-> Ако условието `condition` е **false**, то тогава ще се изпълни **else блока** пропускайки **if блока**.
+> If `condition` is **false**, then the **else block** will be executed skipping the **if block**.
 
-**ВАЖНО:** Не може да има `else` без `if`.
+**IMPORTANT:** There cannot be an `else` without an `if`.
 
-###### Пример
+###### Example
 
 ```java
 int age = ...;
@@ -93,36 +92,36 @@ if (age >= 18) {
 }
 ```
 
-Често подобен тип условия се илюстрират по следния начин:
+Often similar conditions can be illustrated with the following diagram:
 
 ![if-else-statement](../../../assets/02-lecture/if-else-statement.png)
 
 ### else if
 
-Някой път едно условие `if` и всички останали случаи `else` не са достатъчни за да изградим логиката на едно приложение.  
-Често се налага да се изпълни едно парче код измежду множество условия.
+Sometimes an `if` condition and all other cases `else` are not enough to build the logic of an application.
+Often we need to execute a peace of code found between multiple conditions.
 
-За това може да използваме `else if` оператора.
+For this reason we can use an `else if` operator.
 
-Ето как изглежда той:
+Example:
 
 ```java
 boolean condition = ...;
 boolean otherCondition = ...;
 
-if (condition) { // ще се изпълни само ако condition е true
+if (condition) { // execute only if condition is true
     // if block
-} else if (otherCondition) { // ще се изпълни само ако otherCondition е true и condition е false
+} else if (otherCondition) { // execute only if otherCondition is true and condition is false
     // else if block
 }
 ```
 
-> В този случай имаме две условия, които биват проверявани, като редът на проверка е от горе на долу.
-Първо ще се провери стойността на *condition*. Ако стойността е `true` то тогава ще се изпълни **if block**.
-Ако стойността на *condition* е `false`, ще се премине към следващата проверка. Ще се провери стойността на *otherCondition*.
-Ако тя е `true` ще се изпълни **else if block**. Ако е `false` нито един от блоковете няма да се изпълни.
+> In this example we have two conditions. The order in which they evaluated is from top to bottom.
+First the value of *condition* is checked. If it is `true` then the **if block** will be executed.
+If the value of *condition* is `false` then the next condition will be checked. If *otherCondition*
+is `true` then the **else if block** will be executed. If it is `false` then none of the if blocks will be executed.
 
-Отново е възможно накрая да се добави `else` клауза, която да обхваща всички останали варианти.  
+Again it is possible to add an `else` clause at the end. This will cover all cases outside of the conditions.
 
 ```java
 boolean condition = false;
@@ -137,43 +136,43 @@ if (condition) {
 }
 ```
 
-> В този случай ще се изпълни **else block**.
+> In this example the **else block** will be executed.
 
-### вложен if
+### nested if
  
-Понякога е необходимо множество условия да са спазени за да се изпълни една функционалност.
-Тогава можем да използваме вложени **if** словия.
+Sometimes multiple conditions need to be met in order to execute a certain functionality.
+In such cases we can use a **nested if**.
 
 ```java
 int b = ...;
 
 if (b > 5) {
     if (b < 10) {
-        System.out.println("Стойността на b е м/у 5 и 10");
+        System.out.println("The value of b is between 5 and 10");
     }
 }
 ```
 
-Същия този пример може да бъде написан използвайки логическо **И** `&&`
+This same example can be written using a logical operator **AND** `&&`.
 
 ```java
 int b = ...;
 
 if (b > 5 && b < 10) {
-    System.out.println("Стойността на b е м/у 5 и 10");
+    System.out.println("The value of b is between 5 and 10");
 }
 ```
 
-### Логически оператори
+### Logical operators
 
-- `!` - отрицание
+- `!` - inversion
 
 |**X**  |**!X** |
 |-------|-------|
 |true   |false  |
 |false  |true   |
 
-- `&&` — logical AND (логическо И)
+- `&&` — logical AND
 
 |**X**  |**Y**  |**X && Y** |
 |-------|-------|-----------|
@@ -182,7 +181,7 @@ if (b > 5 && b < 10) {
 |false  |true   |false      |
 |false  |false  |false      |
 
-- `||` — logical OR (логическо ИЛИ)
+- `||` — logical OR
 
 |**X**  |**Y**  |**X &#124;&#124; Y**   |
 |-------|-------|-----------------------|
@@ -191,21 +190,22 @@ if (b > 5 && b < 10) {
 |false  |true   |true                   |
 |false  |false  |false                  |
 
-### Оператори за сравнение
+### Comparison operators
 
-- `==` - equal (оператор за равенство)
-- `!=` - not equal (различно) 
-- `>` - greater than (по-голямо)
-- `>=` - greater than or equal (по-голямо или равно)
-- `<` - less than (по-малко)
-- `>=` - less than or equal (по-малко или равно)
+- `==` - equal
+- `!=` - not equal 
+- `>` - greater than
+- `>=` - greater than or equal
+- `<` - less than
+- `>=` - less than or equal
 
 
 ### Switch Case
 
 ![switch-case-statement](../../../assets/02-lecture/switch-case-statement.jpg)
 
-**if else** не е единственият начин за изграждане на условия в Java. Езикът предлага и друга конструкция за постигане на същия резултат, която се нарича **switch case**.  
+**if else** is not the only control flow operator in Java.
+The language offers another control flow mechanism for achieving the same goal called **switch case**.  
 
 ```java
 int z = 2;
@@ -225,15 +225,16 @@ switch (z) {
         break;
 }
 ```
-> В случая ще се принтира `z = 2`.
+> This example will print `z = 2`.
 
-Това което е по-характерно за switch case, e че тялото което ще бъде изпълнено зависи от стойността която е подадена на оператора `switch(...)`.
-В зависимост от стойността на променливата в **switch** оператора се решава кой **case** да бъде изпълнен.  
-Важно е да се отбележи, че всеки **case** завършва с ключовата дума `break`. Това ще прекрати изпълнението на целия switch case и ще се продължи с кода след него. 
-Ако липсва `break`, то тогава ще се продължи с изпълнението на следващият **case**, независимо дали той е спазен или не. Пробвайте, като премахнете `break;` на `case 2:`.  
-Switch Case оператора също така има еквивалент на **else** оператора в **if** условията. Този еквивалент е ключовата дума **default**.
+The way the switch-case statement works is that the conditions (case statements) depend on the value that is passed to the `switch(...)` operator.
+Depending on the value of the variable in the **switch** a decision is made which **case** should be evaluated.
+It is important to note that each **case** ends with a `break`. This will end the execution of the entire switch-case and the program will continue after the statement. 
+If a `break` is missing then the program will continue executing the next **case** block regardless if it is met or not.  
+Try it out by removing the `break` in `case 2:`.  
+The switch-case operator also has an equivalent to the **else** operator in the **if** statement. This equivelent is the keyword **default**.
 
-Ето как би изглеждал горният пример написан с условният оператор **if**
+Here is how the example above would look like written using an **if** statement.
 
 ```java
 int z = 2;
@@ -249,44 +250,44 @@ if (z == 1) {
 }
 ``` 
 
-Това дали ще се използва **if else** или **switch case** често е субективно решение. Обикновенно **switch case** се предпочита,
-когато се налага да се вземе решение измежду краен брой константи възможности. Например дали човек е от мъжки или женски пол.
+Preferring an **if else** or **switch case** statement is a subjective decision. Usually **switch case** is preferred
+when a decision needs to be between a definitive number of constant possibilities.  
+Example: is a person male or female (the constant here is the gender).
 
 ## Loops
 
-Често се налага в една програма да се изпълняват едни и същи стъпки (изчисления) n на брой пъти.
-За тази цел може да бъдат използван цикли. В Java съществуват три вида цикли `for`, `while` и `do while`.  
-И трите вида цикли са сходни с малки разлики, като това което е общо и м/у трите, е че имат условие, от което зависи до кога
-ще се изпълнява цикъла.
+It is often required a program to perform a set of instructions multiple times.
+This can be achieved by using loops. In Java there are three kinds of loops `for`, `while` and `do while`.
+The loops differ in syntax but aim to solve the same problem. That is to repeat a set of steps until a **condition** stops being met. 
 
 ### for
 
-Най често използвания цикъл e **for** цикълът. Той се състои от няколко компонента **инициализираща част**, **условие**, **тяло** и **стъпка**.
-Като всяка една част без тялото е разделена с точка и запетая.
+Probably the most frequently used loop is the **for** loop. It is composed of several components 
+**initializing part**, **condition**, **body** and **step**. Semicolons separate each part excluding the body.
 
 ```java
-for ( /* инициализираща част */ ; /* условие */ ; /* стъпка */ ) {
-    /* тяло */
+for ( /* initializing part */ ; /* condition */ ; /* step */ ) {
+    /* body */
 }
 ```
 
-- **Инициализиращата част** служи за задаване на начална стойност на цикъла.
- Обикновенно там се дефинира променлива с начална стойност пример: `int i = 0`
+- **Initializing part** used to define the starting point of the loop.
+ Usually in it we define a variable with an initial value, example: `int i = 0`
  
-- **Условието** се проверява за да се вземе решение дали да се изпълни тялото на цикъла. 
+- **Condition** is checked on each iteration in order to decide whether to execute the body. 
 Ако условието е `true` тялото на цикъла се изпълнява, ако е `false` се прекратява изпълнението на цикъла и се продължава с кода след цикъла. 
 
-- **Тялото** е частта, която искаме да бъде изпълнена много на брой пъти.
+- **Body** is the part we want to repeat, it contains the instructions that will be repeated multiple times.
 
-- **Стъпката** е последната част от **for** цикъла, в нея обикновенно се извършва действие, което изпълнено определен брой пъти ще доведе условието до `false`.
-След изпълнението на стъпката отново се преминава цикъ дса длкалдйсад  
+- **Step** is the last part of the **for** loop, in it we usually execute an action that will eventually lead the evaluation of the condition to `false` and thus ending the loop.
+After the step is executed the program loops back into checking the condition.
 
 ![for-loop](../../../assets/02-lecture/for-loop.png)
 
-> На тази снимка е илюстриран редът на изпълнение на **for** цикълът. 
-Примерът е написан на C# но принципът на работа е еднакъв за всички езици.
+> This image illustrates the order of execution of a **for** loop. 
+The example is written in C#, but the principles apply to most programming languages.
 
-###### Пример
+###### Java Example
 
 ```java
 for (int i = 0; i < 10; i++) {
@@ -294,32 +295,32 @@ for (int i = 0; i < 10; i++) {
 }
 ```
 
-> Този код ще принтира числата от 0 до 9.
+> This code will print the numbers from 0 to 9 including.
 
 ### while
 
-**while** цикълът се различава от **for** цикъла с това, че има само **условие**, като **инициализиращата част** 
-обикновенно се намира извън цикъла (или изобщо не необходима таква), а **стъпката** е вътре в **тялото** на цикъла. 
+**while** loop differs from the **for** loop in that it only has a **condition**. Usually the **initializing part** 
+is located outside of the loop (or an initializing part might not be required). The **step** is inside the **body** of the loop. 
 
 ###### Пример
 
 ```java
-int i = 0; // инициализация на променливата i
+int i = 0; // initialize the variable i i
 
-while (i < 10) { // условие на цикъла
-    System.out.println(i); // действие
-    i++; // стъпка
+while (i < 10) { // loop condition
+    System.out.println(i); // action
+    i++; // step
 }
 ```
 
-> Този код ще принтира числата от 0 до 9.
+> This code will print the numbers from 0 to 9 including.
 
 ### do while
 
-**do while**  цикълът се различава от останалите цикли с това, че тялото на цикъла ще се изпълни поне един път, 
-преди да бъде проверено условието на цикъла.
+**do while** differs from the other loops in that the body of the loop will get 
+executed at least once before the condition is checked.
 
-###### Пример
+###### Example
 
 ```java
 int i = 0;
@@ -329,10 +330,11 @@ do {
     i++;
 } while (i < 10);
 ```
-> Този пример ще принтира числата от 0 до 9.
+
+> This code will print the numbers from 0 to 9 including.
 
 
-Ето пример илюстриращ разликата м/у **while** и **do while**.
+Here is an example higlighting the difference between a **while** and a **do while** loop.
 
 ```java
 boolean condition = false;
@@ -342,7 +344,7 @@ while (condition) {
 }
 ```
 
-> Няма да се принтира нищо защото първо се проверява условието което е `false`.
+> The program won't print anything because the condition which is `false` is checked first.
 
 ```java
 boolean condition = false;
@@ -352,4 +354,4 @@ do {
 } while (condition);
 ```
 
-> Ще се принтира един път `hello` защото първо се изпълнява тялото на цикъла и чак тогава се проверява условието.
+> The program will print `hello` once because the body is executed first after which the condition is checked.
