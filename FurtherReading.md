@@ -33,17 +33,17 @@ ___
 
 #### Books
 
-##### [Head First Java by Kathy Sierra,  Bert Bates](https://s3-ap-southeast-1.amazonaws.com/tv-prod/documents/5570-HeadFirstJava2ndEdition.pdf)
+##### [Head First Java by Kathy Sierra, Bert Bates](https://s3-ap-southeast-1.amazonaws.com/tv-prod/documents/5570-HeadFirstJava2ndEdition.pdf)
 
-![head_first_java_book_cover](https://covers.oreillystatic.com/images/9780596009205/lrg.jpg)
+![head_first_java_book_cover](./assets/further_reading/head_first_java_book_cover.jpg)
 
 ##### [Effective Java by Joshua Bloch](https://kea.nu/files/textbooks/new/Effective%20Java%20%282017%2C%20Addison-Wesley%29.pdf)
 
-![effective_java_book_cover](https://images-na.ssl-images-amazon.com/images/I/516yIUucShL._SX408_BO1,204,203,200_.jpg)
+![effective_java_book_cover](./assets/further_reading/effective_java_book_cover.jpg)
 
 ##### [Clean Code: A Handbook of Agile Software Craftsmanship (Robert C. Martin)](https://www.investigatii.md/uploads/resurse/Clean_Code.pdf)
 
-![clean_code_book_cover](https://images-na.ssl-images-amazon.com/images/I/515iEcDr1GL._SX385_BO1,204,203,200_.jpg)
+![clean_code_book_cover](./assets/further_reading/clean_code_book_cover.jpg)
 
 ___
 
@@ -56,7 +56,7 @@ ___
 
 ##### [Programming Interviews Exposed: Secrets to Landing Your Next Job]()
 
-![programming_interviews_exposed_book_cover](https://images-na.ssl-images-amazon.com/images/I/51NuRyiuU2L._SX396_BO1,204,203,200_.jpg)
+![programming_interviews_exposed_book_cover](./assets/further_reading/programming_interviews_exposed_book_cover.jpg)
 
 #### Videos
 

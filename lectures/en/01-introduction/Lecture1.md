@@ -1,24 +1,23 @@
 # Lecture 1
 #java course#
 
-## Въведение
+## Introduction
 
-### Как работи човешкия мозък?
+### How does the human brain work?
 
-Мозъкът на човека е разделен на части, като всяка част служи за конкретна цел.  
-Така например една част на мозъка, наричана *префронтален кортекс ([prefrontal cortex][prefrontal-cortex]*)
-отговаря за фокусирането в/у задачи и служи като краткотрайна памет.  
-Друга част наричана *хипокампус ([hippocampus][hippocampus])* отговаря за спомените 
-и служи като дълготрайна памет.  
-*Темпоралния лоб ([temporal lobe][temporal-lobe])* служи за обработка на сетивата. 
-Мозъкът използва него заедно с *префронталния кортекс*, както и други области, за решаването на
-математически проблеми.
+The human brain is divided into areas where each area has a concrete purpose.  
+For example the [prefrontal cortex][prefrontal-cortex] is responsible for focusing on tasks 
+and serves as a short term memory.  
+Another area called [hippocampus][hippocampus] is in charge of memories and 
+serves as a long term memory.  
+The [temporal lobe][temporal-lobe] is involved in processing sensory input. 
+We use the temporal lobe along with the *prefrontal cortex* and other areas of the brain to solve math problems.
 
 ![memory-brain](../../../assets/01-lecture/memory-brain.jpg)
-> Знаете ли, че *амигдалата ([amygdala][amygdala])* е отговорна за регулиране на емоциите, страхът и тревожността?  
-[Alex Honnold][alex-honnold] смятан за най-безстрашният solo катерач дължи голяма част на успехите си 
-на нефункциониращата си *амигдала*.  
-Също така *амигдалата* е често отговорна за причината, поради която учениците ги е страх да задават въпроси.
+> Did you know that the *[amygdala][amygdala]* is responsible for regulating emotions, fear, anxiety?  
+[Alex Honnold][alex-honnold] he is considered the most fearless free solo climber. He owns a big part of his success  
+to his malfunctioning *amygdala*.  
+The *amygdala* is also often responsible for the fear in students wanting to ask a question.
 
 [prefrontal-cortex]: https://en.wikipedia.org/wiki/Prefrontal_cortex
 [hippocampus]: https://en.wikipedia.org/wiki/Hippocampus
@@ -26,53 +25,52 @@
 [amygdala]: https://en.wikipedia.org/wiki/Amygdala
 [alex-honnold]: http://nautil.us/issue/39/sport/the-strange-brain-of-the-worlds-greatest-solo-climber
 
-### Kак работи един комютър?
+### How does a computer work?
 
-Сходно на [човешкият мозък](#как-работи-човешкият-мозък), компютърът също има отделни звена отговарящи за памет
-и изчисление. Като отново имаме няколко вида памет, *краткотрайна (RAM)* и *дълготрайна (HDD)*.
-Изчислителната част или така наречените инструкции за изпълнение се обработват от *процесор (CPU)*.
+Similar to a [human brain](#how-does-the-human-brain-work) the computer also has dedicated parts responsible for memory 
+and computation. It also has several memory units. *Short term (RAM)* and *long term (HDD)* memory.
+The computations or the so called instructions are processed by the *processor (CPU)*.
 
 ![memory-cpu](../../../assets/01-lecture/memory-cpu.png)
 
-> Когато ние пишем програми ще ги записваме на *HDD*,
-при изпълнение ще ги зареждаме в *RAM* и ще биват изпълнявани от *CPU*.
+> When we write programs we will save them on *HDD*, when we run the program 
+it will be loaded in *RAM* and will be processed by the *CPU*.
 
+## What is Java?
 
-## Какво е Java?
-
-Java е език за програмиране от високо ниво. Това означава че използвайки този език за програмиране
-на нас като програмисти няма да се налага да разбираме от детайли, като какъв е процесора на компютъра,
-каква е операционната система и тнт...
+Java is a high level programming language. This means that we as programmers don't have to think about details like 
+what is the CPU of the machine that the program will run on, what is the operating system etc...
 
 ![java-logo](../../../assets/01-lecture/java-logo.jpg)
 
-> Java e създадена от [James Gosling][james-gosling] през 1995г.  
-Java всъщност е остров, на който са посадени кафеени дървета.
+> [James Gosling][james-gosling] created Java in 1995.  
+Java is actually an island on which coffee trees are planted.
 
 [james-gosling]: http://www.computinghistory.org.uk/det/1793/James-Gosling/
 
 
-### От какво се състои Java?
+### What is Java composed of?
 
-Езикът Java може да се разглежда като съвкупност от инструменти/технологии.
+The programming language Java can be thought of as a collection of tools/technologies.
 
-- JDK (Java Development Kit) - чрез него програмистите могат да създават нови Java програми, които да бъдат
-изпълнявани от JRE и JVM.
+- JDK (Java Development Kit) - the JDK provides the necessary tools for programmers to write Java programs 
+which can then be ran via the JRE and JVM.
 
-- JRE (Java Runtime Environment) - съвкупността от библиотеки, които ще се използват по време на изпълнение на
-програмата заедно с нещото изпълняващо програмата.
+- JRE (Java Runtime Environment) - the JRE is a collection of libraries which will be used during the execution of the program. 
+The JRE also includes the JVM.
 
-- JVM (Java Virtual Machine) - това е частта, която изпълнява програмата.
+- JVM (Java Virtual Machine) - the JVM is the component that executes the program.
 
 ![jdk-jre-jvm](../../../assets/01-lecture/jdk-jre-jvm.png)
 
 
-### Как една програма бива изпълнявана?
+### How does a Java program get executed?
 
-Програмите, които пишем не са нищо повече от текстови файлове с разширение `.java`,
-докато не бъдат преведени на език разбираем за процесора. Тъй като Java е език от високо ниво това превеждане става на няколко етапа.
+The programs that we write are nothing more than text files with a `.java` extension. 
+In order for these files to be executed by the computer they first need to be translated into a low level language the processor understands.
+This happens in several steps.
 
-1. Текстовите файлове `.java` биват преведени от `компилатора (compiler)` до `bytecode`. Получения `bytecode` представлява файлове с разширение `.class`
+1. The text files `.java` are translated (compiled) by the `compiler` into `bytecode`. The resulting `bytecode` translations are actually files with a `.class` extension.
 2. Получените `.class` файлове биват зареждани от `JVM` за изпълнение
 3. `JVM` изпълнява `bytecode` като го превежда на език разбираем за конкретна операционна система и конкретен процесор
 

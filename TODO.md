@@ -9,7 +9,7 @@ IMHO it will be better to start OOP in the following sequence:
 2. Classes & Properties
 3. Classes & Methods
 4. Classes & Constructors
-5. Access Modifiers and etc...
+5. Access Modifiers etc...
 
 ### Separate Solutions that are present in Exercises
 
@@ -26,7 +26,6 @@ Consider moving the solutions on a separate page.
 
 ### Lecture 1
 
-- [ ] First task should be without scanner
 - [ ] Separate task for scanner
 - [ ] Explain comments & scanner
 
