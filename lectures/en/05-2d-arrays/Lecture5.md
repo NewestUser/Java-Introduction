@@ -3,18 +3,23 @@
 
 ## Recap
 
-###### variable names
-- имената на променливите започват с малка буква, като всяка следваща дума е с главна (camel case)
+##### Java naming conventions
 
-- пример
+###### variable names
+- According to the Java conventions variable names start with a small letter and each new 
+word in the name start with a capital letter. This is called **camelCase** 🐪 (just one hump).
+
+![camelCase](../../../assets/05-lecture/camelCase.png)
+
+- Example
     ```java
     int myVariable;
     ```
 
 ###### method names
-- имената на методите започват с малка буква, като всяка следваща дума е с главна (camel case)
+- Method names start with a small letter where each consecutive word starts with a capital letter (camelCase)
 
-- пример
+- Example
     ```java
     void myMethod() {
       ...
@@ -22,19 +27,24 @@
     ```
 
 ###### class names
-- имената на класовете започват с главна буква, както и всяка следваща дума (upper case)
+- Each word in a class name starts with a capital letter (PascalCase)
 
-- пример
+- Example
     ```java
     class MyClass {
       ...
     }
     ```
 
-###### null value
-- референтните типове (reference types) могат да бъдат `null`
+> Did you know that there are different naming conventions like
+ 🍢 [kebab-case](https://wiki.c2.com/?KebabCase),
+ 🐍 [snake_case](https://en.wikipedia.org/wiki/Snake_case),
+ 🐫 [PascalCase](https://simple.wikipedia.org/wiki/CamelCase).
 
-- пример
+###### null value
+- Reference types can have a `null` value.
+
+- Example
 
     ```java
     int[] array = null;
@@ -46,16 +56,16 @@
 
 ##### Formatting
 
-- `%d` - цели числа (**int**, **long**)
-- `%f` - числа с плаваща запетая (**float**, **double**)
-- `%.2f` - закръгляне на числа до 2-рия знак (**float**, **double**)
-- `%s` - текст (**String**)
-- `%S` - текст с главни букви (**String**)
+- `%d` - whole numbers (**int**, **long**)
+- `%f` - floating-point numbers (**float**, **double**)
+- `%.2f` - format floating-point numbers up to the 2nd decimal (**float**, **double**)
+- `%s` - text (**String**)
+- `%S` - text with capital letters (**String**)
 
-    - пример
+    - Example
     ```java
-    // Днес е Май 2019 и часът е 21.30
-    System.out.printf("Днес е %s %d и часът е %.2f", "Май", 2019, 21.3);
+    // Today it is May 2019 and the hour is 21.30
+    System.out.printf("Today it is %s %d and the hour is %.2f", "May", 2019, 21.3);
     ```
 
 
@@ -81,11 +91,9 @@
 Big O notation е математическа нотация, която описва ограничаващото поведение на дадена функция, 
 когато аргументът се стреми към определена стойност или безкрайност.
 
-[Time Complexity Chart](https://adrianmejia.com/images/big-o-running-time-complexity.png)  
-
 [Big O Notation Cheat Sheet](https://cooervo.github.io/Algorithms-DataStructures-BigONotation/index.html)
 
-###### O(1) constant time (константно време)
+###### O(1) constant time
 
 - пример
     ```java
@@ -94,7 +102,7 @@ Big O notation е математическа нотация, която опис
     int c = a * b;
     ```
 
-###### O(n) linear time (линейно време)
+###### O(n) linear time
 
 - пример
     ```java
@@ -106,7 +114,7 @@ Big O notation е математическа нотация, която опис
     }
     ```
 
-###### O(n^2) polynomial time (полиномно време)
+###### O(n^2) polynomial time
 
 - пример
     ```java
@@ -120,17 +128,21 @@ Big O notation е математическа нотация, която опис
     }
     ```
 
+![big_O_notation_graph](../../../assets/05-lecture/big_O_notation_graph.png)  
+
 > ℹ️ За повече информация относно **Big O Notation** изгледайте това 
 [youtube видео](https://www.youtube.com/watch?v=v4cd1O4zkGw) и това 
-[youtube видео](https://www.youtube.com/watch?v=D6xkbGLQesk).
+[youtube видео](https://www.youtube.com/watch?v=D6xkbGLQesk).  
+If you want a more comprehensive explanation of **Big O Notation** I recommend going through
+through [A Gentle Introduction to Algorithm Complexity Analysis](http://discrete.gr/complexity/).
 
 ## Two Dimensional Arrays Exercises 🐫
 
 ### Task 1
 
-Създайте двумерен масив с 2 реда и 3 колони.
-Задайте стойност на клетка в ред 1-ви и колкона 2-ра.
-Принтирайте двумерния масив.
+Create a two-dimensional array with 2 rows and 3 columns.
+Assign value to cell located at row 1 column 2.
+Print the values of the array.
 
 <br/><details><summary><b>Solution</b> 👀</summary> 
 <p>

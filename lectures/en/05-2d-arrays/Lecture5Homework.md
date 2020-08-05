@@ -1,7 +1,7 @@
 # Homework Lecture 5
 #java course#
 
-## Two Dimensional Arrays 🐫 
+## Two Dimensional Arrays
 
 ### Task 1
 
