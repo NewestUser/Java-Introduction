@@ -3,7 +3,7 @@
 
 ## Recap Primitive Types
 
-1. Какво представляват изредените компоненти и каква е връзката м/у тях?
+1. What are the components bellow and what is the relationship between them?
 
 	-  `JVM`
 	-  `JDK`
@@ -13,37 +13,37 @@
 <details><summary><b>Solution</b> 👀</summary> 
 <p>
 
-- `JVM` - Java Virtual Machine - Виртуалната машина която изпълнява компилираният bytecode.
+- `JVM` - Java Virtual Machine - Virtual machine that executes/interprets the compiled bytecode.
 
-- `JDK` - Java Development Kit - Съвкупността от инструменти, които използваме за разработване на едно
-Java приложение. С инсталирането на JDK ние инсталираме и JVM.
+- `JDK` - Java Development Kit - A collection of tools that can be used to develop a Java application.
+By installing JDK we also install JVM.
 
-- `Compiler` - Компилаторът е инструмента, който използваме за да преведем кодът написан в `.java` файловете до 
-bytecode, който се записва в файлове с разширение `.class`. 
+- `Compiler` - The compiler is a tool that is used for translating the human readable code 
+written in `.java` files to bytecode which is saved in `.class` files.
 
-- `ByteCode` - Това е вече компилираният java код, който JVM разбира и изпълнява.
+- `ByteCode` - Already compiled java code which the JVM is capable of reading and executing.
 </p>
 </details>
 
-2. Какво представлява променливата и от какво е съставена?
+2. What is a variable and what is it composed of?
 
 <details><summary><b>Solution</b> 👀</summary> 
 <p>
 
- - `TYPE` (тип)
- - `NAME` (име)
- - Optional  `VALUE` (не задължителна стойност)
+ - `TYPE`
+ - `NAME`
+ - Optional  `VALUE`
 
  ```java
- double pi = 3.1415; // създаваме променлива и едновременно задаваме стойност
+ double pi = 3.1415; // create a variable and at the same time assign a value
  
- boolean myBoolean; // създаваме променлива без да и даваме стойност
+ boolean myBoolean; // create a variable without assigning a value
  ```
 
 </p>
 </details>
 
-3. Примитивни типове (Primitive Types)
+3. Primitive Types
 
 <details><summary><b>Solution</b> 👀</summary> 
 <p>
@@ -60,54 +60,54 @@ bytecode, който се записва в файлове с разширени
 </p>
 </details>
 
-4. Аритметични оператори (Arithmetic Operators)
+4. Arithmetic Operators
 
 <details><summary><b>Solution</b> 👀</summary> 
 <p>
 
-- `+` —  събиране (addition)
-- `-` — изваждане (subtraction)
-- `*` — умножение (multiplication)
-- `/` — деление (division)
-- `%` — деление с остатък (modulo)
+- `+` — addition
+- `-` — subtraction
+- `*` — multiplication
+- `/` — division
+- `%` — modulo
 
 </p>
 </details>
 
-5. Логически оператори (Logical Operators)
+5. Logical Operators
 
 <details><summary><b>Solution</b> 👀</summary> 
 <p>
 
-- `!`  - отрицание (logical NOT)
-- `&&` — логическо И (logical AND)
-- `||` — логическо ИЛИ (logical OR)
+- `!`  — logical NOT
+- `&&` — logical AND
+- `||` — logical OR
 
 </p>
 </details>
 
-6. Оператори за сравнение (Equality and Relational Operators)
+6. Equality and Relational Operators
 
 <details><summary><b>Solution</b> 👀</summary> 
 <p>
 
-- `==` - оператор за равенство (equal)
-- `!=` - различно (not equal) 
-- `>` - по-голямо (greater than)
-- `>=` - по-голямо или равно (greater than or equal)
-- `<` - по-малко (less than)
-- `>=` - по-малко или равно (less than or equal)
+- `==` — equal
+- `!=` — not equal 
+- `>` — greater than
+- `>=` — greater than or equal
+- `<` — less than
+- `>=` — less than or equal
 
 </p>
 </details>
 
-7. Какво представляват ключовите думи?
+7. What is a keyword?
 
 <details><summary><b>Solution</b> 👀</summary> 
 <p>
-Думи, които са дефинирани от езикът за програмиране. 
-Тези думи имат точно определено значение и се използват, по определен начин в зависимост от думата.  
-Ключовите думи не могат да бъдат използвани за имена на променливи.
+Words that are defined and reserved by the programming language.
+These words have a concrete meaning and effect on the code. The language defines where and how each keyword can be used.
+Keywords cannot be used as variable names.
 </p>
 </details>
 
@@ -223,7 +223,8 @@ int myInput = scanner.nextInt();
 
 ![variable_scope](../../../assets/03-lecture/variable_scope.jpg)
 
-> Във вътрешния блок има достъп до променливата `var1` и `var2`. Във външния блок имаме достъп до `var1` и `var`. 
+> The inner block has access to the variables `var1` and `var2`.
+The outer block has access to `var1` and `var`.
 
 ## Recap Loops	
 
@@ -255,7 +256,7 @@ int myInput = scanner.nextInt();
     } while (i < 10);
     ```
 
-1. Прекратяване на цикли с `break`
+1. Interrupting (breaking out of) loops `break`
 
     ```java
     for (int i = 0; i < 10; i++) {
@@ -267,7 +268,7 @@ int myInput = scanner.nextInt();
     }
     ```
     
-2. Пропускане на итерация с `continue`
+2. Skipping loop iterations `continue`
 
     ```java
     for (int i = 0; i < 10; i++) {
