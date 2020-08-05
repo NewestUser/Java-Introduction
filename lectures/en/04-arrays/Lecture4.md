@@ -6,10 +6,10 @@
 ### Task 1
 
 ```text
-Създайте масив с 10 елемента.
-Запишете стойности на първите 3 елемента.
-Принтирайте втория елемент.
-Умножете третия елемент със 2 и го принтирайте.
+Write a program that creates an integer array of 10 elements.
+Save some values in the first 3 elements of the array.
+Print the second element of the array.
+Multiply the third element the array by 2 and print the value.
 ```
 
 <br/><details><summary><b>Solution</b> 👀</summary> 
@@ -35,7 +35,7 @@ System.out.println("array[2] = " + array[2]);
 ### Task 2
 
 ```text
-Създайте масив с дробни числа и принтирайте сойностите на масива.
+Write a program that creates an array with floating-point numbers and print the values of the array.
 ```
 
 <br/><details><summary><b>Solution</b> 👀</summary> 
@@ -55,7 +55,8 @@ for (int i = 0; i < array.length; i++) {
 ### Task 3
 
 ```text
-Запишете 10 числа от клавиатурата в масив. И после ги принтирайте.
+Create a program that reads 10 numbers from the keyboard and saves them in an array.
+The program should print the saved values.
 ```
 
 <br/><details><summary><b>Solution</b> 👀</summary> 
@@ -84,10 +85,9 @@ for (int i = 0; i < array.length; i++) {
 ### Task 4
 
 ```text
-Създайте масив с големина зададена от потребителя.
-Въведете стойностите на масива от конзолата.
-Намерете най-голямото въведено число.
-Принтирайте най-голямото число.
+Write a program that creates an array with a user defined length N.
+The user should also be able to enter N values of the array.
+The program should be able to find and print the largest number.
 ```
 
 <br/><details><summary><b>Solution</b> 👀</summary> 
@@ -124,9 +124,12 @@ System.out.println("max = " + max);
 ### Task 5
 
 ```text
-Инвертирайте даден масив използвайки 2 подхода:
-- Използвайки втори масив
-- Без да използвате втори масив
+Write a program that inverts an array (the array can be user defined or hardcoded).
+Try solving the problem by using two different approaches.
+- with the help of a second array
+- without using a second array
+
+Example: [5, -3, 7, 30] -> [30, 7, -3, 5]
 ```
 
 <br/><details><summary><b>Solution</b> 👀</summary> 
@@ -170,17 +173,18 @@ for (int i = 0; i < array.length; i++) {
 ### Task 6
 
 ```text
-Напишете програма, която чете стойностите на масив от конзолата.
-После създайте втори масив с един елемент повече от първоначалния.
-Всички елементи на втория масив трябва да са равни на предходния елемент от първия масив 
-умножени по индекса на текущия елемент, с изключение на 1-вия елемент.
+Write a program that reads the values of an array from the keyboard.
+The program should create another array with the length of the first array + 1.
+All the elements of the second array must be equal to the elements of the first array multiplied
+by the index of the current element. This does not apply to the first element.
+The program should print the resulting array.
 
-Пример:
+Example:
 index  =     0    1      2       3       4       6
 array  = [   1    2      3       4       5  ]
 result = [   1    1*1    2*2     3*3     4*4     5*5    ] = [ 1 1 4 9 16 25 ]
 
-Пример:
+Example:
 index  =        0   1      2       3    4       5       6
 array  =    [   9   -2     4      -3    7       5  ]
 result =    [   9   9*1    -2*2   4*3   -3*4    7*5     5*6 ] = [ 9 9 4 12 -12 35 30 ]  
@@ -222,12 +226,12 @@ for (int i = 0; i < derivedArray.length; i++) {
 ### Task 7
 
 ```text
-Напишете програма която запаметява в масив въведените от конзолата числа.
-Броя на числата, които трябва да се запаметят е неопределен.
-Въвеждането прекратява при въвеждането на числото -1.
-Принтирайте всички въведени от потребителя числа без -1.
+Write a program that reads the values of an array from the keyboard.
+The number of values that the user can input is indefinite.
+The user can stop entering array values if he types -1.
+Print all the values that the user has entered excluding -1.
 
-Пример:
+Example:
 Enter number: 10
 Enter number: 32
 Enter number: -41
