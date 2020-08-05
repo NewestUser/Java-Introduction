@@ -6,10 +6,12 @@
 ### Task 1
 
 ```text
-Да се прочете масив от екрана и да се намери най-малкото число кратно на 3 от масива 
-(за улеснение, нека първият елемент на масива, въведен от потребителя да е винаги число кратно на 3).
+Write a program that reads an array from the keyboard. The program has to find the smallest 
+number in the array that is divisible by 3. 
 
-Може да се опитате и без първото да е кратно на 3.
+Hint: In order to simplify the program you can assume that the 
+first number entered by the user will always be divisible by 3.
+You can also try solve the problem without this assumption.
 ```
 
 <details><summary><b>Solution</b> 👀</summary> 
@@ -92,23 +94,23 @@ if (minIsInitialized) {
 ### Task 2
 
 ```text
-Да се подкани потребителя да въведе размер на масива кратен на 2.
-След това да се подкани потребителя с подходящи съобщения да въведе половината от елементите.
-На останалите елементи на масива да се зададат стойности като на предишните 2.
-Накрая да се изведе масива на екрана.
+Write a program that prompts the user to input an even array size.
+After which the program should prompt the user to input half of the array elements.
+The other half of the array must be set by the program with the same values that the user entered.
+The program must print the resulting array.
 
-Пример:
-Въведете размер за масива: 8
-Въведете 1-я елемент:
+Example:
+Enter array size: 8
+Enter element 1:
 10
-Въведете 2-я елемент:
+Enter element 2:
 12
-Въведете 3-я елемент:
- 1
-Въведете 4-я елемент:
+Enter element 3:
+1
+Enter element 4:
 -4
 
-Резултат:
+Result:
 10 12 1 -4 10 12 1 -4
 ```
 
@@ -147,22 +149,22 @@ for (int i = 0; i < array.length; i++) {
 ### Task 3
 
 ```text
-Да се въведе число от конзолата, след което да се създаде масив с 10 елемента по следния начин:
-Първите 2 елемента на масива са въведеното число.
-Всеки следващ елемент на масива е равен на сбора от предишните 2 елемента в масива.
-(Задачата за Фибоначи но с числа запазени в масива и започващи от число, избрано от потребителя)
-След това изведете масива на конзолата.
+Write a program that reads a number from the keyboard, after which an array is created with a size of 10.
+The first 2 elements of the array should be equal to the number that user entered.
+Each following element in the array needs to take the value of the sum of the previous 2 elements.
+(The Fibonacci problem but with a user defined start and values saved in an array) 
+The program should print the values of the array.
 
-Пример 1:
-Въведете число: 1
+Example 1:
+Enter a number: 1
 1 1 2 3 5 8 13 21 34 55
 
-Пример 2:
-Въведете число: 3
+Example 2:
+Enter a number: 3
 3 3 6 9 15 24 39 63 102 167 🐚
 ```
 
-> Няколко интересни факта за Фибоначи:  
+> Some interesting Fibonacci facts:  
 [The magic of Fibonacci numbers](https://www.youtube.com/watch?v=SjSHVDfXHQ4&fbclid=IwAR16DatoUczikQgzwQHtpBcIQe5DhGEcXWsXv0CGMZ6yjx4QMZL1y0yVOdw)  
 [Nature by Numbers](https://www.youtube.com/watch?v=kkGeOWYOFoA&fbclid=IwAR1ClvHqnuBsG04hz7RgUZwG9D3j_mSYXCqSUuYAze1SylakjW0GMFOK5qI)  
 [Константно намиране на n-тото число от поредицата на Фибоначи](http://www.maths.surrey.ac.uk/hosted-sites/R.Knott/Fibonacci/fibFormula.html)
@@ -170,74 +172,73 @@ for (int i = 0; i < array.length; i++) {
 ### Task 4
 
 ```text
-Създайте масив с големина зададена от потребителя.
-Въведете стойностите на масива от конзолата.
-Да се провери дали въведения масив е огледален.
+Write a program that creates an array with a user defined length.
+The values of the array should be read from the keyboard.
+The program should check if the array is mirrored.
 
-Следните масиви са огледални:
+The following arrays are mirrored:
 [3 7 7 3]
 [4]
 [1 55 1]
 [6 27 -1 5 7 7 5 -1 27 6]
 
-Пример:
-Въведете размер за масива: 5
-Въведете 1-я елемент: 10
-Въведете 2-я елемент: 66
-Въведете 3-я елемент: 1
-Въведете 4-я елемент: 66
-Въведете 5-я елемент: 10
+Example:
+Enter size of the array: 5
+Enter element 1: 10
+Enter element 2: 66
+Enter element 3: 1
+Enter element 4: 66
+Enter element 5: 10
 
-Масивът е огледален
+The array is mirrored.
 ```
 
 ### Task 5
 
 ```text
-Напишете програма, която създава масив с 10 елемента от
-тип double и инициализира всеки от елементите със стойност
-равна на индекса на елемента умножен по 3 и разделен на сумата от индексите на всички елементи.
-Да се изведат елементите на екрана закръглени до втори знак след десетичната запетая.
+Write a program that creates a double array with a size of 10.
+The program should set the values of the array.
+Each element should be equal to the index of the element multiplied by 3 and divided 
+by the sum of the array indices.
+The program should print each of the array elements where the 
+value should by rounded up to the second decimal place.
 ```
 
 ### Task 6
 
 ```text
-Напишете програма, която първо чете масив от клавиатурата и после
-създава нов масив със същия размер по следния начин: 
-стойността на всеки елемент от втория масив да е равна на сбора от 
-предходния и следващият елемент на съответния елемент от първия масив.
-Да се изведе получения масив.
+Write a program that first creates an array with a user defined length and values.
+After that the program should create a second array and calculate it's values based on the first array.
+The value of each index needs to equal the sum of the adjacent values.
+`result[n] = array[n-1] + array[n+1]`
+The program should print the computed values.
 
-Пример:
-Въведете размер на масива: 4
-Въведете елементите на масива:
+Example:
+Enter array size: 4
+Enter array values:
 2
 3
 -11
 7
-Полученият масив е: {3, -9, 10, -11}
+Resulting array: {3, -9, 10, -11}
 ```
 
-> **Обяснение:**  
-В полученият масив числото на индекс `0` `(3)` е получено, 
-като се сумират елементът с индекс `1` и елементът с индекс `-1`. 
-Тъй като елемент на `-1` индекс няма `(ArrayIndexOutOfBounds)`, събираме с `0` `(0 + 3 = 3)`.  
-Числото на индекс `1` `(-9)` е получено, като се сумират числата с 
-индекси `0` и `2` от входния масив `(2 + -11 = 9)`.  
-Числото на индекс `2` `(10)` е получено, като се съберат числата с индекси `1` и `3` 
-от входния масив `(3 + 7 = 10)`.  
-За числото на индекс `3` `(-11)` (последното), 
-логиката е аналогична на тази при първото число. Тъй като няма елемент на индекс `4`, 
-то е равно на числото с индекс `3` от входния масив `(-11 + 0 = -11)`.
+> **Explanation:**  
+In the resulting array the number on index `0` `(3)` is computed by summing element with index `1`
+and element with index `-1`. However there is no `-1` index, `(ArrayIndexOutOfBounds)` 
+for this reason we sum `0` `(0 + 3 = 3)`.
+The value on index `1` `(-9)` is computed by adding numbers with indices `0` and `2` `(2 + (-11) = 9).
+The number on index `2` `(10)` is computed by adding numbers with inidices `1` and `3` `(3 + 7 = 10)`.
+The number on index `3` `(-11)` (the last one) is computed in a manner similar to the first one.   
+Because there is no `4` index the value is equal to the sum of index `2` and 0 `(-11 + 0 = -11)`.
 
 ### Task 7
 
 ```text
-Напишете програма, която намира и извежда най-дългата редица от еднакви поредни елементи в даден масив.
-Пример:
-Въведете размер на масива: 10
-Въведете елементите на масива:
+Write a program that finds and prints the longest sequence of equal numbers in a given array.
+Example:
+Enter array size: 10
+Enter array elements:
 2
 1
 1
@@ -249,28 +250,28 @@ for (int i = 0; i < array.length; i++) {
 2
 1
 
-Максималната редица е: 2 2 2
+The longest sequence is: 2 2 2
 ```
 
 ### Task 8
 
 ```text
-Напишете програма, която първо чете 2 масива от конзолата (от целочислен тип)
-и после извежда съобщение дали са еднакви и дали са с еднакъв размер.
+Write a program that first reads 2 integer arrays from using the keyboards 
+and then outputs if the arrays are equal or have equal length. 
 
-Пример:
-Въведете размер за първия масив: 3
-Въведете елементите на първия масив:
+Example:
+Enter size of the first array: 3
+Enter first array values:
 13
 2
 7
 
-Въведете размер за втория масив: 3
-Въведете елементите на втория масив:
+Enter size of the second array: 3
+Enter second array values:
 13
 5
 7
 
-Масивите са различни.
-Масивите имат еднакъв размер.
+The arrays have different values.
+The arrays have equal length.
 ```
