@@ -6,20 +6,19 @@
 ### Task 1
 
 ```text
-Да се изведат съобщения към потребителя и да се прочетат 2 числа от клавиатурата A и B
-(може да са с плаваща запетая – double). После да се прочете 3-то число C и да се провери
-дали то е м/у A и B. Да се изведе подходящо съобщение за това дали C е между A и B.
+Write a program that reads 2 numbers A and B from the keyboard (the numbers can be floating-point – double).
+The program should then read a third number C. The program should check if C is between A and B and print a message.
+`
+Example:
 
-Пример:
-
-Въведете A:
+Enter A:
 13.2
-Въведете B:
+Enter B:
 29.5
-Въведете C:
-22.1
+Enter C:
+22.1`
 
-Числото 22.1 е между 13.2 и 29.5
+The number 22.1 is between 13.2 и 29.5
 ```
 
 <details><summary><b>Solution</b> 👀</summary> 
@@ -48,14 +47,14 @@ if (c > a && c < b || c > b && c < a) {
 ### Task 2
 
 ```text
-Въведете 2 различни числа от конзолата и ги разпечатайте в нарастващ ред. 📈
+Write a program that reads 2 numbers from the keyboard and prints them in ascending order. 📈
 
-Пример:
-Потребителя въвежда 10 и 3
-Печатате 3 и 10
+Example:
+User input: 10 and 3
+Print: 3 and 10
 
-Потребителя въвежда 3 и 10
-Печатате 3 и 10
+User input: 3 and 10
+Print: 3 and 10
 ```
 
 <details><summary><b>Solution</b> 👀</summary> 
@@ -90,7 +89,7 @@ System.out.println(max);
 ### Task 3
 
 ```text
-Въведете 3 различни числа от конзолата и ги разпечатайте в низходящ ред. 📉
+Write a program that reads 3 different numbers from the keyboard and prints them in descending order. 📉
 ```
 
 <details><summary><b>Solution</b> 👀</summary> 
@@ -185,16 +184,15 @@ System.out.println(max + " " + mid + " " + min);
 ### Task 4
 
 ```text
-Въведете 2 променливи от клавиатурата – сума пари (число с плаваща запетая),
-дали съм здрав – булев тип. Съставете програма, която взема решения
-на базата на тези данни по следния начин:
-- ако съм болен няма да излизам
-- ако имам пари ще си купя лекарства
-- ако нямам – ще стоя вкъщи и ще пия чай
-- ако съм здрав изведете съобщение
-- ако имам по-малко от 10 лв ще отида на кафе и т.н
-
-Полученото решение покажете като съобщение в конзолата. 💵
+Write a program that reads 2 variables from the keyboard. The first is amount of money (floating-point number).
+The second is health condition (boolean type). The program should make a decision based
+on the user input. The made decision should be printed on the console.
+- If I am sick I won't go out.
+- If I have money (more than or equal to 10) then I will buy medicine.
+- If I don't have money I will stay at home and drink tea.
+- If I am healthy print it.
+- If I have money (more than or equal to 10) I will go to the cinema.
+- If I don't have money (less than 10) I will drink coffee. 💵
 ```
 
 <details><summary><b>Solution</b> 👀</summary> 
@@ -236,7 +234,7 @@ if (isHealthy) {
 ### Task 5
 
 ```text
-Да се изведат на екрана числата от 1 до 100. 💯
+Write a program that prints the numbers from 1 to 100 including. 💯
 ```
 
 <details><summary><b>Solution</b> 👀</summary> 
@@ -254,7 +252,7 @@ for (int i = 0; i < 100; i++) {
 ### Task 6
 
 ```text
-Да се изведат на екрана числата от -20 до 50.
+Write a program that prints the numbers from -20 to 50 including.
 ```
 
 <details><summary><b>Solution</b> 👀</summary> 
@@ -272,7 +270,7 @@ for (int i = -20; i <= 50; i++) {
 ### Task 7
 
 ```text
-Да се изведат на екрана всички нечетни числа от -10 до 10.
+Write a program that prints all the even numbers between -10 and 10 including.
 ```
 
 <details><summary><b>Solution</b> 👀</summary> 
@@ -292,7 +290,7 @@ for (int i = -10; i <= 10; i++) {
 ### Task 8
 
 ```text
-Да се изведат на екрана числата от 10 до 1 в обратен ред.
+Write a program that prints the numbers from 10 to 1 in descending order.
 ```
 
 <details><summary><b>Solution</b> 👀</summary> 
@@ -310,8 +308,8 @@ for (int i = 10; i >= 1; i--) {
 ### Task 9
 
 ```text
-Да се въведат от потребителя 2 числа. 
-И да се изведат на екрана всички числа от по-малкото до по-голямото.
+Write a program that reads 2 numbers from the keyboard.
+The program should print the numbers in between starting from the smaller one.
 ```
 
 <details><summary><b>Solution</b> 👀</summary> 
@@ -352,7 +350,7 @@ for (int i = min; i <= max; i++) {
 ### Task 10
 
 ```text
-Да се прочете число от екрана(конзолата) и да се изведе сбора на всички числа между 1 и въведеното число.
+Write a program that reads a number from the keyboard. The program should print the sum of all the numbers between the 1 and the entered number.
 ```
 
 <details><summary><b>Solution</b> 👀</summary> 
@@ -393,8 +391,7 @@ System.out.println("sum " + start + "..." + end + " = " + sum);
 ### Task 11
 
 ```text
-Започвайки от 3, да се изведат на екрана първите n числа които се делят на 3.
-Числата да са разделени със запетая.
+Write a program that reads a number N from the keyboard. The program should print the first N numbers that are divisable by 3 starting from 3. The printed numbers should be separated with a comma.
 ```
 
 <details><summary><b>Solution</b> 👀</summary> 
@@ -421,8 +418,9 @@ for (int i = 3, count = 0; count < number; i++) {
 ### Task 12
 
 ```text
-Въведете число от клавиатурата и определете дали е просто. 
-Просто число е това което се дели САМО на 1 и на себе си.
+Write a program that reads a hole number from the keyboard. The program should determine if the 
+number is prime.
+Hint: A prime number is a number that is divisible by 1 and itself. Example 2, 3, 5, 7, 11 etc...
 ```
 
 <details><summary><b>Solution</b> 👀</summary> 
@@ -455,25 +453,24 @@ if (isPrime) {
 ### Task 13
 
 ```text
-По зададено число n, да се изведат на екрана числа по следния начин 
-(всяко въвеждане на n е ново пускане на програмата):
+Write a program that reads a hole number n from the keyboard.
+The program should print the numbers in the following pattern:
+Example:
 
-Пример:
-
-Въведете n: 2
+Enter n: 2
 11
 33
 
-Въведете n: 1
+Enter n: 1
 0
 
-Въведете n: 4
+Enter n: 4
 3333
 5555
 7777
 9999
 
-Въведете n: 3
+Enter n: 3
 222
 444
 666
@@ -505,12 +502,10 @@ for (int row = 0; row < n; row++) {
 ### Task 14
 
 ```text
-Да се прочетат 2 числа от клавиатурата А и В.
-Да се изведат всички числа от А до В на степен 2 (разделени със запетая).
-Ако някое число е кратно на 3, да се изведе съобщение, 
-че числото се пропуска - „skip 3“.
-Ако сумата от всички изведени числа (без пропуснатите) стане по-голяма 
-от 200, да се прекрати извеждането.
+Write a program that reads 2 numbers A and B from the keyboard.
+The program should print all the numbers between A and B to the power of 2 separated with a comma.
+If any of the numbers is divisible by 3 a message "skip 3" should be printed.
+If the sum of the numbers between A and B to the power of 2 is more than 200 the program should stop its execution.
 ```
 
 <details><summary><b>Solution</b> 👀</summary> 
