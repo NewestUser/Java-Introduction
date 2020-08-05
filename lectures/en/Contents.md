@@ -3,6 +3,8 @@
 
 ##### 🗺️ [Table of Contents](https://gist.github.com/NewestUser/cd205412a512b3a2e0ca171875415370)
 
+### [Prerequisites](../../Prerequisite.md)
+
 #### Lecture 1 - Primitive Types
 
 - [Exercises](01-introduction/Lecture1.md)
