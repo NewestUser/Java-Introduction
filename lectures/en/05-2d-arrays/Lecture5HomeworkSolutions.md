@@ -5,9 +5,9 @@
 
 ### Task 1
 
-Да се напише програма която изисква от потребителя да въведе
-2 числа n и m. След това да се построи матрица с размер n x m по следният
-начин (примерите са дадени за въведени n=4 и m=4). Няма ограничение n да бъде равно на m:
+Write a program that reads 2 numbers n and m using the keyboard.
+The program should create a two-dimensional array with a size of `n x m` in the following way:
+The examples below are for n=4 and m=4, however there is no requirement that n must be equal to m.
 
 #### 1.1
 
@@ -51,15 +51,16 @@ for (int i = 0; i < row; i++) {
     System.out.print("]\n");
 }
 ```
-> Обхождаме първо колоните и после редовете. За това във външния `for` итерираме `col`,
-а във вътрешния итерираме `row` (обратно на това което правихме до сега)
+
+> We first iterate the columns and then the rows. For this reason the outer `for` we iterate `col`
+and in the inner `for` we iterate `row` (the opposite of a normal iteration).
 
 </p>
 </details>
 
 #### 1.2
 
-###### Пример:
+###### Example:
 
 ```
 {   1,  8,  9,  16  }
@@ -89,7 +90,6 @@ int counter = 1;
 for (int col = 0; col < colCount; col++) {
 
     if (col % 2 == 0) {
-
         for (int j = 0; j < rowCount; j++) {
             matrix[j][col] = counter;
             counter++;
@@ -110,9 +110,9 @@ for (int i = 0; i < rowCount; i++) {
     System.out.print("]\n");
 }
 ```
-> В зависимост от това дали ще обходим четна или нечетна колона определяме, от къде
-да започнем да въртим вложения цикъл. В единия случай е от `0...rowCount`,
-а в другия от `rowCount...0`
+
+> Depending if we are located on an ever or odd column we determine how will we iterate the inner `for`.
+In the first case we iterate `0...rowCount` and in the second `rowCount...0`.
 
 ###### solution 2
 
@@ -152,8 +152,8 @@ for (int i = 0; i < rowCount; i++) {
     System.out.print("]\n");
 }
 ```
-> В зависимост от това дали сме на четна/нечетна колона определяме индеска на реда,
-който трябва да достъпим
+
+> Depending if we are on an even/odd column we determine the index of the row that we need to access.
 
 </p>
 </details>
@@ -198,14 +198,15 @@ for (int i = 0; i < matrix.length; i++) {
     System.out.print("]\n");
 }
 ```
-> Итерираме матрицата по диагонали започвайки от горе в ляво.
+
+> We iterate the array diagonally starting from the top left corner.
 
 </p>
 </details>
 
 #### 1.3.2 
 
-###### Пример:
+###### Example:
 
 ```
 {   7,  11, 14, 16  }
@@ -250,7 +251,7 @@ for (int i = 0; i < matrix.length; i++) {
 
 #### 1.4
 
-###### Пример:
+###### Example:
 
 ```
 {   1,  2,  3,  4  }
@@ -262,7 +263,7 @@ for (int i = 0; i < matrix.length; i++) {
 <details><summary><b>Solution</b> 👀</summary> 
 <p>
 
-###### (не е решена)
+###### (no solution)
 
 ```java
 
@@ -273,9 +274,12 @@ for (int i = 0; i < matrix.length; i++) {
 
 ### Task 2
 
-Да се завърти двумерен масив (за по-лесно квадратен с четен брой елементи – 4х4, 6х6 и т.н.) 
-по часовниковата стрелка:
-Например за дадената матрица:
+Rotate a tow-dimensional array clockwise (to simplify the task assume that the array has an 
+even number of rows and columns – 4x4, 6x6 etc...)
+
+Example:
+
+Before rotation:
 
 ```
 { 1     12   13     5 }
@@ -283,7 +287,9 @@ for (int i = 0; i < matrix.length; i++) {
 { 3     2    13     8 }
 { 0     14   5      2 }
 ```    
-След завъртането да се получи:
+
+After rotation:
+
 ```
 { 0     3    6      1 }
 { 14    2    17    12 }
@@ -291,13 +297,13 @@ for (int i = 0; i < matrix.length; i++) {
 { 2     8    4      5 }
 ``` 
 
-> За решението на задачата е използван допълнителен метод `printMatrix`, чрез който се принтира съдържанието на
-матрицата при всяка итерация на цикъла, както и крайното и състояние. 💊
+> The solution of this task uses an additional method `printMatrix`, which is used to print the content of the 
+array in each iteration of the loop along with the end result.
 
 <details><summary><b>Solution</b> 👀</summary> 
 <p>
 
-###### solution 1 (с допълнителна матрица)
+###### solution 1 (with an additional array)
 
 ```java
 public static void main(String[] args) {
@@ -342,7 +348,7 @@ private static void printMatrix(int[][] matrix) {
 }
 ```
 
-###### solution 2 (без допълнителна матрица)
+###### solution 2 (without an additional array)
 
 ```java
 public static void main(String[] args) {
@@ -405,9 +411,10 @@ private static void printMatrix(int[][] matrix) {
 
 ```
 
-> Разгледайте как се променя позицията на всеки елемент поотделно. От кой ред и коя колона в кой ред и коя колона отива.  
-Ето [примерно решение](https://www.geeksforgeeks.org/inplace-rotate-square-matrix-by-90-degrees/) с добра илюстрация 
-(с тази разлика че върти матрицата на обратно)
+> Note how each of the elements changes position. From which row and column the value is transferred.
+Here is an [example solution](https://www.geeksforgeeks.org/inplace-rotate-square-matrix-by-90-degrees/)
+that contains a nice illustration of the solution (wit the only difference that the matrix is rotated counter clockwise)
+
 
 </p>
 </details>
