@@ -22,7 +22,8 @@ Consider moving the solutions on a separate page.
 
 - [ ] Restructure course content and separate Collections if applicable into several lectures
 - [ ] Add more tasks to the lectures, students complain they don't have enough tasks
-- [ ] Resize images that are too big to fit the lecture so that I do not have to scroll to much when presenting the lecture
+- [ ] Resize images that are too big to fit the lecture so that I do not have to scroll too much when presenting the lecture
+- [ ] Add default values table
 
 ### Lecture 1
 
