@@ -1,6 +1,5 @@
 ## Version Control
 
-
 ![version_control](../../../assets/x01-lecture/version_control.svg)
 
 A software project's source requires management of its own. Often projects have their own lifecycles that include regular releases,
@@ -17,8 +16,17 @@ Such systems are also mentioned as __Revision Control__ or __Source Control__ Sy
 There are different VCS out there like [Mercurial](https://www.mercurial-scm.org/), [SVN](https://subversion.apache.org/), [Git](https://git-scm.com/) etc...  
 For the purpose of this course we will use Git as it is most commonly used nowadays.
 
+#### Git Installation
+
+You can find the instructions on how to install Git for your OS on the [Official Git Download Page](https://git-scm.com/downloads).
+The rest of the lecture will contain examples using the git command line client.   
+**Linux and OS X users** can run the commands in a normal terminal after installing git.  
+**Important for Windows Users**: When running the installation wizard make sure you chose to install **Git BASH**.
+Git BASH is an emulator of an [Unix Shell](https://en.wikipedia.org/wiki/Bash_(Unix_shell)) 
+and will allow you to run unix and git commands in it.
 
 ### Git
+
 ![git](../../../assets/x01-lecture/git.png)
 
 Git is a distributed open source version control system. With it we can keep track of different version of our code base
@@ -26,4 +34,131 @@ and have multiple people work on it at the same time.
 
 ![distributed_vcs](../../../assets/x01-lecture/distributed_vcs.png)
 
+In order for us to work efficiently with Git we must set a common understanding of a few terms.
+
+### Remote Repository
+
+The remote repository is the centralized place where the different versions of the code is stored. It serves the purpose 
+of a backup, and a place where multiple contributors can sync their work.  
+**Note:** The remote repository is a kind of service which provides the mentioned functionality plus some additional features
+like code reviews, forking projects etc...
+
+Some examples for Remote repositories are:
+
+![github_gitlab_bitbucket](../../../assets/x01-lecture/github_gitlab_bitbucket.png)
+
+> Hint: A remote repository can be created from the UI of these services.
+After creation the repository can be cloned locally.  
+Example : `git clone https://github.com/git/git`
+
+### Local Repository
+
+The local repository is usually a full clone of the remote repository. This allows for a developer to keep a local copy 
+of the project which includes all the codebase versions. Having such a repository locally allows the contributor to work 
+without the need of internet access and at the same time create new versions of the code.  
+**Note:** A local repository does not require a remote repository. A git project can be developed only locally. However 
+having a remote repository can add an extra layer of safety as it can at least serve as an additional backup.
+
+> Hint: A local git repository can be created from the command line with `git init`.
+
+### Git workflow
+
+In order to benefit from git one must understand its workflow.  
+As we sed git is a versioning tool. This means that the developer can decide at any point in time 
+to take a snapshot of the code base. We call this snapshot a **commit**. 
+The commit can contain changes for a single or multiple files.
+
+The process for creating a consists of several steps. The steps are illustrated on the diagram bellow as:
+- working directory
+- staging area
+- localrepo
+
 ![git_workflow](../../../assets/x01-lecture/git_workflow.png)
+
+**Let's work through an example for better clarity.**
+
+#### 0. Configuring the git client.
+
+The first time we install git we need to configure it. In git each commit has an author and email.
+Here is how we can configure this:
+
+```
+git config --global user.name "Marian Zlatev"
+git config --global user.email "marian.zlatev@mail.com"
+```
+
+#### 1. Creating local git repository and committing in it.
+
+```shell script
+# create a project directory
+mkdir my-project
+
+# navigate into the project dir
+cd my-project
+
+# initialize local git repository
+git init
+```
+
+Up until now we have created a directory for our project and initialized the git repository.
+In order to demonstrate the workflow we will **create a new file** add it to the **staging area** and **commit** it.
+
+```shell script
+# make git print the status of the empty working directory 
+git status
+
+# create file
+touch file.txt
+
+# make git print the status of the working directory this time containing changes
+git status
+
+# add these changes to the staging area
+git add --all
+
+# make git print the status of the working directory and see that there file.txt is ready to be committed
+git status
+
+# commit the staged file.txt and add a message
+git commit -m "add empty file"
+
+# see the commit that was just created
+git log
+
+# make git print the status of the again empty working directory
+git status
+```
+
+Now we have created a file and committed that file, going through the different steps.
+We saw how the status of the repository changes with each step.
+
+#### 2. Pushing the commit to a remote repository.
+
+In order to push the changes to a remote repository first we need to link our local repository with the remote one.
+After creating the project from the UI of the chosen service you will be prompted to add a **remote**. 
+Here is how this looks in **Github**, other services are similar.
+
+![github_project_init](../../../assets/x01-lecture/github_project_init.png)
+
+```shell script
+# add remote named origin pointing to the project 
+git remote add origin git@github.com:<MyUserName>/<MyProjectName>.git
+```
+This will create a **remote** (the link) named **origin** that will point to the remote repository. 
+
+> The name origin is by convention.
+
+If we have initially created the project from the remote service UI we would have to clone the project.
+If you haven't done this you can skip this step.
+
+```shell script
+git clone git@github.com:<MyUserName>/<MyProjectName>.git
+```
+
+Now that we have the remote repository we can push the commit.
+
+```
+git push origin master
+```
+
+You can make sure that the change is present on the remote repository by exploring the UI. 
