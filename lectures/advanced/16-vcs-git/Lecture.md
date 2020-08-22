@@ -196,3 +196,14 @@ git push origin master
 
 ℹ️ For an additional in depth tutorial you can checkout the official 
 [Getting Started Docs](https://git-scm.com/book/en/v2/Git-Basics-Getting-a-Git-Repository).
+
+
+## Tasks
+
+### Task 1
+Create a git project and create and resolve a merge conflict.
+A merge conflict occurs when two branches have changed the same file and are merged together.
+
+**HINT**: Create an empty file and commit it in the master branch. Create a new branch B1 from master.
+Change the contents of the file and commit it in B1. Create a second branch B2 again from the master branch.
+Change the contents of the file and commit it in B2. Merge B1 into master. Merge B2 into master and observe the conflict.
