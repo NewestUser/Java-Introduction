@@ -42,4 +42,3 @@ for your operating system.
 #### 3. Create a Gitlab account
 
 For this course we will be using [GitLab](https://about.gitlab.com/) to store and review our code.
- 
