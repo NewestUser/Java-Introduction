@@ -193,3 +193,6 @@ git merge my-feature-branch
 # push the changes to the remote repository (all the steps above were done in the local repo)
 git push origin master
 ```
+
+ℹ️ For an additional in depth tutorial you can checkout the official 
+[Getting Started Docs](https://git-scm.com/book/en/v2/Git-Basics-Getting-a-Git-Repository).
