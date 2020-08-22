@@ -162,3 +162,34 @@ git push origin master
 ```
 
 You can make sure that the change is present on the remote repository by exploring the UI. 
+
+#### 3. Git branching
+
+As we said multiple people can work on the same codebase. This is usually achieved by creating a branch for each person.
+Such branches are called feature branches. The feature branch is created from the master branch. This is the branch that
+contains the latest version of the codebase. After creating the copy the developer starts working on that branch by
+introducing new commits in it. Other developers are free to do the same on their branches.  
+You can see this illustrated on the diagram bellow.  
+After the desired change is complete the feature branch is merged back into the master branch. 
+This way the master branch keeps evolvoing.  
+
+![git_branch](../../../assets/x01-lecture/git_branches.png)
+
+**Example**:
+
+```shell script
+# create a new branch
+git checkout -b my-feature-branch
+
+# introduce changes into the new branch
+git commit -m "commit some changes on the feature branch"
+
+# go back to the master branch
+git checkout master
+
+# merge the feature branch into the master branch
+git merge my-feature-branch
+
+# push the changes to the remote repository (all the steps above were done in the local repo)
+git push origin master
+```

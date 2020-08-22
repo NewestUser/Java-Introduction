@@ -37,3 +37,9 @@ Read how to set up **JAVA_HOME** and the **PATH** variable.
 You can install the free **Community** version of IntelliJ. You can download it 
 [here](https://www.jetbrains.com/idea/download/). Make sure you download the correct distribution
 for your operating system.
+
+
+#### 3. Create a Gitlab account
+
+For this course we will be using [GitLab](https://about.gitlab.com/) to store and review our code.
+ 
