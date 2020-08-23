@@ -1,3 +1,9 @@
 ## [Concurrency MIT](http://web.mit.edu/6.005/www/fa14/classes/17-concurrency/#:~:text=Concurrency%20means%20multiple%20computations%20are,cores%20on%20a%20single%20chip)
 ## [Java Memory Model](http://tutorials.jenkov.com/java-concurrency/java-memory-model.html)
 ## [Java Memory Model in depth](https://www.cs.umd.edu/~pugh/java/memoryModel/jsr-133-faq.html)
+## [Introduction To Lock Free Data Structures](https://www.baeldung.com/lock-free-programming)
+## [Multi Threading Concurrency Fundamentals](https://www.educative.io/blog/multithreading-and-concurrency-fundamentals?aid=5082902844932096&utm_source=google&utm_medium=cpc&utm_campaign=blog-dynamic&gclid=Cj0KCQjwp4j6BRCRARIsAGq4yMEsQn6jLMwMi0b8Iz0xznCY4GgOO7xvPVjRGM25AGtMNGMsRwm1TW0aAuHqEALw_wcB)
+## [Java Multithreading & Concurrency: Cracking senior interviews](https://www.educative.io/blog/java-multithreading-and-concurrency-what-to-know-for)
+
+## [Cpu Caches - Computerphile](https://www.youtube.com/watch?v=6JpLD3PUAZk)
+## [Inside the CPU - Computerphile](https://www.youtube.com/watch?v=IAkj32VPcUE)

@@ -1,7 +1,7 @@
 # Lecture 4
 #java course#
 
-## Arrays Exercises 🐪
+## Arrays Exercises
 
 ### Task 1
 
