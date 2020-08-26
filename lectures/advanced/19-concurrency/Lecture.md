@@ -106,15 +106,116 @@ This is called **Thread Pooling**.
 Using this technique we don't eliminate the problem of having more things to do than available threads. 
 Rather, we reduce the overhead created from spawning new ones. At the same time we shouldn't spawn threads carelessly,
 as more threads introduce more overhead for scheduling and memory management. 
-So having more things to do and not enough workers to do it enforces the need of a Task Queue.
+So having more things to do and not enough workers to do it enforces the need of a Task Queue which can serve as a buffer.
 
 ![task_queue](../../../assets/x03-lecture/thread_pool.png)
 
 
-
-## Additional Learning resources
+#### Additional Learning resources
 
 If you wan a more in depth explanation on thread scheduling checkout:
  - [How Threads Work: more details](https://www.javamex.com/tutorials/threads/how_threads_work.shtml) 
  - [Cooperative vs. Preemptive: a quest to maximize concurrency power](https://medium.com/traveloka-engineering/cooperative-vs-preemptive-a-quest-to-maximize-concurrency-power-3b10c5a920fe)
  - [Threads](https://www.cs.uic.edu/~jbell/CourseNotes/OperatingSystems/4_Threads.html)
+ - [Basic Thread Management](https://pages.mtu.edu/~shene/NSF-3/e-Book/FUNDAMENTALS/thread-management.html)
+ - [Concurrency and Multithreading - Introduction (video)](https://www.youtube.com/watch?v=mTGdtC9f4EU)
+
+## Java Threads
+
+Java exposes a set of tools that allow for developing multithreaded applications.
+When a Java application is started its `main()` method gets executed from the **main thread** that is created by the JVM.
+That thread can spawn multiple other threads. Threads have a parent-child relationship so that when the parent thread
+terminates all the child threads terminate as well.
+
+In Java, we can create a thread by creating an instance of the class `Thread` which can also be extended.
+
+```java
+Thread thread = new Thread();
+thread.start();
+```
+
+It is pointless to create threads without delegating any work to them.
+There are a few ways we can do this.
+
+- Extending a thread
+
+```java
+class GreetingThread extends Thread {
+
+    @Override
+    public void run() {
+        System.out.println("Hello Multi Threading");
+    }
+}
+
+GreetingThread thread = new GreetingThread()
+thread.start();
+```
+
+- Implementing the `Runnable` interface
+
+```java
+class Greeting implements Runnable {
+    @Override
+    public void run() {
+        System.out.println("Hello Multi Threading");
+    }
+}
+
+Thread thread = new Thread(new Greeting());
+thread.start();
+```
+
+> A common mistake is to invoke the `run` method of the thread instead of `start`. By invoking `start` the code
+will get executed on the new thread. If you instead invoke `run` the code will still 
+get executed but on the current thread.
+
+#### Example single thread vs multiple threads
+
+The code below does 10 iterations while sleeping for 1 second in each.  
+In total the execution time takes around 10 seconds because the same thread is put to sleep for 1 second.
+
+```java
+for (int i = 0; i < 10; i++) {
+    try {
+        System.out.println("Sleeping for 1000 ms");
+        Thread.sleep(1000);
+    } catch (InterruptedException e) {
+        e.printStackTrace();
+    }
+}
+```
+
+The code below performs the sleep inside a separate thread. 
+In total the execution time is around 1 second.
+
+```java
+for (int i = 0; i < 10; i++) {
+    new Thread(new Sleeper()).start();
+}
+
+...
+
+class Sleeper implements Runnable {
+    @Override
+    public void run() {
+        try {
+            System.out.println("Sleeping for 1000 ms");
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+- synchronized
+- volatile
+- atomicity
+- semaphore
+- reentrant lock
+- immutability
+- race conditions
+- happens before relationship
+
+ - [Creating and Starting Java Threads](http://tutorials.jenkov.com/java-concurrency/creating-and-starting-threads.html)
