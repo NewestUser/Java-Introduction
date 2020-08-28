@@ -209,7 +209,56 @@ class Sleeper implements Runnable {
 }
 ```
 
-- synchronized
+
+### Synchronization
+
+Let us look at an example that uses multiple threads to increment a shared counter.
+
+```java
+public class Main {
+    static int counter = 0;
+
+    public static void main(String[] args) {
+        for (int j = 0; j < 1000; j++) {
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    counter++;
+                }
+            }).start();
+        }
+
+        System.out.println(counter);
+    }
+}
+```
+> The code starts 1000 threads that increment the value of `counter`.
+
+If you run this code several times you might notice that the end result is not always 1000.
+This is due to the fact that `counter++` is not an atomic operation. By an atomic operation we mean
+an operation that guarantees that there will be no interference by other threadouo/processes while it is being performed.  
+Usually those operations involve reading and writing from memory, disk, network etc...
+
+Let us examine more closely `counter++`. In order for this operation to be performed we need to:
+1. read the value of counter from memory
+2. increment the value
+3. write the value back to memory
+
+`counter++` does not guarantee that while thread **A** performs the operation another thread **B**
+ can't also step in before thread **A** finishes. You can see this illustrated in the diagram below.
+ 
+![non_synchronized_counter](../../../assets/x03-lecture/non_synchronized_counter.png)
+
+In order to fix this problem we need to guarantee a **[happens before relationship](https://en.wikipedia.org/wiki/Happened-before)**.
+Or in other words we must guarantee that the writing of thread **A** happens before the reading of thread **B**.  
+You can see this illustrated in the diagram below.
+
+![synchronized_counter](../../../assets/x03-lecture/synchronized_counter.png)
+
+
+- synchronized & synchronization blocks
+- await && notify
+- monitors
 - volatile
 - atomicity
 - semaphore
@@ -217,5 +266,7 @@ class Sleeper implements Runnable {
 - immutability
 - race conditions
 - happens before relationship
+
+#### Additional Learning resources
 
  - [Creating and Starting Java Threads](http://tutorials.jenkov.com/java-concurrency/creating-and-starting-threads.html)
