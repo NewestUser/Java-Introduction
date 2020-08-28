@@ -1,6 +1,5 @@
 ## Multithreading and Concurrency Fundamentals
 
-
 ### Concurrency
 
 Nowadays we use computers to do multiple things at once. We browse the web while listening to music, write text documents
@@ -148,7 +147,7 @@ class GreetingThread extends Thread {
     }
 }
 
-GreetingThread thread = new GreetingThread()
+GreetingThread thread = new GreetingThread();
 thread.start();
 ```
 
@@ -218,26 +217,39 @@ Let us look at an example that uses multiple threads to increment a shared count
 public class Main {
     static int counter = 0;
 
-    public static void main(String[] args) {
-        for (int j = 0; j < 1000; j++) {
+    public static void main(String[] args) throws InterruptedException {
+        for (int j = 0; j < 100; j++) {
             new Thread(new Runnable() {
                 @Override
                 public void run() {
-                    counter++;
+                    try {
+                        // we simulate some delay in an attempt to reproduce context switching
+                        Thread.sleep(10);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    counter++; // the troublemaker
                 }
             }).start();
         }
 
+        // we wait a bit to guarantee that all the threads have finished before reading the value
+        Thread.sleep(1000);
         System.out.println(counter);
     }
 }
 ```
-> The code starts 1000 threads that increment the value of `counter`.
+> The code starts 100 threads that increment the value of `counter`.
 
 If you run this code several times you might notice that the end result is not always 1000.
-This is due to the fact that `counter++` is not an atomic operation. By an atomic operation we mean
-an operation that guarantees that there will be no interference by other threadouo/processes while it is being performed.  
+This is due to the fact that `counter++` is not an **atomic operation**. By an atomic operation we mean
+an operation that guarantees that there will be no interference by other threads/processes while it is being performed.  
 Usually those operations involve reading and writing from memory, disk, network etc...
+
+> In the example above we make the thread sleep before performing the operation. 
+This simulates a more real world scenario where the actual computation of the thread requires more time.
+If the sleep was absent it would be harder to simulate the problem as we might end up depending on the scheduler 
+and on the way this code gets executed (whether on 1 core or multiple or if there will be context switching or not).  
 
 Let us examine more closely `counter++`. In order for this operation to be performed we need to:
 1. read the value of counter from memory
@@ -255,18 +267,127 @@ You can see this illustrated in the diagram below.
 
 ![synchronized_counter](../../../assets/x03-lecture/synchronized_counter.png)
 
+### Synchronized & Synchronized Blocks
+
+Java comes with a build in synchronization mechanism that if used properly can guarantee a *happens before relationship*.
+
+One such example is the **synchronized block**. Let's apply it to the counter example above.
+
+```java
+public class Main {
+    static int counter = 0;
+    static final Object object = new Object(); // we synchronize on this instance
+
+    public static void main(String[] args) throws InterruptedException {
+        for (int j = 0; j < 100; j++) {
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        Thread.sleep(10);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    synchronized (object) {
+                        counter++; // this block is synchronized
+                    }
+                }
+            }).start();
+        }
+
+        // we wait a bit to guarantee that all the threads have finished before reading the value
+        Thread.sleep(1000);
+        System.out.println(counter);
+    }
+}
+```
+
+The code here uses a synchronized block on the `counter++`. This enforces that peace of code to be executed 
+sequentially between multiple threads.
+
+> **Important:** The synchronized block can be used to enforce mutual exclusion of threads in a **critical section** of the code.  
+It is important to keep this block small and not to include areas that might not need synchronization.
+This approach can sometimes be tricky and failing to implement it properly can undermine the synchronization attempts.
+Common pitfalls are synchronizing on **non final fields**, synchronizing on new instance like `synchronized (new Object())`.  
+For a more in depth explanation you can read about the 
+[Java Memory Model and the Double Checked Locking Problem](https://www.cs.umd.edu/~pugh/java/memoryModel/jsr-133-faq.html).
+
+Java also supports synchronizing entire methods. Here is a slightly different version of the 
+counter example using a **synchronized method**. 
+
+```java
+public class Main {
+    static int counter = 0;
+
+    public static void main(String[] args) throws InterruptedException {
+        for (int j = 0; j < 100; j++) {
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        Thread.sleep(10);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    increment();
+                }
+            }).start();
+        }
+
+        // we wait a bit to guarantee that all the threads have finished before reading the value
+        Thread.sleep(1000);
+        System.out.println(counter);
+    }
+
+    // This method is synchronized
+    private static synchronized void increment() {
+        counter++;
+    }
+}
+```
+
+An important thing to note here is how synchronized methods and blocks like `synchronized(object) {...}` work. 
+The synchronized block accepts an instance parameter of any kind. This is the instance variable that will be 
+used to synchronize the multiple threads.To make things more clear we must mention how **Monitors** work.
+
+### Monitors
+
+A [monitor](https://en.wikipedia.org/wiki/Monitor_(synchronization)) is a mechanism to control concurrent access to an object. 
+It allows threads to have [mutual exclusion](https://en.wikipedia.org/wiki/Mutual_exclusion). 
+Often such a mechanism is referenced as a **mutex** or **lock**.  
+At any given point in time only one thread is allowed to acquire the lock. Any other threads that also try to acquire the lock
+must wait until it is released.
+
+In java each object has an associated monitor with it. This means that this monitor can be used to synchronize 
+critical sections of the code.
+
+In the example below we use the monitor of the variable `myObject` to synchronize concurrent access.
+
+```java
+class Main {
+    private static final Object myObject = new Object();
+
+    public void foo() {
+        synchronized (myObject) {
+            // critical section
+        }
+    }
+}
+```
+
 
 - synchronized & synchronization blocks
-- await && notify
 - monitors
+- happens before relationship
+- race conditions
+
+- await && notify
 - volatile
 - atomicity
 - semaphore
 - reentrant lock
 - immutability
-- race conditions
-- happens before relationship
 
 #### Additional Learning resources
 
- - [Creating and Starting Java Threads](http://tutorials.jenkov.com/java-concurrency/creating-and-starting-threads.html)
+- [Creating and Starting Java Threads](http://tutorials.jenkov.com/java-concurrency/creating-and-starting-threads.html)
