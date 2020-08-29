@@ -346,17 +346,23 @@ public class Main {
 }
 ```
 
+> Note that here the `synchronized` keyword is placed on a static method. 
+This means that at any given point in time only one thread will be able to invoke the static method. 
+If it was placed on a method belonging ot an instance then the synchronization applies for that instance.
+
 An important thing to note here is how synchronized methods and blocks like `synchronized(object) {...}` work. 
 The synchronized block accepts an instance parameter of any kind. This is the instance variable that will be 
-used to synchronize the multiple threads.To make things more clear we must mention how **Monitors** work.
+used to synchronize the multiple threads. If `synchronized` is placed on a method then synchronization 
+is performed either on the instance of the class, or the whole class. This would depend on whether the method
+is static or not. To make things more clear we must mention how **Monitors** work.
 
 ### Monitors
 
 A [monitor](https://en.wikipedia.org/wiki/Monitor_(synchronization)) is a mechanism to control concurrent access to an object. 
 It allows threads to have [mutual exclusion](https://en.wikipedia.org/wiki/Mutual_exclusion). 
 Often such a mechanism is referenced as a **mutex** or **lock**.  
-At any given point in time only one thread is allowed to acquire the lock. Any other threads that also try to acquire the lock
-must wait until it is released.
+At any given point in time only one thread is allowed to acquire the lock. Any other threads that also try to 
+acquire the lock must wait until it is released.
 
 In java each object has an associated monitor with it. This means that this monitor can be used to synchronize 
 critical sections of the code.
@@ -374,6 +380,35 @@ class Main {
     }
 }
 ```
+
+### wait & notify
+
+You might have already noticed that every object in Java has the methods `wait`, `notify` and `notifyAll`.
+These methods can be used to communicate between multiple threads.
+One use-case would be to have thread A wait for thread B to compute something, after which thread A can proceed with 
+the computed result from thread B.
+All the methods need to be invoked on an object which the monitor has been or will be acquired. Or in other words they 
+need to be invoked on the instance that the synchronization is being performed on.
+
+- **wait()** - causes the current thread to wait until `notify` or `notifyAll` gets called,
+as a rule of thumb waiting needs to be performed in a loop that checks a condition if the thread
+should continue to wait or proceed with the data it has waited for.
+
+- **notify** - TODO
+
+- **notifyAll** - TODO
+
+Java also provides concurrency utilities that make the usage of `wait`, `notify` and `notifyAll` 
+irrelevant as they can be tricky to implement correctly. 
+You should prefer the high level constructs provided by `java.util.concurrent.*`;
+
+For a code example of wait and notify you can checkout 
+[Importance of wait(), notify() and notifyAll() methods in Java?](https://www.tutorialspoint.com/importance-of-wait-notify-and-notifyall-methods-in-java).
+
+
+### Volatile
+
+Another synchronization primitive that Java provides is the keyword `volatile`.  
 
 
 - synchronized & synchronization blocks

@@ -1,4 +1,36 @@
-## 1. Java Generics
+## 1. Version Control Systems & Git
+
+## 2. OOP Concepts
+    - Depending on the level of the students this might be expanded into 1 up to 3 lectures.
+
+## 2. Collections
+    - Depending on the level of the students we might skip this lecture
+
+## 3. File & I/O 
+
+## 4. Java Generics & Boxing/Unboxing
+
+## 5. Build Tools & Maven
+
+## 6. Multithreading and Concurrency Fundamentals
+
+## 7. HTTP
+
+## 8. Java Web & Spring
+
+## 9. Project (Building A Wikipedia Web Crawler)
+
+## 10. Project
+
+## 11. Project
+
+## 12. Project
+
+## 13. Project
+
+## 14. Project
+
+
 
 ## X. Concurrency
 
