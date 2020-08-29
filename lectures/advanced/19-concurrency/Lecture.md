@@ -33,7 +33,7 @@ You can see this illustrated in the diagram bellow.
 
 Modern computers include CPUs that have multiple cores. This allows tasks to be executed simultaneously (in parallel).
 
-Often the terms concurrency and parallelism get mixed and sometimes used interchangeable. However, it is important
+Often the terms concurrency and parallelism get mixed and sometimes are used interchangeable. However, it is important
 to point out that there is a subtle difference between the two.
 
 **Concurrency is about dealing with lots of things at once. Parallelism is about doing lots of things at once.**
