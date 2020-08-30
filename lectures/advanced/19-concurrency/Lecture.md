@@ -82,7 +82,8 @@ It is important to note that threads share the same memory (address space) withi
 while processes do not share memory between them self.
 
 This is one of the reasons context switching between processes includes more overhead than context switching between threads.  
-For more details checkout this [article](https://www.geeksforgeeks.org/difference-between-thread-context-switch-and-process-context-switch/).
+
+> ℹ️ For more details checkout this [article](https://www.geeksforgeeks.org/difference-between-thread-context-switch-and-process-context-switch/).
 
 ### The thread scheduling & pooling
 
@@ -390,13 +391,15 @@ the computed result from thread B.
 All the methods need to be invoked on an object which the monitor has been or will be acquired. Or in other words they 
 need to be invoked on the instance that the synchronization is being performed on.
 
-- **wait()** - causes the current thread to wait until `notify` or `notifyAll` gets called,
-as a rule of thumb waiting needs to be performed in a loop that checks a condition if the thread
+- **wait()** - Causes the current thread to wait until `notify` or `notifyAll` gets called.
+As a rule of thumb waiting needs to be performed in a loop that checks a condition if the thread
 should continue to wait or proceed with the data it has waited for.
 
-- **notify** - TODO
+- **notify** - This method can be used to notify a single thread that is already waiting on the object's monitor.
+There might be multiple threads waiting on the monitor. Which thread will actually be woken up depends on the underlying scheduler.
+We as programmers do not have control over this.
 
-- **notifyAll** - TODO
+- **notifyAll** - This method can be used to notify all threads that are waiting on the object's monitor.
 
 Java also provides concurrency utilities that make the usage of `wait`, `notify` and `notifyAll` 
 irrelevant as they can be tricky to implement correctly. 
@@ -408,17 +411,38 @@ For a code example of wait and notify you can checkout
 
 ### Volatile
 
-Another synchronization primitive that Java provides is the keyword `volatile`.  
+Another synchronization primitive that Java provides is the keyword `volatile`. 
+While the volatile modifier performs no mutual exclusion, it guarantees that any thread that reads the field will
+see the most recently written value.
 
+CPUs are equipped with caches that allow variables to be read from main memory and written to the cache for fast access.  
+
+![volatile_and_cpu_cache](../../../assets/x03-lecture/volatile_and_cpu_cache.png)
+
+This performance improvement can cause problems when a variable is shared between multiple CPUs.
+Imagine that both **CPU1** and **CPU2** share the same variable. **CPU1** performs a *read* and *write* and **CPU2** performs only *reads*. 
+If **CPU1** first *reads* after which *writes* the value but instead of flushing the value back to **main memory** it is stored in the CPU cache
+then **CPU2** won't be able to observe the *write* of **CPU1** and would *read* a stale value.
+
+![volatile_and_cpu_cache](../../../assets/x03-lecture/volatile_and_cpu_cache_example.png)
+
+The `volatile` keyword guarantees that all reads and writes are performed using main memory. This guarantees that threads
+will always observe the latest value. However, this does not guarantee that if multiple threads perform *reads* and *writes*
+those operations will be synchronized. Between the time one CPU reads the value and performs a write another thread might have already
+read the same value and committed the write to main memory. This is called a **race condition**. In those scenarios we still need
+to perform synchronization. 
+
+> ℹ️ For mor a more detailed explanation on how volatile works
+checkout [Java Volatile Keyword](http://tutorials.jenkov.com/java-concurrency/volatile.html).
 
 - synchronized & synchronization blocks
 - monitors
 - happens before relationship
 - race conditions
-
 - await && notify
 - volatile
 - atomicity
+
 - semaphore
 - reentrant lock
 - immutability
