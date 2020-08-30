@@ -209,6 +209,7 @@ class Sleeper implements Runnable {
 }
 ```
 
+> ℹ️ For more details checkout [Creating and Starting Java Threads](http://tutorials.jenkov.com/java-concurrency/creating-and-starting-threads.html)
 
 ### Synchronization
 
@@ -547,18 +548,101 @@ hogging up the CPU. Java however comes with a `ReadWriteLock` lock suited for su
 [Read/Write Locks in Java](http://tutorials.jenkov.com/java-concurrency/read-write-locks.html).
 
 
-- synchronized & synchronization blocks
-- monitors
-- happens before relationship
-- race conditions
-- await && notify
-- volatile
-- atomicity
-- immutability
-- reentrant lock
+### Semaphore
 
-- semaphore
+Another tool that can be used in a concurrent system is a semaphore.
+It is similar to a lock in the sense that it can control access to a given resource by allowing threads to acquire the semaphore
+and release it after they have finished their work. The difference here is that the semaphore can be acquired multiple times before
+it blocks.  
+The semaphore can be configured how many `permits` it should allow. Basically this is the number of threads that we would like to have
+working at a given point in time. Every time a semaphore is acquired the number of available permits gets decremented.
+When the number of permits reaches 0 the next `acquire` will block until a `release` is invoked. 
 
-#### Additional Learning resources
+The AtomicCounter example can be implemented by using a semaphore with 1 permit. 
 
-- [Creating and Starting Java Threads](http://tutorials.jenkov.com/java-concurrency/creating-and-starting-threads.html)
+### CountDownLatch
+
+Countdown latches can be used as barriers that allow one or more threads to wait for one or more other threads to do something.
+
+For example, suppose you want to build a simple framework for timing the concurrent execution of an action. 
+This framework consists of a single method that takes an executor to execute the action, a concurrency level representing 
+the number of actions to be executed concurrently, and a runnable representing the action. All of the worker threads ready 
+themselves to run the action before the timer thread starts the clock. When the last worker thread is ready to run the action, 
+the timer thread “fires the starting gun,” allowing the worker threads to perform the action. As soon as the last worker thread 
+finishes performing the action, the timer thread stops the clock.
+
+![ready_set_go](../../../assets/x03-lecture/ready_set_go.png)
+
+```java
+// Simple framework for timing concurrent execution
+public static long time(Executor executor, int concurrency, Runnable action) throws InterruptedException {
+    CountDownLatch ready = new CountDownLatch(concurrency);
+    CountDownLatch start = new CountDownLatch(1);
+    CountDownLatch done = new CountDownLatch(concurrency);
+    for (int i = 0; i < concurrency; i++) {
+        executor.execute(() -> {
+            ready.countDown(); // Tell timer we're ready
+            try {
+                start.await(); // Wait till peers are ready
+                action.run();
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+            } finally {
+                done.countDown(); // Tell timer we're done
+            }
+        });
+    }
+    ready.await(); // Wait for all workers to be ready 
+    long startNanos = System.nanoTime();
+    start.countDown(); // And they're off!
+    done.await(); // Wait for all workers to finish 
+    return System.nanoTime() - startNanos;
+}
+```
+
+> This example is from [Effective Java by Joshua Bloch](https://www.amazon.com/Effective-Java-Joshua-Bloch/dp/0134685997).
+
+
+### Exercises
+
+#### Task 1
+
+Write a program that implements a consumer producer pattern. Both the consumer and the producer should be separate threads.
+The producer will produce supervillain names. The consumer will be a super hero.
+When the producer produces a villain it is up to the super hero to defeat that villain.
+The producer can't produce a new villain until the consumer has consumed and defeats him.
+The program should finish when all the villains have been defeated.
+
+Example Pseudo Code:
+```java
+SuperVillainProducer superVillains = new SupperVillainProducer();
+SuperHeroConsumer superHero = new SuperHeroConsumer("Batman");
+
+superVillains.start();
+superHero.start();
+```
+
+Sample Output:
+```text
+Producer: producing Joker
+Producer: producing Doctor Octopus
+Producer: producing Bane
+Producer: producing Poison Ivy
+Producer: producing Magneto
+
+Consumer: defeating Joker
+Consumer: defeating Bane
+Consumer: defeating Magneto
+```
+
+### Task 2
+
+Modify the solution from **Task 1** so that when a villain is defeated it can be produced again.
+The program should finish when the super hero defeats 100 villains.
+
+### Task 3
+
+Modify the solution from **Task 2** so that multiple Producers and Multiple consumers (super heroes) can exist at the same time.
+The rate of consuming should be slower than the rate of producing (example sleep after a villain has been consumed).
+It should not be possible 1 villain to be consumed by two super heroes. 
+The program should finish after 1000 villains are defeated.
