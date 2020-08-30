@@ -219,7 +219,7 @@ public class Main {
     static int counter = 0;
 
     public static void main(String[] args) throws InterruptedException {
-        for (int j = 0; j < 100; j++) {
+        for (int i = 0; i < 100; i++) {
             new Thread(new Runnable() {
                 @Override
                 public void run() {
@@ -280,11 +280,12 @@ public class Main {
     static final Object object = new Object(); // we synchronize on this instance
 
     public static void main(String[] args) throws InterruptedException {
-        for (int j = 0; j < 100; j++) {
+        for (int i = 0; i < 100; i++) {
             new Thread(new Runnable() {
                 @Override
                 public void run() {
                     try {
+                        // we simulate some delay in an attempt to reproduce context switching
                         Thread.sleep(10);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
@@ -321,11 +322,12 @@ public class Main {
     static int counter = 0;
 
     public static void main(String[] args) throws InterruptedException {
-        for (int j = 0; j < 100; j++) {
+        for (int i = 0; i < 100; i++) {
             new Thread(new Runnable() {
                 @Override
                 public void run() {
                     try {
+                        // we simulate some delay in an attempt to reproduce context switching
                         Thread.sleep(10);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
@@ -403,7 +405,7 @@ We as programmers do not have control over this.
 
 Java also provides concurrency utilities that make the usage of `wait`, `notify` and `notifyAll` 
 irrelevant as they can be tricky to implement correctly. 
-You should prefer the high level constructs provided by `java.util.concurrent.*`;
+You should prefer the high level constructs provided by `java.util.concurrent.*` released in Java 5;
 
 For a code example of wait and notify you can checkout 
 [Importance of wait(), notify() and notifyAll() methods in Java?](https://www.tutorialspoint.com/importance-of-wait-notify-and-notifyall-methods-in-java).
@@ -432,8 +434,118 @@ those operations will be synchronized. Between the time one CPU reads the value 
 read the same value and committed the write to main memory. This is called a **race condition**. In those scenarios we still need
 to perform synchronization. 
 
-> ℹ️ For mor a more detailed explanation on how volatile works
+> ℹ️ For a more detailed explanation on how volatile works
 checkout [Java Volatile Keyword](http://tutorials.jenkov.com/java-concurrency/volatile.html).
+
+### Immutability
+
+One design pattern that is worth mentioning while talking about concurrent programming is **Immutability**.
+Without going into any details, immutability implies that an object can't change it's state after it is instantiated.
+The reason we mention this design pattern is that immutability is inherently thread safe, they require no synchronization.
+If we can guarantee that an object's state can't be changed then there is no problem sharing the object between multiple threads
+as they will only be able to read the state without modifying it. 
+
+> ℹ️ For an example on how to create an immutable class checkout 
+[A Strategy for Defining Immutable Objects](https://docs.oracle.com/javase/tutorial/essential/concurrency/imstrat.html).
+
+### Atomic and Thread Safe classes
+
+Java provides a set of classes that can safely be shared between multiple threads without the need of external synchronization.
+Some examples include:
+
+- AtomicBoolean
+- AtomicInteger
+- AtomicLong
+- AtomicIntegerArray
+- ConcurrentHashMap
+- BlockingQueue
+- BlockingDeque
+- etc...
+
+Here is an example of the counter updated by multiple threads synchronized with an `AtomicInteger`.
+
+```java
+import java.util.concurrent.atomic.AtomicInteger;
+
+public class Main {
+    static AtomicInteger counter = new AtomicInteger(0);
+
+    public static void main(String[] args) throws InterruptedException {
+        for (int i = 0; i < 100; i++) {
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        // we simulate some delay in an attempt to reproduce context switching
+                        Thread.sleep(10);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    counter.incrementAndGet();
+                }
+            }).start();
+        }
+
+        // we wait a bit to guarantee that all the threads have finished before reading the value
+        Thread.sleep(1000);
+        System.out.println(counter.get());
+    }
+}
+```
+
+### ReentrantLock
+
+Sometimes we might need to implement our own data structures that are thread safe. In those cases we can leverage
+the high level concurrency constructs provided by java.
+One such example is the `Lock` or one of its implementations `ReentrantLock`.
+
+Let us implement our own `AtomicCounter`.
+
+```java
+public class AtomicCounter {
+    private final Lock lock = new ReentrantLock();
+    private int count;
+
+    public int incrementAndGet() {
+        lock.lock();
+        try {
+            return ++count;
+        } finally {
+            lock.unlock();
+        }
+    }
+
+    public int get() {
+        lock.lock();
+        try {
+            return count;
+        } finally {
+            lock.unlock();
+        }
+    }
+}
+```
+
+In the example above we use a `ReentrantLock` to guarantee that at any given point in time only one thread can read and write.
+`lock.lock()` acquires the lock and if another thread tries to invoke the `lock` method it will have to wait until the lock is released.
+Note that unlocking is done in a `finally` block. This guarantees that if an exception is thrown while performing the operation
+the lock will be unlocked. If we fail to unlock it any other threads that are waiting on the lock will remain blocked.  
+The reentrant part of the lock is not demonstrated in this example. Basically it consists of the ability of a thread to invoke the
+`lock` method multiple times without blocking on itself.
+
+Another thing that is worth mentioning on the example above is that reading and writing share the sam lock.  
+This can cause performance issues in the case where we have more readers than writers. 
+Imagine a case where writes are performed once every second and reads are performed thousands of times per second.
+In those cases it makes sense to lock reads only when writes are performed and vice versa. 
+This on itself can introduce more issues. We would need to have control over which waiting thread should continue waiting
+and which should acquire the lock. If we fail to do so, we might end up with a 
+[starvation](http://tutorials.jenkov.com/java-concurrency/starvation-and-fairness.html) problem. 
+We would not have any guarantee that the writing thread will be able to commit it's write because there are multiple reading threads
+hogging up the CPU. Java however comes with a `ReadWriteLock` lock suited for such cases.
+
+> ℹ️ For a more detailed on how a ReadWriteLock works checkout 
+[Read/Write Locks in Java](http://tutorials.jenkov.com/java-concurrency/read-write-locks.html).
+
 
 - synchronized & synchronization blocks
 - monitors
@@ -442,10 +554,10 @@ checkout [Java Volatile Keyword](http://tutorials.jenkov.com/java-concurrency/vo
 - await && notify
 - volatile
 - atomicity
+- immutability
+- reentrant lock
 
 - semaphore
-- reentrant lock
-- immutability
 
 #### Additional Learning resources
 
