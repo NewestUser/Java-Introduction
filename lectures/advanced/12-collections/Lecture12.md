@@ -3,83 +3,82 @@
 
 ## Collections
 
-### Структури от данни (Data structures)
+### Data structures
 
-Често при писането на програми се налага някаква информация да бъде запаметявана от програмата.
+Often when developing programs it is required some information to be stored by the program.
 
-Например ако пишем програма, която представлява онлайн система за конни надбягвания, която пази информация като:
-- На кои дати в кои градове има конни надбягвания.
-- Във всяко надбягване кои са участниците.
-- Кой участник колко конни надбягвания е печеил и тнт.
+For example if we have to write an online horse raising platform which needs to keep track of:
+- Which city on which date has a raise.
+- Which are the jockeys in each race.
+- How many races has each of the jockeys won, etc...
 
-Запаметяването на такъв тип данни може да бъде извъшрено под множество форми или така наречените структури от данни.  
+Such data can be stored or kept in a variety of data structures.
 
-Всяка структура от данни има своите специфики, предимства и недостатъци. Избора каква струтктура от данни
-ще използваме би зависил от операциите, които ще се налага да се извършват в/у тези данни.
+Each data structure has its own specifics, advantages and disadvantages. Choosing the right one
+would depend on the type of operations that would need to be performed on the data.
 
-Примерно може да се налага често да се добавят нови конни надбягвания, но не и да се добавят нови градове,
-в които да се извършват тези надбягвания.  
-Може да се налага да се търсят участниците подредени по брой спечелени състезания и тнт.
+For example, we might often add new horse races in compare with adding new cities.
+We might need to search for jockeys that are ordered by the number of won races.
 
-В тази лецкия ще разгледамя някои от основните структури от данни и тяхните имплементации в Java.
+In this lecture we will discuss some fundamental data structures and how they are implemented in Java. 
 
-> ℹ️ За повече информация относно това какво са структурите от данни 
-вижте това [youtube видео](https://www.youtube.com/watch?v=bum_19loj9A).
+> ℹ️ For more information about what are data structures watch this
+[youtube video](https://www.youtube.com/watch?v=bum_19loj9A).
 
 
-#### Arrays (Масиви)
+#### Arrays
 
-Масивът е една от най-простите структури от данни.  
-Представлява последователна поредица от елементи с фиксиран размер.
-Знаем че всеки елемент може да бъде достъпван използвайки индекс.
+Arrays are one of the simplest data structures.
+They represent a sequence of elements with a fixed size. 
+Each element can be accessed using an index.
 
 ![array](../../../assets/12-lecture/array.png)
 
-- Предимства
-    - Константно `O(1)` време за достъпване на елемент в масива използвайки индекс.
-    - Може да съдържа мновество елементи.
+- Pros
+    - Constant `O(1)` access time to an element using an index.
+    - The array can hold multiple elements.
     
-- Недостатъци
-    - Статична структура с фиксиран размер. Не може да се добавят повече елементи от размера на масива.
-    - Необходимо е да знаем размера на масива преди да го създадем.
+- Cons
+    - The data structure is static. Meaning we can't add more elements than the size of the array.
+    - We need to know the size of the array before we create it.
 
-> Масивът често е използван, като основа за изграждането на по-сложни структури от данни.
+> The array is often used as a building block for more complicated data structures.
 
-#### List (Списък)
+#### List
 
-Списъкът е следващата структура от данни, която директно надгражда над масива.
-Тя цели да реши промела с фиксирания размер на масива (в някои езици за програмиране е познато, като 
-динамичен масив).
+The List is a data structure that is similar to an array but can be dynamically expanded.
 
-При него не e нужно да знаем първоначалния размер на списъка и можем да добавяме елементи, като самият списък
-ще се погрижи сам за това, когато масивът бъде запълнен да задели нов масив с по-голям размер, да копира старите
-стойности в новия масив и да добави новия елемент.
+Using a list we do not need to know the initial size of the list. We can add elements to the list, and it will take care
+of automatically resizing if needed. 
 
-В Java `List` е интерфейс, който има много на брой имплементации. В тази лекция ще разгледаме някои от тях.
+In Java a `List` is an interface, which has multiple implementations. In this lecture we will have a look at some of them.
 
 ##### ArrayList
 
-`ArrayList` е имплементация на интерфейса `List`. Това е динамичен списък, който вътрешно използва масив.
-Привидно списъка има размер `size`, който представлява броя елементи добавени в списъка. 
-Това е числото 4 от снимката по-долу. В същото време има вътрешно property `capacity`, което представлява
-истинския размер на масива. Не е задължително `size` и `capacity` да са с една и съща стойност.
+`ArrayList` is an implementation of the `List` interface. This is a dynamic list, which uses an array under the hoods.
+When the underlying array gets full, and a new element needs to be added the `ArrayList` will take care of creating a new
+array with larger size, copying the elements from the old array to the new array and add the element.
 
+The array also has a `size` which represents the number of elements that are added.
+This is the number **4** in the diagram below. At the same time there is an internal property `capacity`. The capacity
+is the actual size of the underlying array. It is not required that the `size` equals to the `capacity`. The difference
+between `capacity` and `size` serves as a buffer. When `capacity` equals `size` the underlying array needs to increase in size.
 
 ![dynamic_array](../../../assets/12-lecture/dynamic_array.svg).
 
-> ℹ️ За повече информация вижте това [youtube видео](https://www.youtube.com/watch?v=qTb1sZX74K0).
+> ℹ️ For more information checkout this [youtube video](https://www.youtube.com/watch?v=qTb1sZX74K0).
 
-- Предимства
-    - Не е необходимо да се знае предварително размера на масива
-    - Бързо достъпване на елемент намиращ се на конкретен индекс
-    - Бързо добавяне на елементи в края на списъка
+- Pros
+    - We do not need to know the size of the ArrayList before we create it.
+    - Fast access to elements using an index.
+    - Elements can be added to the end of the array without any overhead.
     
-- Недостатъци
-    - Добавянето на елементи в началото или средата на масива изисква да преместване на елементите от дясно.
-    - При достигане на капацитета на масива е необходимо да се създаде нов масив с по-голям размер 
-    и да се копират старите стойности
+- Cons
+    - Adding elements in the beginning or the middle of the array requires the elements on the right to be shifted.
+    - When the size reaches the capacity a new array with a larger size needs to be created. 
+    The elements from the old array need to be copied into the new array.
 
-**Пример**
+**Example**
 
 ```java
 List<String> myArrayList = new ArrayList<>();
@@ -90,8 +89,8 @@ myArrayList.add("zar");
 myArrayList.add("var");
 myArrayList.add("far");
 
-myArrayList.remove("bar"); // намери елемента "bar"  и го премахни
-myArrayList.remove(1); // премахни елемента на 1-ви индекс
+myArrayList.remove("bar"); // find the element "bar" and remove it
+myArrayList.remove(1); // remove the element located on index 1
 
 for (String myString : myArrayList) {
     System.out.println(myString);
