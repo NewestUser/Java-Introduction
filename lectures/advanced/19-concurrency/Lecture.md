@@ -10,7 +10,7 @@ to run multiple programs and have the feeling that everything is happening at on
 if the system was not **concurrent**.  
 To have a system that is concurrent means that the system is capable of doing multiple things (not necessarily at once).
 
-![multitasking](../../../assets/x03-lecture/multitasking.png)
+![multitasking](assets/multitasking.png)
 
 ### Context Switching
 
@@ -25,7 +25,7 @@ The task's state is actually the **context**. It consists of the CPU's registers
 
 You can see this illustrated in the diagram bellow. 
 
-![context_switching_diagram](../../../assets/x03-lecture/context_switching_diagram.png)
+![context_switching_diagram](assets/context_switching_diagram.png)
 
 > ℹ️ For mor details on how a computer executes instructions watch this [youtube video](https://www.youtube.com/watch?v=XM4lGflQFvA).
 
@@ -40,7 +40,7 @@ to point out that there is a subtle difference between the two.
 
 A well-designed concurrent system can have components that can be executed in parallel.  
 
-![concurrency_vs_parallelism](../../../assets/x03-lecture/concurrency_vs_parallelism.png)
+![concurrency_vs_parallelism](assets/concurrency_vs_parallelism.png)
 
 It also makes sense to mention here that adding multiple CPU cores can speedup the execution of the program however there
 is a theoretical limit that can be reached after which the number of cores does not matter. This is also known as the
@@ -62,7 +62,7 @@ to differentiate between something that is doing the work and something that nee
 
 The diagram below tries to illustrate this.
 
-![process_thread_task](../../../assets/x03-lecture/process_thread_task.png)
+![process_thread_task](assets/process_thread_task.png)
 
 In principle the thread in a single threaded process is the actual process. 
 However, there are cases where a process (program) might need to do multiple things at once. 
@@ -90,14 +90,14 @@ This is one of the reasons context switching between processes includes more ove
 There are generally more threads than CPUs. Part of a multithreaded system is therefore a thread scheduler, 
 responsible for sharing out the available CPUs in some way among the competing threads.
 
-![os_thread_scheduling](../../../assets/x03-lecture/os_thread_scheduling.png)
+![os_thread_scheduling](assets/os_thread_scheduling.png)
 
 Different OS's have different schedulers and can implement scheduling using different algorithms. There are also different
 approaches for scheduling as **cooperative**, **preemptive** and a mix of the two.
 
 The diagram below illustrates a thread's lifecycle.
 
-![thread_lifecycle](../../../assets/x03-lecture/thread_lifecycle.jpg)
+![thread_lifecycle](assets/thread_lifecycle.jpg)
 
 On the other hand a single process can spawn multiple threads. This requires system calls to the OS which in
 turn requires allocation of more resources. Each thread has its own stack, set of registers and program counter.  
@@ -108,7 +108,7 @@ Rather, we reduce the overhead created from spawning new ones. At the same time 
 as more threads introduce more overhead for scheduling and memory management. 
 So having more things to do and not enough workers to do it enforces the need of a Task Queue which can serve as a buffer.
 
-![task_queue](../../../assets/x03-lecture/thread_pool.png)
+![task_queue](assets/thread_pool.png)
 
 
 #### Additional Learning resources
@@ -261,13 +261,13 @@ Let us examine more closely `counter++`. In order for this operation to be perfo
 `counter++` does not guarantee that while thread **A** performs the operation another thread **B**
  can't also step in before thread **A** finishes. You can see this illustrated in the diagram below.
  
-![non_synchronized_counter](../../../assets/x03-lecture/non_synchronized_counter.png)
+![non_synchronized_counter](assets/non_synchronized_counter.png)
 
 In order to fix this problem we need to guarantee a **[happens before relationship](https://en.wikipedia.org/wiki/Happened-before)**.
 Or in other words we must guarantee that the writing of thread **A** happens before the reading of thread **B**.  
 You can see this illustrated in the diagram below.
 
-![synchronized_counter](../../../assets/x03-lecture/synchronized_counter.png)
+![synchronized_counter](assets/synchronized_counter.png)
 
 ### Synchronized & Synchronized Blocks
 
@@ -420,14 +420,14 @@ see the most recently written value.
 
 CPUs are equipped with caches that allow variables to be read from main memory and written to the cache for fast access.  
 
-![volatile_and_cpu_cache](../../../assets/x03-lecture/volatile_and_cpu_cache.png)
+![volatile_and_cpu_cache](assets/volatile_and_cpu_cache.png)
 
 This performance improvement can cause problems when a variable is shared between multiple CPUs.
 Imagine that both **CPU1** and **CPU2** share the same variable. **CPU1** performs a *read* and *write* and **CPU2** performs only *reads*. 
 If **CPU1** first *reads* after which *writes* the value but instead of flushing the value back to **main memory** it is stored in the CPU cache
 then **CPU2** won't be able to observe the *write* of **CPU1** and would *read* a stale value.
 
-![volatile_and_cpu_cache](../../../assets/x03-lecture/volatile_and_cpu_cache_example.png)
+![volatile_and_cpu_cache](assets/volatile_and_cpu_cache_example.png)
 
 The `volatile` keyword guarantees that all reads and writes are performed using main memory. This guarantees that threads
 will always observe the latest value. However, this does not guarantee that if multiple threads perform *reads* and *writes*
@@ -571,7 +571,7 @@ themselves to run the action before the timer thread starts the clock. When the 
 the timer thread “fires the starting gun,” allowing the worker threads to perform the action. As soon as the last worker thread 
 finishes performing the action, the timer thread stops the clock.
 
-![ready_set_go](../../../assets/x03-lecture/ready_set_go.png)
+![ready_set_go](assets/ready_set_go.png)
 
 ```java
 // Simple framework for timing concurrent execution

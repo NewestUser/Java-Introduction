@@ -1,6 +1,6 @@
 ## Build Tools
 
-![toolkit](../../../assets/x02-lecture/toolkit.jpg)
+![toolkit](assets/toolkit.jpg)
 
 Writing the software is just the first step. Machines do not understand high level written code. Instead, they
 execute machine instructions. As we know the compiler is responsible for compiling the high level code to lowe level code
@@ -21,7 +21,7 @@ Other use cases can include:
 There are a lot of different build tools out there each one suitable for a different language or use case.
 Some popular Java build tools are **Gradle**, **Maven** and **Ant**.
 
-![ant_gralde_maven](../../../assets/x02-lecture/ant_gradle_maven.png)
+![ant_gralde_maven](assets/ant_gradle_maven.png)
 
 Each has its pros and cons. 
 - **Ant's** focus is on writing scripts that can be executed.

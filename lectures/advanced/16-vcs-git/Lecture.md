@@ -1,6 +1,6 @@
 ## Version Control
 
-![version_control](../../../assets/x01-lecture/version_control.svg)
+![version_control](assets/version_control.svg)
 
 A software project's source requires management of its own. Often projects have their own lifecycles that include regular releases,
 bug fixes, maintaining and fixing vulnerabilities in old versions, synchronizing between multiple people working on the same code base etc...
@@ -27,12 +27,12 @@ and will allow you to run unix and git commands in it.
 
 ### Git
 
-![git](../../../assets/x01-lecture/git.png)
+![git](assets/git.png)
 
 Git is a distributed open source version control system. With it we can keep track of different version of our code base
 and have multiple people work on it at the same time. 
 
-![distributed_vcs](../../../assets/x01-lecture/distributed_vcs.png)
+![distributed_vcs](assets/distributed_vcs.png)
 
 In order for us to work efficiently with Git we must set a common understanding of a few terms.
 
@@ -45,7 +45,7 @@ like code reviews, forking projects etc...
 
 Some examples for Remote repositories are:
 
-![github_gitlab_bitbucket](../../../assets/x01-lecture/github_gitlab_bitbucket.png)
+![github_gitlab_bitbucket](assets/github_gitlab_bitbucket.png)
 
 > Hint: A remote repository can be created from the UI of these services.
 After creation the repository can be cloned locally.  
@@ -73,7 +73,7 @@ The process for creating a consists of several steps. The steps are illustrated 
 - staging area
 - localrepo
 
-![git_workflow](../../../assets/x01-lecture/git_workflow.png)
+![git_workflow](assets/git_workflow.png)
 
 **Let's work through an example for better clarity.**
 
@@ -138,7 +138,7 @@ In order to push the changes to a remote repository first we need to link our lo
 After creating the project from the UI of the chosen service you will be prompted to add a **remote**. 
 Here is how this looks in **Github**, other services are similar.
 
-![github_project_init](../../../assets/x01-lecture/github_project_init.png)
+![github_project_init](assets/github_project_init.png)
 
 ```shell script
 # add remote named origin pointing to the project 
@@ -173,7 +173,7 @@ You can see this illustrated on the diagram bellow.
 After the desired change is complete the feature branch is merged back into the master branch. 
 This way the master branch keeps evolvoing.  
 
-![git_branch](../../../assets/x01-lecture/git_branches.png)
+![git_branch](assets/git_branches.png)
 
 **Example**:
 
