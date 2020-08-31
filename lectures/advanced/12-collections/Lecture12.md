@@ -684,42 +684,42 @@ public class RPMDemo {
 </p>
 </details>
 
-> ℹ️ За повече информация как да се реши тази задача вижте това 
-[youtube видео](https://www.youtube.com/watch?v=7ha78yWRDlE).
+> ℹ️ For more information on how to solve this task watch this 
+[youtube video](https://www.youtube.com/watch?v=7ha78yWRDlE).
 
 ### Task 5
 
-Напишете програма, която симулира работата на ферма за птици (Chicken Barn).  
+Write a program that simulates a Chicken Barn.  
 🥚 &rarr; 🐤 &rarr; 🐓 &rarr; ⚰️
 
-В една ферма първоначално може да има определен брой кокошки (например 5).  
+A Chicken Barn can initially have **n** chickens (example 5).
 
-- Всяка кокошка снася по едно яйце всяка седмица.
+- Each chicken lays 1 egg once a week.
 
-- Една кокошка може да снася яйца само ако е м/у 2-8 седмици.
+- A chicken can lay an egg only when it is between 2-8 weeks inclusive.
 
-- Яйце което е навършило 2 седмици се излюпва, добавяйки нова кокошка във фермата. 
-  Името на излюпената кокошка зависи от името на предишната кокошка.  
+- An egg that is 2 weeks old hatches. After hatching a new chicken is added to the farm.
+  The name of the hatched chicken depends on the name of its parent.  
   
-  **Пример:** 
-  ако кокошката снесла яйцето се казва `Chicken1`, то излюпената кокошка може да се казва
-  `Chicken1/ChickenX` където `X` е номера на кокошката.
+  **Example:** 
+  If `Chicken1` lays an egg then the hatched chicken name would be
+  `Chicken1/ChickenX` where `X` is the number of the chicken.
 
-- При навършване на 9 седмици, кокошката умира и се прмахва от фермата.
+- When a chicken turns 9 months it dies and is removed from the Chicken Barn.
 
-Програмата трябва да принтира кокошките, които са останали във фермата след определен брой седмици.
+The program needs to print the chickens that remain after X weeks.
 
-**Пояснение**
+**Explanation**
 
-Една седмица преминава като:
-1. Увеличава се възрастта на снесените яйца
-2. Излюпват се яйцата, които са навършили необходимата възраст
-3. Увеличава се възрастта на кокошките
-4. Преахват се кокошките, които са навършили 9 седмици
-5. Снасят се яйца от кокошките навършили необходимата възраст
-6. Започва следващата седмица
+When a week passes:
+1. The age of the hatched eggs increases.
+2. The eggs that have the required age hatch.
+3. The age of the chickens increases.
+4. Dead chickens are removed.
+5. Eggs are hatched by chickens that have the required age.
+6. The next week begins.
 
-- Пример при 4 начални кокошки съответно на възраст от  4, 5, 6, 7 седмици и общо време за развитие 4 седмици
+- Example with 4 chickens with the age of 4, 5, 6, 7 weeks and total evolve time of 4 weeks.
 
 ```text
 Chicken{name='Chicken1'}
@@ -732,7 +732,7 @@ Chicken{name='Chicken2/Chicken10'}
 Chicken{name='Chicken3/Chicken11'}
 ```
 
-- Пример при 3 начални кокоши съответно на възраст от 3, 4, 5 седмици и общо време за развитие 4 седмици
+- Example with 3 initial chcickens with the age of 3, 4, 5 weeks and total evolve time of 4 weeks.
 
 ```text
 Chicken{name='Chicken1'}
@@ -759,15 +759,15 @@ public class Main {
     public static void main(String[] args) {
         List<Chicken> chickens = new ArrayList<>();
 
-        chickens.add(new Chicken(3)); // добави кокошка на 3 седмици
-        chickens.add(new Chicken(4)); // добави кокошка на 4 седмици
-        chickens.add(new Chicken(5)); // добави кокошка на 5 седмици
+        chickens.add(new Chicken(3)); // add chicken with age of 3 weeks
+        chickens.add(new Chicken(4)); // add chicken with age of 4 weeks
+        chickens.add(new Chicken(5)); // add chicken with age of 5 weeks
 
-        Barn barn = new Barn(chickens); // създай ферма подавайки кокошките
+        Barn barn = new Barn(chickens); // create a barn passing the chickens
 
-        List<Chicken> evolvedChickens = barn.evolve(4); // итерирай 4 седмици във фермата
+        List<Chicken> evolvedChickens = barn.evolve(4); // iterate 4 weeks in the barn
 
-        for (Chicken chicken : evolvedChickens) { // принтирай всички кокошки след 4-те седмици
+        for (Chicken chicken : evolvedChickens) { // Print all the chickens after the 4th week
             System.out.println(chicken);
         }
     }
@@ -778,16 +778,15 @@ public class Main {
 
 ```java
 public class Egg {
-
     private static final int HATCHING_WEEK = 2;
 
     private String chickenName;
     private int age;
 
     /**
-     * Конструктор, за създаванен на ново яйце.
+     * Constructor for creating a new egg.
      *
-     * @param chickenName името на кокошката снесла яйцето.
+     * @param chickenName the name of the chicken that hatched the egg.
      */
     public Egg(String chickenName) {
         this.chickenName = chickenName;
@@ -795,19 +794,18 @@ public class Egg {
     }
 
     /**
-     * Увеличи възрастта на яйцето с 1 седмица.
+     * Increase the age of the egg by 1 week.
      */
     public void ageByOneWeek() {
         age++;
     }
 
     /**
-     * Излюпи яйцето, ако е навършило необходимата възраст.
+     * Hatch the egg if it has aged enough.
      *
-     * @return излюпената кокоша или null, ако яйцето не може да бъде излюпено.
+     * @return return the hatched chicken or null if the egg can't be hatched.
      */
     public Chicken hatch() {
-
         if (age < HATCHING_WEEK) {
             return null;
         }
@@ -821,13 +819,13 @@ public class Egg {
 
 ```java
 public class Chicken {
-
     private static final int DEATH_WEEK = 9;
     private static final int MIN_HATCH_WEEK = 2;
     private static final int MAX_HATCH_WEEK = 8;
 
-    /* Статична променлива, която се използва в името на кокошката.
-     * Всеки път, когато се създаде нова кокошка, тази променлива се увеличава с 1.
+    /*
+     * A static counter variable that is used in the name of the chicken.
+     * Every time a new chicken is hatched this variable is incremented by 1.
      */
     private static int ID_SEQUENCE = 1;
 
@@ -836,9 +834,11 @@ public class Chicken {
     private int age;
 
     /**
-     * Създай нова кокошка назначавайки и служебно име и подадаената възраст.
+     * Constructor creating a new chicken with the provided age.
+     * Chickens created with this constructor don't have parents.
+     * (I guess the chicken did come before the egg)
      *
-     * @param age възрастта на кокошката в седмици.
+     * @param age of the chicken in weeks.
      */
     public Chicken(int age) {
         this.name = getNextName("");
@@ -846,10 +846,10 @@ public class Chicken {
     }
 
     /**
-     * Конструктор създадващ новородена кокошка. Конструкторът приема името на кокошката, която е снесла
-     * яйцето. На база това име ще се определи името на тази кокошка.
+     * Constructor creating a newborn chicken. The constructor accepts the name of the parent chicken.
+     * The name of this chicken is based on the parent chicken.
      *
-     * @param chickenName името на кокошката снесла яйцето.
+     * @param chickenName name of the chicken that hatched this chicken.
      */
     public Chicken(String chickenName) {
         this.name = getNextName(chickenName + "/");
@@ -857,30 +857,30 @@ public class Chicken {
     }
 
     /**
-     * Метод връщащ името на кокошката съставено от prefix + "Chicken" + ID, където ID е поредния
-     * номер на кокошката.
+     * This method computes the chicken name. The name follows the format: prefix + "Chicken" + ID, where ID
+     * is the sequential number of the chicken.
      *
-     * @param prefix текст, който да бъде използван пред името на кокошката.
-     * @return ново име на кокошка.
+     * @param prefix text used in front of the name of the chicken.
+     * @return a new chicken name.
      */
     private String getNextName(String prefix) {
         return prefix + "Chicken" + ID_SEQUENCE++;
     }
 
     /**
-     * Този метод проверява дали кокошката е навършила необходимата възраст за да умре.
+     * This method checks if the chicken has reached dying age.
      *
-     * @return true ако е навършила преклонна възраст, false в противен случай.
+     * @return true if chicken has reached dying age, false otherwise.
      */
     public boolean canDie() {
         return age >= DEATH_WEEK;
     }
 
     /**
-     * Този метод връща яйце, ако кокошката е навършила зряла възраст и може да снася яйца.
-     * Снесеното яйце има името на кокошката, която го е снесла.
+     * This method returns an egg when the chicken has reached the required age to lay eggs.
+     * The egg contains the name of the parent chicken.
      *
-     * @return снесеното яйце или null ако кокошката не може да снася.
+     * @return an egg or null if the chicken can't lay eggs.
      */
     public Egg hatchEgg() {
         if (age < MIN_HATCH_WEEK || age > MAX_HATCH_WEEK) {
@@ -891,7 +891,7 @@ public class Chicken {
     }
 
     /**
-     * Този метод увеличава възрастта на кокошката с една седмица.
+     * Increase the age of the chicken by one week.
      */
     public void ageByOneWeek() {
         this.age++;
@@ -919,10 +919,10 @@ public class Barn {
     private List<Egg> eggs;
 
     /**
-     * Конструктор, който инициализира фермата с подадените през него кокошки.
-     * Когато се създаде нова ферма, в нея няма яйца.
+     * Constructor initializing the barn with some chickens.
+     * When a new barn is created there are no eggs in it.
      *
-     * @param chickens първоначалните кокошки във фермата.
+     * @param chickens the initial chickens.
      */
     public Barn(List<Chicken> chickens) {
         this.chickens = chickens;
@@ -930,33 +930,28 @@ public class Barn {
     }
 
     /**
-     * Този метод еволюира фермата с определен брой седмици.
+     * This method evolves the chicken barn.
      *
-     * @param weeks броя седмици, с които да бъде еволюирана фермата.
-     * @return връща списъкът с кокошки след еволюцията.
+     * @param weeks the number of weeks to evolve.
+     * @return a list of chickens after the weeks have passed.
      */
     public List<Chicken> evolve(int weeks) {
-
         for (int week = 0; week < weeks; week++) {
-
             hatchEggs();
-
             growChickens();
         }
-
         return chickens;
     }
 
     /**
-     * Този метод репрезентира, какво се случва през една седмица с яйцата.
-     * Методът обикаля всички налични яйца, увеличава им възрастта с 1 седмица,
-     * излюпва яйцата, които са годни и добавя излюпените кокошки в списъка с кокошки.
+     * This method computes what happens with the eggs in 1 week.
+     * All eggs are iterated and their age is increased. Eggs that need to hatch hatch and the chickens 
+     * are added in the chicken list.
      */
     private void hatchEggs() {
         Iterator<Egg> iterator = eggs.iterator();
 
         while (iterator.hasNext()) {
-
             Egg currentEgg = iterator.next();
 
             currentEgg.ageByOneWeek();
@@ -967,15 +962,13 @@ public class Barn {
 
                 iterator.remove();
             }
-
         }
     }
 
     /**
-     * Този метод репрезентира, какво се случва през една седмица с кокошките.
-     * Методът обикаля всички налични кокошки, увеличава им възрастта с 1 седмица
-     * Премахва кокошките на преклонна възраст и снася яйца използвайки кокошките на зряла възраст,
-     * като добавя излюпените яйца в списъка с яйца..
+     * This method computes what happens with chickens in 1 week.
+     * All chickens are iterated and their age is increased. Chickens that have reached dying age are removed.
+     * Chickens that can hatch eggs hatch and the eggs are added to the egg list.
      */
     private void growChickens() {
         Iterator<Chicken> iterator = chickens.iterator();

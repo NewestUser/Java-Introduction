@@ -716,7 +716,7 @@ public class RPMDemo {
   ако кокошката снесла яйцето се казва `Chicken1`, то излюпената кокошка може да се казва
   `Chicken1/ChickenX` където `X` е номера на кокошката.
 
-- При навършване на 9 седмици, кокошката умира и се прмахва от фермата.
+- При навършване на 9 седмици, кокошката умира и се премахва от фермата.
 
 Програмата трябва да принтира кокошките, които са останали във фермата след определен брой седмици.
 
@@ -726,7 +726,7 @@ public class RPMDemo {
 1. Увеличава се възрастта на снесените яйца
 2. Излюпват се яйцата, които са навършили необходимата възраст
 3. Увеличава се възрастта на кокошките
-4. Преахват се кокошките, които са навършили 9 седмици
+4. Премахват се кокошките, които са навършили 9 седмици
 5. Снасят се яйца от кокошките навършили необходимата възраст
 6. Започва следващата седмица
 
@@ -789,14 +789,13 @@ public class Main {
 
 ```java
 public class Egg {
-
     private static final int HATCHING_WEEK = 2;
 
     private String chickenName;
     private int age;
 
     /**
-     * Конструктор, за създаванен на ново яйце.
+     * Конструктор, за създаване на ново яйце.
      *
      * @param chickenName името на кокошката снесла яйцето.
      */
@@ -818,7 +817,6 @@ public class Egg {
      * @return излюпената кокоша или null, ако яйцето не може да бъде излюпено.
      */
     public Chicken hatch() {
-
         if (age < HATCHING_WEEK) {
             return null;
         }
@@ -832,7 +830,6 @@ public class Egg {
 
 ```java
 public class Chicken {
-
     private static final int DEATH_WEEK = 9;
     private static final int MIN_HATCH_WEEK = 2;
     private static final int MAX_HATCH_WEEK = 8;
@@ -925,7 +922,6 @@ import java.util.Iterator;
 import java.util.List;
 
 public class Barn {
-
     private List<Chicken> chickens;
     private List<Egg> eggs;
 
@@ -941,17 +937,14 @@ public class Barn {
     }
 
     /**
-     * Този метод еволюира фермата с определен брой седмици.
+     * Този метод развива фермата с определен брой седмици.
      *
-     * @param weeks броя седмици, с които да бъде еволюирана фермата.
-     * @return връща списъкът с кокошки след еволюцията.
+     * @param weeks броя седмици, с които да бъде развита фермата.
+     * @return връща списъкът с кокошки след развитието.
      */
     public List<Chicken> evolve(int weeks) {
-
         for (int week = 0; week < weeks; week++) {
-
             hatchEggs();
-
             growChickens();
         }
 
@@ -967,7 +960,6 @@ public class Barn {
         Iterator<Egg> iterator = eggs.iterator();
 
         while (iterator.hasNext()) {
-
             Egg currentEgg = iterator.next();
 
             currentEgg.ageByOneWeek();
@@ -978,7 +970,6 @@ public class Barn {
 
                 iterator.remove();
             }
-
         }
     }
 
