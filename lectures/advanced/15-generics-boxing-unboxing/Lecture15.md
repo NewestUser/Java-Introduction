@@ -21,7 +21,7 @@
 |boolean        |Boolean        |
 
 
-- Пример за използването на референтен тип.
+- Example reference type.
 
 ```java
 Integer x = 8;
@@ -134,39 +134,44 @@ public static int sumEven(List<Integer> numbers) {
 
 ### Generics
 
-**Generics** е свойството на Java да прави парче код, независимо от типовете данни.
-Например представете си, че сме измислили нов алгоритъм за сортиране. Един алгоритъм за сортиране не се интересеува от
-това какви данни се сортират. Той се интересува от това, дали конкретен елемент е по-голям,
-по-малък или равен на друг елемент.
+**Generics** is Java's ability to make a piece of code independent of the types of the data.
+Generics are an extension of Java's type system that allows methods or objects to operate on various types while providing
+compile-time type safety. 
 
-Ако искаме да имплементираме този алгоритъм така че той да сортира числа бихме написали следното:
+For example imagine we have come up with a new sorting algorithm. Sorting algorithms are not interested of the type of
+the data they sort. Such algorithms only need to know if a given element is bigger, smaller or equal to another element. 
+
+If we are to implement this algorithm so that it can sort numbers we would write a method signature like this:
 
 ```java
 public void sort(Integer[] numbers) {
-    // нашата сложна логика за сортиране
+    // some funky sorting logic
 }
 ```
 
-Ако искаме да приложим същия този алгоритъм, обаче за да сортираме текст тогава бихме написали следното:
+If we want to apply this algorithm to strings then we would need to re-implement it this time for strings.
 
 ```java
 public void sort(String[] text) {
-    // отновно същата логика за сортиране
+    // again the same funky logic
 }
 ```
 
-Забележете, как се налага да се имплементира едно и също нещо няколко пъти, с тази разлика, че типовете са различни.  
-Тука вече се намесват **Generics**. Java поддържа концепцията за генерализиране на кода, като по този начин
-може да се избегне дуплицирането на код, както и много друго.
+Note how we end up duplicating the sorting logic with the only difference being the data types.
+Here is where **Generics** come into play. Java supports the concept of generalizing a piece of code.
+Using generics we can reduce such code duplications and much more.   
 
 ```java
 public <T> void sort(T[] elements) {
-    // логиката за сортиране
+    // funky sorting logic applied to any type
 }
 ```
 
-> Използваме `<T>` преди return типът на метода за да упоменем, че това е generic метод. Параметърът на метода е от тип
-`T[] elements`. По този начин упоменаваме, че пгорамата приема като аргумент масив, от какъв да е тип.
+> We use `<T>` before the return type of the method to indicate that it is a generic method. The type of the parameter
+is `T[]` where `T` can be of any type.  
+>
+>This example is simplified. While it is possible to pass arrays with any types, the `T` parameter does not contain
+any information on how to compare it with another `T`. More on this later.
 
 ```java
 Integer[] numbers = {2, 3, 1};
@@ -176,12 +181,12 @@ sort(numbers);
 sort(text);
 ```
 
-> Можем да използваме метода `sort` с масиви от тип `Integer[]`, както и с масиви от тип `String[]`.
+> We can use the method `sort` with arrays of type `Integer[]` and `String[]`.
 
-Всичките структури от данни в `Collection` и `Map` йерархията поддържат generics.
-Това позволява преизползването на структурите от данни без да има значение, какъв ще е типът на данните.
+All data structures from the `Collection` and `Map` hierarchy support generics.
+This allows reusing the data structures without having to care what the actual data types are.
 
-- Пример
+- Example
 
 ```java
 List<String> textList = new ArrayList<>();
@@ -189,7 +194,80 @@ List<String> textList = new ArrayList<>();
 Set<Integer> numberSet = new HashSet<>();
 ```
 
-> `textList` е списък от `String`, а `numberSet` е списък от `Integer`.
+> `textList` is a list of `String` and `numberSet` is a list of `Integer`.
+
+Generics were actually added in Java 6. Before that the language still had Collections and Maps. 
+It was still possible to sort different data types without having to re-write the algorithms. This is possible due to **casting**.
+
+Let's have a look at an example that **does not use** generics.
+
+```java
+List textList = new ArrayList();
+textList.add("foo");
+
+String firstItem = (String) textList.get(0); // we need to cast to String as the List does not have any type information about it's elements
+```
+
+When declaring the list as `List` we do not provide any type information. For this reason each element in the list is
+treated as an `Object`. This forces us to cast the elements when retrieving them from the list.
+
+This is a simplified version of the `List` interface definition without generics.
+
+```java
+interface List {
+    boolean add(Object element);
+
+    Object get(int index);
+}
+```
+
+Let's have a look at an example that **incorrectly** retrieves elements from the list.
+
+```java
+List items = new ArrayList();
+items.add(20);
+
+String firstItem = (String) items.get(0); // will throw ClassCastException when executed
+```
+
+The code makes a wrong assumption that the element at index 0 is a String, so it casts the retrieved element to String.
+The first element however is the integer 20. The code compiles. However, when executed it throws a *ClassCastException*.
+
+Generics solve exactly this problem. They enforce a compile-time type check that would prevent us from making 
+wrong assumptions about the data types.
+
+- Example
+
+```java
+List<Integer> numbers = new ArrayList<>();
+
+numbers.add(1);
+numbers.add(2);
+numbers.add(-10);
+
+Integer firstElement = numbers.get(0);
+String element = numbers.get(0); // won't compile as the list is only for integers
+
+numbers.add("Пешо"); // won't compile as the list is only for integers
+```
+
+Via `List<Integer>` we tell the compiler that this list is expected to contain only integers. 
+
+Here is another simplified version of the List interface this time using generics.
+
+```java
+interface List<E> {
+    boolean add(E element);
+
+    E get(int index);
+}
+```
+
+> When declaring the interface we use a placeholder `<E>` to indicate that this is a generic interface. Whether we use
+`<E>`, `<T>` or `<FOO>` is up to conventions, it is just a placeholder.
+When we declare a variable like `List<Integer> numbers = new ArrayList<>()` you can imagine that all the `E` placeholders
+get substituted by `Integer`.
+
 
 Generics ни предпазват от това да смесваме различни по-тип данни или с други думи, те ни дават **type safety**.
 Тоест веднъж обявен типът с който работи конкретния клас или метод, то не може да приема друг тип. Тази проверка се извършва

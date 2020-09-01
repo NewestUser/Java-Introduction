@@ -3,83 +3,82 @@
 
 ## Collections
 
-### Структури от данни (Data structures)
+### Data structures
 
-Често при писането на програми се налага някаква информация да бъде запаметявана от програмата.
+Often when developing programs it is required some information to be stored by the program.
 
-Например ако пишем програма, която представлява онлайн система за конни надбягвания, която пази информация като:
-- На кои дати в кои градове има конни надбягвания.
-- Във всяко надбягване кои са участниците.
-- Кой участник колко конни надбягвания е печеил и тнт.
+For example if we have to write an online horse raising platform which needs to keep track of:
+- Which city on which date has a raise.
+- Which are the jockeys in each race.
+- How many races has each of the jockeys won, etc...
 
-Запаметяването на такъв тип данни може да бъде извъшрено под множество форми или така наречените структури от данни.  
+Such data can be stored or kept in a variety of data structures.
 
-Всяка структура от данни има своите специфики, предимства и недостатъци. Избора каква струтктура от данни
-ще използваме би зависил от операциите, които ще се налага да се извършват в/у тези данни.
+Each data structure has its own specifics, advantages and disadvantages. Choosing the right one
+would depend on the type of operations that would need to be performed on the data.
 
-Примерно може да се налага често да се добавят нови конни надбягвания, но не и да се добавят нови градове,
-в които да се извършват тези надбягвания.  
-Може да се налага да се търсят участниците подредени по брой спечелени състезания и тнт.
+For example, we might often add new horse races in compare with adding new cities.
+We might need to search for jockeys that are ordered by the number of won races.
 
-В тази лецкия ще разгледамя някои от основните структури от данни и тяхните имплементации в Java.
+In this lecture we will discuss some fundamental data structures and how they are implemented in Java. 
 
-> ℹ️ За повече информация относно това какво са структурите от данни 
-вижте това [youtube видео](https://www.youtube.com/watch?v=bum_19loj9A).
+> ℹ️ For more information about what are data structures watch this
+[youtube video](https://www.youtube.com/watch?v=bum_19loj9A).
 
 
-#### Arrays (Масиви)
+#### Arrays
 
-Масивът е една от най-простите структури от данни.  
-Представлява последователна поредица от елементи с фиксиран размер.
-Знаем че всеки елемент може да бъде достъпван използвайки индекс.
+Arrays are one of the simplest data structures.
+They represent a sequence of elements with a fixed size. 
+Each element can be accessed using an index.
 
 ![array](../../../assets/12-lecture/array.png)
 
-- Предимства
-    - Константно `O(1)` време за достъпване на елемент в масива използвайки индекс.
-    - Може да съдържа мновество елементи.
+- Pros
+    - Constant `O(1)` access time to an element using an index.
+    - The array can hold multiple elements.
     
-- Недостатъци
-    - Статична структура с фиксиран размер. Не може да се добавят повече елементи от размера на масива.
-    - Необходимо е да знаем размера на масива преди да го създадем.
+- Cons
+    - The data structure is static. Meaning we can't add more elements than the size of the array.
+    - We need to know the size of the array before we create it.
 
-> Масивът често е използван, като основа за изграждането на по-сложни структури от данни.
+> The array is often used as a building block for more complicated data structures.
 
-#### List (Списък)
+#### List
 
-Списъкът е следващата структура от данни, която директно надгражда над масива.
-Тя цели да реши промела с фиксирания размер на масива (в някои езици за програмиране е познато, като 
-динамичен масив).
+The List is a data structure that is similar to an array but can be dynamically expanded.
 
-При него не e нужно да знаем първоначалния размер на списъка и можем да добавяме елементи, като самият списък
-ще се погрижи сам за това, когато масивът бъде запълнен да задели нов масив с по-голям размер, да копира старите
-стойности в новия масив и да добави новия елемент.
+Using a list we do not need to know the initial size of the list. We can add elements to the list, and it will take care
+of automatically resizing if needed. 
 
-В Java `List` е интерфейс, който има много на брой имплементации. В тази лекция ще разгледаме някои от тях.
+In Java a `List` is an interface, which has multiple implementations. In this lecture we will have a look at some of them.
 
 ##### ArrayList
 
-`ArrayList` е имплементация на интерфейса `List`. Това е динамичен списък, който вътрешно използва масив.
-Привидно списъка има размер `size`, който представлява броя елементи добавени в списъка. 
-Това е числото 4 от снимката по-долу. В същото време има вътрешно property `capacity`, което представлява
-истинския размер на масива. Не е задължително `size` и `capacity` да са с една и съща стойност.
+`ArrayList` is an implementation of the `List` interface. This is a dynamic list, which uses an array under the hoods.
+When the underlying array gets full, and a new element needs to be added the `ArrayList` will take care of creating a new
+array with larger size, copying the elements from the old array to the new array and add the element.
 
+The array also has a `size` which represents the number of elements that are added.
+This is the number **4** in the diagram below. At the same time there is an internal property `capacity`. The capacity
+is the actual size of the underlying array. It is not required that the `size` equals to the `capacity`. The difference
+between `capacity` and `size` serves as a buffer. When `capacity` equals `size` the underlying array needs to increase in size.
 
 ![dynamic_array](../../../assets/12-lecture/dynamic_array.svg).
 
-> ℹ️ За повече информация вижте това [youtube видео](https://www.youtube.com/watch?v=qTb1sZX74K0).
+> ℹ️ For more information checkout this [youtube video](https://www.youtube.com/watch?v=qTb1sZX74K0).
 
-- Предимства
-    - Не е необходимо да се знае предварително размера на масива
-    - Бързо достъпване на елемент намиращ се на конкретен индекс
-    - Бързо добавяне на елементи в края на списъка
+- Pros
+    - We do not need to know the size of the ArrayList before we create it.
+    - Fast access to elements using an index.
+    - Elements can be added to the end of the array without any overhead.
     
-- Недостатъци
-    - Добавянето на елементи в началото или средата на масива изисква да преместване на елементите от дясно.
-    - При достигане на капацитета на масива е необходимо да се създаде нов масив с по-голям размер 
-    и да се копират старите стойности
+- Cons
+    - Adding elements in the beginning or the middle of the array requires the elements on the right to be shifted.
+    - When the size reaches the capacity a new array with a larger size needs to be created. 
+    The elements from the old array need to be copied into the new array.
 
-**Пример**
+**Example**
 
 ```java
 List<String> myArrayList = new ArrayList<>();
@@ -90,8 +89,8 @@ myArrayList.add("zar");
 myArrayList.add("var");
 myArrayList.add("far");
 
-myArrayList.remove("bar"); // намери елемента "bar"  и го премахни
-myArrayList.remove(1); // премахни елемента на 1-ви индекс
+myArrayList.remove("bar");  // find the element "bar" and remove it
+myArrayList.remove(1);      // remove the element located on index 1
 
 for (String myString : myArrayList) {
     System.out.println(myString);
@@ -102,9 +101,9 @@ for (String myString : myArrayList) {
 
 ![linked_list_insertion_animation](../../../assets/12-lecture/linked_list_insertion_animation.gif)
 
-> ℹ️ За повече информация вижте това [youtube видео](https://www.youtube.com/watch?v=_jQhALI4ujg).
+> ℹ️ For more information watch this [youtube video](https://www.youtube.com/watch?v=_jQhALI4ujg).
 
-**Пример**
+**Example**
 
 ```java
 List<String> myLinkedList = new LinkedList<>();
@@ -115,8 +114,8 @@ myLinkedList.add("zar");
 myLinkedList.add("var");
 myLinkedList.add("far");
 
-myLinkedList.remove("bar"); // намери елемента "bar"  и го премахни
-myLinkedList.remove(1); // премахни елемента на 1-ви индекс
+myLinkedList.remove("bar"); // find the element "bar" and remove it
+myLinkedList.remove(1);     // remove the element located on index 1
 
 for (String myString : myLinkedList) {
     System.out.println(myString);
@@ -127,7 +126,7 @@ for (String myString : myLinkedList) {
 
 ![stack_push_pop_animation](../../../assets/12-lecture/stack_push_pop_animation.gif)
 
-**Пример**
+**Example**
 
 ```java
 Stack<String> myStack = new Stack<>();
@@ -138,7 +137,7 @@ myStack.push("zar");
 myStack.push("var");
 myStack.push("far");
 
-String lastElement = myStack.pop();// премахни последния добавен елемент
+String lastElement = myStack.pop(); // remove last pushed element
 
 System.out.println("Last element: " + lastElement);
 
@@ -151,9 +150,9 @@ for (String myString : myStack) {
 
 ![queue_enqueue_dequeue_animation](../../../assets/12-lecture/queue_enqueue_dequeue_animation.gif)
 
-> ℹ️ За повече информация вижте това [youtube видео](https://www.youtube.com/watch?v=wjI1WNcIntg)
+> ℹ️ For more information watch this [youtube video](https://www.youtube.com/watch?v=wjI1WNcIntg)
 
-**Пример**
+**Example**
 
 ```java
 Queue<String> myQueue = new LinkedList<>();
@@ -164,7 +163,7 @@ myQueue.add("zar");
 myQueue.add("var");
 myQueue.add("far");
 
-String lastElement = myQueue.poll();// премахни първия елемент
+String lastElement = myQueue.poll();    // remove first element
 
 System.out.println("First element: " + lastElement);
 
@@ -179,10 +178,10 @@ for (String myString : myQueue) {
 
 ![binary_search_tree](../../../assets/12-lecture/binary_search_tree_animation.gif)
 
-> ℹ️ За да придобиете по ясна представа, какво се случва, когато се добавят
-и премахват елементи от списъците вижте това [youtube видео](https://www.youtube.com/watch?v=oSWTXtMglKE).
+> ℹ️ For a more in depth explanation of what exactly happens when an element is added or removed from an array watch this 
+[youtube video](https://www.youtube.com/watch?v=oSWTXtMglKE).
 
-**Пример**
+**Example**
 
 ```java
 TreeSet<String> myTree = new TreeSet<>();
@@ -193,10 +192,10 @@ myTree.add("zar");
 myTree.add("var");
 myTree.add("far");
 
-myTree.remove("bar");// намира и премахва елемента bar
+myTree.remove("bar"); // find and remove the elment bar
 
 for (String myString : myTree) {
-    System.out.println(myString); // обхождаме ги подредени
+    System.out.println(myString); // iterate them sorted
 }
 ```
 
@@ -206,10 +205,10 @@ for (String myString : myTree) {
 
 ![hash_set](../../../assets/12-lecture/hash_set.png)
 
-> ℹ️ За повече информация прочетете [тази статия](https://www.thecshandbook.com/hash_set)
-или вижте това [youtube видео](https://www.youtube.com/watch?v=WPcKwA5WF7s).
+> ℹ️ For more information read [this article](https://www.thecshandbook.com/hash_set)
+or watch this [youtube video](https://www.youtube.com/watch?v=WPcKwA5WF7s).
 
-**Пример**
+**Example**
 
 ```java
 Set<Integer> mySet = new HashSet<>();
@@ -223,7 +222,7 @@ mySet.put(-15);
 mySet.remove(20);
 
 for (Integer number : mySet) {
-    System.out.println(number); // обхождаме ги в неопределен ред
+    System.out.println(number); // iterate them in unspecified order
 }
 ```
 
@@ -233,11 +232,10 @@ for (Integer number : mySet) {
 
 ![hashmap](../../../assets/12-lecture/hashmap.jpg)
 
-> ℹ️ За да придобиете по ясна представа, какво се случва, когато се добавят
-и премахват елементи от списъците вижте [това](https://www.youtube.com/watch?v=MfhjkfocRR0) 
-и [това](https://www.youtube.com/watch?v=shs0KM3wKv8) youtube видео.
+> ℹ️ For a detailed explanation on how Hash Tables work watch [this](https://www.youtube.com/watch?v=MfhjkfocRR0) 
+and [this](https://www.youtube.com/watch?v=shs0KM3wKv8) youtube video.
 
-**Пример**
+**Example**
 
 ```java
 Map<String, Integer> myMap = new HashMap<>();
@@ -248,34 +246,31 @@ myMap.put("zar", -4);
 myMap.put("var", 8);
 myMap.put("far", 12);
 
-myMap.remove("bar");// намира и премахва елемента bar
+myMap.remove("bar"); // find and remove bar
 
-for (String myKey : myMap.keySet()) { // обхождаме всички ключове
-    System.out.println(myKey); // обхождаме ги в неопределен ред
+for (String myKey : myMap.keySet()) { // iterate all keys in unspecified order
+    System.out.println(myKey);
 }
 
-for (int myValue : myMap.values()) { // обхождаме всички стойности
-    System.out.println(myValue); // обхождаме ги в неопределен ред
+for (int myValue : myMap.values()) { // iterate all values in unspecified order
+    System.out.println(myValue);
 }
 ```
 
 ##### Collections vs Maps
 
-И колекциите и маповете целят да репрезентират структури от данни. Йерархично погледанто в Java
-те са представени, като две различни звена (node) в йерархичното дърво.
+Both collections and maps represnet different data structures. 
+However, their class hierarchy is separate.
 
 ![java_collections_and_map_hierarchy](../../../assets/12-lecture/java_collections_and_map_hierarchy.png)
 
 #### Iterators
 
-Общото м/у всички структури от данни, които разгледахме до тука е тяхното свойство те да бъдат итерирани.
+One common thing between all the data structures that we went through is that they can be iterated. 
 
-Всяка една от структурите от данни може да участва в цикъл под един или друг вид.
+Java provides the interface `Iterator` which expresses the ability to iterate over a group of objects.
 
-В Java има интерфейс, който репрезентира способността да се итерира някаква съвкупносто т данни.
-Този интерфейс се нарича `Iterator`. 
-
-Ето как изглеждаше той преди Java 8
+Here you can see the `Iterator` interface before Java 8.
 
 ```java
 public interface Iterator<E> {
@@ -288,21 +283,22 @@ public interface Iterator<E> {
 }
 ```
 
-> Итератора е удобен в случаите, когато е необходимо да се премахват елементи докато се итерира.
-С нормален `for` цикъл това би било трудно.
+> One useful use case of the iterator is when we want to remove elements while iterating.
+This can prove difficult to implement with a `for` loop.
 
-Всяка една колекция има метод `Iterator<E> iterator();`, който връща итератора на колекцията.
-Този итератор може да бъде ползван за итериране на колекцията.
 
-Като методите на итератора предоставят 3 функционалности.
+All the data structures from the Collection hierarchy have a method `Iterator<E> iterator();` which returns an iterator.
+Using it we can loop through the data structure.
 
-- `hasNext()` - проверява дали има следващ елемент
+The methods of the iterator provide the following functionality.
 
-- `next()` - връща следващия елемент
+- `hasNext()` - check if there is a next element
 
-- `remove()` - премахва текущия елемент, на който се намира итератора
+- `next()` - return the next element
 
-**Пример**
+- `remove()` - remove the current element (the one on which the iterator is currently located at)
+
+**Example**
 
 ```java
 List<String> myList = ...;
@@ -318,25 +314,24 @@ while (myListIterator.hasNext()) {
 }
 ```
 
-> С Java 8 бяха добавени още няколко метода в интерфейса, които не са от значение за тази лекция.
+> Since Java 8 a few more methods have been added to the Iterator interface which are not of grate importance for the scope of this lecture.
 
 
 #### Compare to
 
-Често, когато се работи с даден тип данни се налага тези данни да се пазят в подреден вид.
-Така например ако имаме списък с числа можем да ги подредим във възходящ или низходящ ред.
-Това би ни позволило после по-бързо да търсим дали дадено чилсло вече го имаме записано.
+Often when working with a given data type we would need to store the data in a sorted order.
+For example if we have a list of numbers we might want to store those numbers in ascending or descending order.
+This would allow for faster searches.
 
-Тази подредба е интуитивна, когато се налага да се подреждат числа или текст (текства ще е по азбучен ред), но
-когато става въпрос за типове данни, които моделират обекти от реалния свят е необходимо изрично да се опише, как ще се
-извършва тази подредба.
+Ordering numbers or text is intuitive (text can be order alphabetically). 
+Ordering elements that model real life objects is not. For this reason we need a clear definition on how to compare two 
+complex objects of the same type.
 
-Нека разгледаме един пример, в който се налага да пазим подреден списък от Хора (Person). Преди да бъде подреден 
-този списък, е необходимо да определим по-какво ще бъдат подреждани елементите в него. 
-Може да бъдат подреждани по възраст (age), височина (height), цвят на очите (eye color) и тнт...
+Let's look at an example where we need to keep an ordered list of people. Before ordering the list we need to define
+what will be used to compare two people. We might choose to compare people by age or height or eye color or 
+all of the properties.
 
-Това как се сравняват 2 елемента за да могат те да бъдат подредени в някаква структура от данни се описва от интерфейса
-`Comparable`. 
+Here is where the `Comparable` interface comes in. We can use it to give this definition.
 
 ```java
 public interface Comparable<T> {
@@ -346,11 +341,11 @@ public interface Comparable<T> {
 }
 ```
 
-Интерфейса има само 1 метод `compareTo`, който примеа елемента, с който ще бъде сравняван текущия елемент и връща `int`,
-като резултат. Класът имплементиращ този интерфейс е длъжен да върне `-1`, `0` или `+1` ако текущия елемент е по-малък,
-равен или по-голям от другия.
+The interface has only 1 method `compareTo`, which accepts as an argument the element that will be used to compare against.
+The method has an `int` return type. The class implementing this method is required to return **-1**, **0** or **+1** 
+depending on if the current item is **less than**, **equal to** or **grater than** respectively.
 
-**Пример**
+**Example**
 
 ```java
 class Person implements Comparable<Person> {
@@ -381,24 +376,24 @@ class Person implements Comparable<Person> {
 
 ### Task 1
 
-Създайте програма, която взема от потребителя неопределен брой числа, докато не бъде въведено `-1`.  
-При въвеждане на `-1` от потребителя, числата, които той е въвел да бъдат изписани в обратен ред,  
-както и да се намери най-малкото въведено число и да се принтира.
+Write a program that accepts unlimited number of user inputs. The user should input floating-point numbers.
+The program should stop when the user enters `-1`. Before stopping the program should print all the numbers 
+entered by the user in reverse order and also print the smallest of the numbers. 
 
-- Пример
+- Example
 
 ```text
-Въведете число: 32
-Въведете число: -8
-Въведете число: 12
-Въведете число: 0.5
-Въведете число: -1
+Enter number: 32
+Enter number: -8
+Enter number: 12
+Enter number: 0.5
+Enter number: -1
 
-Резултат: 0.5 12.0 -8.0 32.0 
-Най-малкото число е: -8.0
+Result: 0.5 12.0 -8.0 32.0 
+Smallest number: -8.0
 ```
 
-> Използвайте `List<Integer> numbers = new ArrayList<>();` за да решите задачата.
+> Hint: Use `List<Integer> numbers = new ArrayList<>();` to solve the task.
 
 <br/><details><summary><b>Solution</b> 👀</summary> 
 <p>
@@ -422,7 +417,7 @@ public class Task1 {
         double min = STOP_NUMBER;
 
         while (true) {
-            System.out.print("Въведете число: ");
+            System.out.print("Enter number: ");
             double currentNum = scanner.nextDouble();
 
             if (currentNum == STOP_NUMBER) {
@@ -438,14 +433,14 @@ public class Task1 {
             myNumbers.add(currentNum);
         }
 
-        System.out.printf("%nРезултат: ");
+        System.out.printf("%nResult: ");
         for (int i = myNumbers.size() - 1; i >= 0; i--) {
             double element = myNumbers.get(i);
 
             System.out.print(element + " ");
         }
 
-        System.out.printf("%nНай-малкото число е: " + min);
+        System.out.printf("%nSmallest number: " + min);
     }
 }
 ```
@@ -455,30 +450,31 @@ public class Task1 {
 
 ### Task 2
 
-Създайте програма, която принтира уникалните думи, които потребителя е въвел.
-Потребителя може да въвежда дума по дума или да въведе цяло изречение.
-Всеки път, когато потребителя въведе дума, която преди е въвеждал да се изпише, че въпросната дума вече е въведена.
+Write a program that prints the unique words entered by a user.
+The user can enter single words or whole sentences.
+Every program should print a message every time the user enters a word that was previously entered.
 
-Въвеждането приключва, когато потребителя въведе `stop`. След, което се принтират всички уникални думи.
-Редът на изписване е без значение.
+The program should stop when the user enters `stop`. Before stopping the program should print all unique words 
+entered by the user. The order of printing is not important.
 
-- Пример
+- Example
   
 ```text
-Въведете текст: мач
-Въведете текст: чаша
-Въведете текст: сипи вино
-Въведете текст: обичам вино
-Думата 'вино' вече е въведена.
-Въведете текст: чаша
-Думата 'чаша' вече е въведена.
-Въведете текст: stop
+Enter text: football
+Enter text: glass
+Enter text: pour wine
+Enter text: love wine
+The word 'wine' is already entered.
+Enter text: glass
+The word 'glass' is already entered.
+Enter text: stop
 
-Резултат: мач чаша обичам сипи вино
+Unique words: football glass love pour wine
 ```
 
-> Използвайте `Set<String> words = new HashSet<>();` за да записвате думите, 
-както и `String[] words = text.split(" ");` за да разделите въведения от потребителя текст на думи.
+> Hint: Use `Set<String> words = new HashSet<>();` to store the unique words.
+You can use `String[] words = text.split(" ");` to retrieve all the words in a sentence
+ assuming they are separated only by whitespace.
 
 <br/><details><summary><b>Solution</b> 👀</summary> 
 <p>
@@ -500,7 +496,7 @@ public class Task2 {
         boolean shouldPromptUser = true;
         while (shouldPromptUser) {
 
-            System.out.print("Въведете текст: ");
+            System.out.print("Enter text:");
             String sentence = scanner.nextLine();
 
             String[] words = sentence.split(" ");
@@ -513,14 +509,14 @@ public class Task2 {
                 }
 
                 if (uniqueWords.contains(currentWord)) {
-                    System.out.printf("Думата '%s' вече е въведена.%n", currentWord);
+                    System.out.printf("The word '%s' is already entered.%n", currentWord);
                 } else {
                     uniqueWords.add(currentWord);
                 }
             }
         }
 
-        System.out.printf("%nРезултат: ");
+        System.out.printf("%nUnique words: ");
         for (String eachUniqueWord : uniqueWords) {
             System.out.print(eachUniqueWord + " ");
         }
@@ -533,25 +529,24 @@ public class Task2 {
 
 ### Task 3
 
-Напишете програма, която бори колко пъти е въведена дадена дума от потребителя.  
-Въвеждането на данни приключва, когато потребителя въведе `stop`, след което се
-принтира най-често въведената дума.
+Write a program that counts how many times a word has been entered by the user.  
+Upon entering `stop` the program should print the most common word and exit.
 
-**Пример**
+**Example**
 
 ```text
-Въведете текст: котка
-Въведете текст: куче
-Въведете текст: раница
-Въведете текст: куче
-Въведете текст: котка и куче
-Въведете текст: stop
+Enter text: cat
+Enter text: dog
+Enter text: bag
+Enter text: dog
+Enter text: cat and dog
+Enter text: stop
 
-Най-често срещана дума е: куче
+Most frequent word is 'dog' with 3 occurrences.
 ```
 
-> Използвайте `Map<String, Integer> wordCount = new HashMap<>();` за да броите всяка дума, колко пъти е въвеждана.
-За ключ ползвайте думата, а за стойност броя повторения на тази дума.
+> Use `Map<String, Integer> wordCount = new HashMap<>();` to count the occurrences of each word.
+Use the word as key and the count as a value.
 
 <br/><details><summary><b>Solution</b> 👀</summary> 
 <p>
@@ -599,7 +594,7 @@ public class Task3 {
             }
         }
 
-        System.out.println("Most frequent word is '" + maxWord + "' with " + max + " ocurrances.");
+        System.out.println("Most frequent word is '" + maxWord + "' with " + max + " occurrences.");
     }
 }
 ```
@@ -609,23 +604,22 @@ public class Task3 {
 
 ### Task 4
 
-Напишете задача, която е способна да тълкува [Reverse Polish Notation](https://bg.wikipedia.org/wiki/%D0%9E%D0%B1%D1%80%D0%B0%D1%82%D0%B5%D0%BD_%D0%BF%D0%BE%D0%BB%D1%81%D0%BA%D0%B8_%D0%B7%D0%B0%D0%BF%D0%B8%D1%81).
-RPN е математически запис, използван от калкулаторите, за да решават уравнения.  
-Записа е характерен с това че първо се изписват операндите после операторите.
+Write a program that is capable of interpreting [Reverse Polish Notation](https://en.wikipedia.org/wiki/Reverse_Polish_notation).
+RPN is a mathematical notation used by calculators to solve equations.  
+The notation is also called postfix notation because the operands are written first followed by the operators.
 
-- Примери
+- Examples
 
-1. `3 + 4` би се изписало `3` `4` `+` (това означава числото 3 и числото 4 да се събере)
-2. `3 - 20` би се изписало `3` `20` `–` (това означава от 3 извади 20) 
-3. `3 – 4 + 5`  би се изписало `3` `4` `–` `5` `+` (това означава от 3 извади четири 
-от резултата на това изваждане прибави 5)
-4. `3 – (4 * 5)` би се изписало `3` `4` `5` `*` `–` (това означава първо умножи 4 и 5 и
-получения резултат след това го извади от 3  или това е същото, като `3` `20` `–` )
-5. `(3 – 4) * 5` би се изписало `3` `4` `–` `5` `*`
+1. `3 + 4` would be `3` `4` `+` (this means the numbers 3 and 4 must be added together)
+2. `3 - 20` would be `3` `20` `–` (this means from 3 subtract 20) 
+3. `3 – 4 + 5`  would be `3` `4` `–` `5` `+` (this means from 3 subtract 4, the result should be added with 5)
+4. `3 – (4 * 5)` would be `3` `4` `5` `*` `–` (this means first multiply 4 and 5 after which
+subtract the result from 3, this can also be written as `3` `20` `–` )
+5. `(3 – 4) * 5` would be `3` `4` `–` `5` `*`
 
-**Решете примерите 1 и 2**  
-При условие че вече имате получения запис в RPN напишете програма, която да може да тълкува този запис
-и да извършва правилно матиматическите изчисления.
+**Solve examples 1 and 2**  
+Assuming that you already have the RPN notation write a program that interprets this notation 
+and performs the correct calculations.
 
 <br/><details><summary><b>Solution</b> 👀</summary> 
 <p>
@@ -652,9 +646,7 @@ public class RPMDemo {
     }
 
     private static void handleItem(Stack<String> stack, String operator) {
-
         if (isOperator(operator)) {
-
             String operand2 = stack.pop();
             String operand1 = stack.pop();
 
@@ -671,15 +663,12 @@ public class RPMDemo {
         if ("+".equals(operator)) {
             return value1 + value2;
         }
-
         if ("-".equals(operator)) {
             return value1 - value2;
         }
-
         if ("*".equals(operator)) {
             return value1 * value2;
         }
-
         return value1 / value2;
     }
 
@@ -695,42 +684,42 @@ public class RPMDemo {
 </p>
 </details>
 
-> ℹ️ За повече информация как да се реши тази задача вижте това 
-[youtube видео](https://www.youtube.com/watch?v=7ha78yWRDlE).
+> ℹ️ For more information on how to solve this task watch this 
+[youtube video](https://www.youtube.com/watch?v=7ha78yWRDlE).
 
 ### Task 5
 
-Напишете програма, която симулира работата на ферма за птици (Chicken Barn).  
+Write a program that simulates a Chicken Barn.  
 🥚 &rarr; 🐤 &rarr; 🐓 &rarr; ⚰️
 
-В една ферма първоначално може да има определен брой кокошки (например 5).  
+A Chicken Barn can initially have **n** chickens (example 5).
 
-- Всяка кокошка снася по едно яйце всяка седмица.
+- Each chicken lays 1 egg once a week.
 
-- Една кокошка може да снася яйца само ако е м/у 2-8 седмици.
+- A chicken can lay an egg only when it is between 2-8 weeks inclusive.
 
-- Яйце което е навършило 2 седмици се излюпва, добавяйки нова кокошка във фермата. 
-  Името на излюпената кокошка зависи от името на предишната кокошка.  
+- An egg that is 2 weeks old hatches. After hatching a new chicken is added to the farm.
+  The name of the hatched chicken depends on the name of its parent.  
   
-  **Пример:** 
-  ако кокошката снесла яйцето се казва `Chicken1`, то излюпената кокошка може да се казва
-  `Chicken1/ChickenX` където `X` е номера на кокошката.
+  **Example:** 
+  If `Chicken1` lays an egg then the hatched chicken name would be
+  `Chicken1/ChickenX` where `X` is the number of the chicken.
 
-- При навършване на 9 седмици, кокошката умира и се прмахва от фермата.
+- When a chicken turns 9 months it dies and is removed from the Chicken Barn.
 
-Програмата трябва да принтира кокошките, които са останали във фермата след определен брой седмици.
+The program needs to print the chickens that remain after X weeks.
 
-**Пояснение**
+**Explanation**
 
-Една седмица преминава като:
-1. Увеличава се възрастта на снесените яйца
-2. Излюпват се яйцата, които са навършили необходимата възраст
-3. Увеличава се възрастта на кокошките
-4. Преахват се кокошките, които са навършили 9 седмици
-5. Снасят се яйца от кокошките навършили необходимата възраст
-6. Започва следващата седмица
+When a week passes:
+1. The age of the hatched eggs increases.
+2. The eggs that have the required age hatch.
+3. The age of the chickens increases.
+4. Dead chickens are removed.
+5. Eggs are hatched by chickens that have the required age.
+6. The next week begins.
 
-- Пример при 4 начални кокошки съответно на възраст от  4, 5, 6, 7 седмици и общо време за развитие 4 седмици
+- Example with 4 chickens with the age of 4, 5, 6, 7 weeks and total evolve time of 4 weeks.
 
 ```text
 Chicken{name='Chicken1'}
@@ -743,7 +732,7 @@ Chicken{name='Chicken2/Chicken10'}
 Chicken{name='Chicken3/Chicken11'}
 ```
 
-- Пример при 3 начални кокоши съответно на възраст от 3, 4, 5 седмици и общо време за развитие 4 седмици
+- Example with 3 initial chcickens with the age of 3, 4, 5 weeks and total evolve time of 4 weeks.
 
 ```text
 Chicken{name='Chicken1'}
@@ -770,15 +759,15 @@ public class Main {
     public static void main(String[] args) {
         List<Chicken> chickens = new ArrayList<>();
 
-        chickens.add(new Chicken(3)); // добави кокошка на 3 седмици
-        chickens.add(new Chicken(4)); // добави кокошка на 4 седмици
-        chickens.add(new Chicken(5)); // добави кокошка на 5 седмици
+        chickens.add(new Chicken(3)); // add chicken with age of 3 weeks
+        chickens.add(new Chicken(4)); // add chicken with age of 4 weeks
+        chickens.add(new Chicken(5)); // add chicken with age of 5 weeks
 
-        Barn barn = new Barn(chickens); // създай ферма подавайки кокошките
+        Barn barn = new Barn(chickens); // create a barn passing the chickens
 
-        List<Chicken> evolvedChickens = barn.evolve(4); // итерирай 4 седмици във фермата
+        List<Chicken> evolvedChickens = barn.evolve(4); // iterate 4 weeks in the barn
 
-        for (Chicken chicken : evolvedChickens) { // принтирай всички кокошки след 4-те седмици
+        for (Chicken chicken : evolvedChickens) { // Print all the chickens after the 4th week
             System.out.println(chicken);
         }
     }
@@ -789,16 +778,15 @@ public class Main {
 
 ```java
 public class Egg {
-
     private static final int HATCHING_WEEK = 2;
 
     private String chickenName;
     private int age;
 
     /**
-     * Конструктор, за създаванен на ново яйце.
+     * Constructor for creating a new egg.
      *
-     * @param chickenName името на кокошката снесла яйцето.
+     * @param chickenName the name of the chicken that hatched the egg.
      */
     public Egg(String chickenName) {
         this.chickenName = chickenName;
@@ -806,19 +794,18 @@ public class Egg {
     }
 
     /**
-     * Увеличи възрастта на яйцето с 1 седмица.
+     * Increase the age of the egg by 1 week.
      */
     public void ageByOneWeek() {
         age++;
     }
 
     /**
-     * Излюпи яйцето, ако е навършило необходимата възраст.
+     * Hatch the egg if it has aged enough.
      *
-     * @return излюпената кокоша или null, ако яйцето не може да бъде излюпено.
+     * @return return the hatched chicken or null if the egg can't be hatched.
      */
     public Chicken hatch() {
-
         if (age < HATCHING_WEEK) {
             return null;
         }
@@ -832,13 +819,13 @@ public class Egg {
 
 ```java
 public class Chicken {
-
     private static final int DEATH_WEEK = 9;
     private static final int MIN_HATCH_WEEK = 2;
     private static final int MAX_HATCH_WEEK = 8;
 
-    /* Статична променлива, която се използва в името на кокошката.
-     * Всеки път, когато се създаде нова кокошка, тази променлива се увеличава с 1.
+    /*
+     * A static counter variable that is used in the name of the chicken.
+     * Every time a new chicken is hatched this variable is incremented by 1.
      */
     private static int ID_SEQUENCE = 1;
 
@@ -847,9 +834,11 @@ public class Chicken {
     private int age;
 
     /**
-     * Създай нова кокошка назначавайки и служебно име и подадаената възраст.
+     * Constructor creating a new chicken with the provided age.
+     * Chickens created with this constructor don't have parents.
+     * (I guess the chicken did come before the egg)
      *
-     * @param age възрастта на кокошката в седмици.
+     * @param age of the chicken in weeks.
      */
     public Chicken(int age) {
         this.name = getNextName("");
@@ -857,10 +846,10 @@ public class Chicken {
     }
 
     /**
-     * Конструктор създадващ новородена кокошка. Конструкторът приема името на кокошката, която е снесла
-     * яйцето. На база това име ще се определи името на тази кокошка.
+     * Constructor creating a newborn chicken. The constructor accepts the name of the parent chicken.
+     * The name of this chicken is based on the parent chicken.
      *
-     * @param chickenName името на кокошката снесла яйцето.
+     * @param chickenName name of the chicken that hatched this chicken.
      */
     public Chicken(String chickenName) {
         this.name = getNextName(chickenName + "/");
@@ -868,30 +857,30 @@ public class Chicken {
     }
 
     /**
-     * Метод връщащ името на кокошката съставено от prefix + "Chicken" + ID, където ID е поредния
-     * номер на кокошката.
+     * This method computes the chicken name. The name follows the format: prefix + "Chicken" + ID, where ID
+     * is the sequential number of the chicken.
      *
-     * @param prefix текст, който да бъде използван пред името на кокошката.
-     * @return ново име на кокошка.
+     * @param prefix text used in front of the name of the chicken.
+     * @return a new chicken name.
      */
     private String getNextName(String prefix) {
         return prefix + "Chicken" + ID_SEQUENCE++;
     }
 
     /**
-     * Този метод проверява дали кокошката е навършила необходимата възраст за да умре.
+     * This method checks if the chicken has reached dying age.
      *
-     * @return true ако е навършила преклонна възраст, false в противен случай.
+     * @return true if chicken has reached dying age, false otherwise.
      */
     public boolean canDie() {
         return age >= DEATH_WEEK;
     }
 
     /**
-     * Този метод връща яйце, ако кокошката е навършила зряла възраст и може да снася яйца.
-     * Снесеното яйце има името на кокошката, която го е снесла.
+     * This method returns an egg when the chicken has reached the required age to lay eggs.
+     * The egg contains the name of the parent chicken.
      *
-     * @return снесеното яйце или null ако кокошката не може да снася.
+     * @return an egg or null if the chicken can't lay eggs.
      */
     public Egg hatchEgg() {
         if (age < MIN_HATCH_WEEK || age > MAX_HATCH_WEEK) {
@@ -902,7 +891,7 @@ public class Chicken {
     }
 
     /**
-     * Този метод увеличава възрастта на кокошката с една седмица.
+     * Increase the age of the chicken by one week.
      */
     public void ageByOneWeek() {
         this.age++;
@@ -930,10 +919,10 @@ public class Barn {
     private List<Egg> eggs;
 
     /**
-     * Конструктор, който инициализира фермата с подадените през него кокошки.
-     * Когато се създаде нова ферма, в нея няма яйца.
+     * Constructor initializing the barn with some chickens.
+     * When a new barn is created there are no eggs in it.
      *
-     * @param chickens първоначалните кокошки във фермата.
+     * @param chickens the initial chickens.
      */
     public Barn(List<Chicken> chickens) {
         this.chickens = chickens;
@@ -941,33 +930,28 @@ public class Barn {
     }
 
     /**
-     * Този метод еволюира фермата с определен брой седмици.
+     * This method evolves the chicken barn.
      *
-     * @param weeks броя седмици, с които да бъде еволюирана фермата.
-     * @return връща списъкът с кокошки след еволюцията.
+     * @param weeks the number of weeks to evolve.
+     * @return a list of chickens after the weeks have passed.
      */
     public List<Chicken> evolve(int weeks) {
-
         for (int week = 0; week < weeks; week++) {
-
             hatchEggs();
-
             growChickens();
         }
-
         return chickens;
     }
 
     /**
-     * Този метод репрезентира, какво се случва през една седмица с яйцата.
-     * Методът обикаля всички налични яйца, увеличава им възрастта с 1 седмица,
-     * излюпва яйцата, които са годни и добавя излюпените кокошки в списъка с кокошки.
+     * This method computes what happens with the eggs in 1 week.
+     * All eggs are iterated and their age is increased. Eggs that need to hatch hatch and the chickens 
+     * are added in the chicken list.
      */
     private void hatchEggs() {
         Iterator<Egg> iterator = eggs.iterator();
 
         while (iterator.hasNext()) {
-
             Egg currentEgg = iterator.next();
 
             currentEgg.ageByOneWeek();
@@ -978,15 +962,13 @@ public class Barn {
 
                 iterator.remove();
             }
-
         }
     }
 
     /**
-     * Този метод репрезентира, какво се случва през една седмица с кокошките.
-     * Методът обикаля всички налични кокошки, увеличава им възрастта с 1 седмица
-     * Премахва кокошките на преклонна възраст и снася яйца използвайки кокошките на зряла възраст,
-     * като добавя излюпените яйца в списъка с яйца..
+     * This method computes what happens with chickens in 1 week.
+     * All chickens are iterated and their age is increased. Chickens that have reached dying age are removed.
+     * Chickens that can hatch eggs hatch and the eggs are added to the egg list.
      */
     private void growChickens() {
         Iterator<Chicken> iterator = chickens.iterator();
