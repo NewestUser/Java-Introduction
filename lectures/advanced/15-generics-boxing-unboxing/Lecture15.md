@@ -231,9 +231,9 @@ String firstItem = (String) items.get(0); // will throw ClassCastException when 
 ```
 
 The code makes a wrong assumption that the element at index 0 is a String, so it casts the retrieved element to String.
-The first element however is the integer 20. The code compiles. However, when executed it throws a *ClassCastException*.
+The first element however is the integer 20. The code compiles. However, when executed it throws a **ClassCastException**.
 
-Generics solve exactly this problem. They enforce a compile-time type check that would prevent us from making 
+Generics solve exactly this problem. They enforce a compile-time type check, that would prevent us from making 
 wrong assumptions about the data types.
 
 - Example
@@ -248,7 +248,7 @@ numbers.add(-10);
 Integer firstElement = numbers.get(0);
 String element = numbers.get(0); // won't compile as the list is only for integers
 
-numbers.add("Пешо"); // won't compile as the list is only for integers
+numbers.add("pizza"); // won't compile as the list is only for integers
 ```
 
 Via `List<Integer>` we tell the compiler that this list is expected to contain only integers. 
@@ -268,38 +268,22 @@ interface List<E> {
 When we declare a variable like `List<Integer> numbers = new ArrayList<>()` you can imagine that all the `E` placeholders
 get substituted by `Integer`.
 
+One might say that by using generics on collections we loose flexibility because we can only put a single type 
+in the collection. This is not true. Usually when we store some data in a collection we would like to read that data back.
+Without generics, we would be able to mix different data types in a single collection.
+When we read data back we would have to perform type checks in order to be sure what is the data type of the retrieved element.
 
-Generics ни предпазват от това да смесваме различни по-тип данни или с други думи, те ни дават **type safety**.
-Тоест веднъж обявен типът с който работи конкретния клас или метод, то не може да приема друг тип. Тази проверка се извършва
-по време на компилация. Затова често се среща като **compile time type safety**.  
-
-- Пример
-
-```java
-List<Integer> numbers = new ArrayList<>();
-
-numbers.add(1);
-numbers.add(2);
-numbers.add(-10);
-
-numbers.add("Пешо"); // няма да компилира, тъй като списъкът е само за <Integer>
-```
-
-От друга страна, ако не използваме generics ние ще можем да слагаме всякакъв тип данни във въпросните колекции.  
-Това от своя страна обаче ще усложни обработката на тези данни, тъй като ние няма да занем какви са те.
-
-- Пример
+- Example
 
 ```java
-List everything = new ArrayList();
+List everything = new ArrayList(); // a list without generics
 
 everything.add(1);
 everything.add(true);
-everything.add("Пешо");
+everything.add("pizza");
 everything.add(new Object());
 
 for (Object element : everything) {
-
     if (element instanceof Integer) {
         Integer item = (Integer) element;
         
@@ -315,23 +299,111 @@ for (Object element : everything) {
 }
 ```
 
-> По време на итерация на елементите се налага да се проверява типът на елемента и да се каства (cast),
-към съответния тип.  
-В този пример не са използване generics и се приема, че типът е най-високото ниво на абстракция `Object`.  
-Това е същото, като `List<Object> everything = new ArrayList<>();`
+> While iterating the elements we perform type checks via `instanceof`. If the type is as expected we perform a cast.
 
-#### Къде могат да бъдат използвани Generics?
+#### Type erasure
 
-- Generics могат да бъдат подавани, като параметри на методи или конструктори.
+As mentioned earlier generics were added in Java 6. By that time the Java ecosystem had grown. 
+A lot of classes like `List`, `Map`, `Set` were implemented by operating with the class 
+`Object` (the common ancestor of all classes in the hierarchy tree). This enforced some constraints 
+on the generics type system. The code that was using generics needed to be backwards compatible with the pre Java 6 code.
+For this reason the Java maintainers decided to implement generics via **type erasure**.
 
-- return типът на даден метод може да е generic.
+Type erasure refers to having more information about the data types in the precompiled code compared to its compiled version. 
 
-- Един клас може да има property, което е generic.
+Let's look at an example.
 
-#### Пример с моделиране на чаша.
+```java
+List<String> strings = new ArrayList<>();
+...
 
-Ако искаме да моделираме, чаша и това че една чаша може да съдържа в себе си определени течности или предмети
-бихме написали следния клас.
+String firstItem = strings.get(0);
+```
+
+When compiling the code above the compiler strips off the generics information. We get a version that looks like:
+
+```java
+List strings = new ArrayList();
+
+String firstItem = (String) strings.get(0);
+```
+
+The `<String>` constraint is removed and when retrieving items from the list the compiler automatically inserts a 
+cast `(String) strings.get(0)`.
+Basically the compiler knows that if the List is defined as `List<String>` that list can't contain elements other than strings.
+For this reason it is safe to automatically insert a cast.
+
+##### Caveats
+
+Its worth mentioning that the Generics type system isn't perfect and there are cases that can go wrong. 
+
+Here is one example:
+
+```java
+List<String> myStrings = new ArrayList<>();
+myStrings.add("hello");
+
+List myObjects = myStrings;
+myObjects.add(10);
+
+String secondElement = myStrings.get(1); // throws a ClassCastException at runtime
+```
+
+In the code above we first initialize `List<String> myStrings`. 
+Using this variable the compiler can guarantee that all the elements added and retrieve from it will be strings.
+However, we assign the variable to `List myObjects` that does not have any generics constraints.
+Using the variable `myObjecs` we can now add elements that are of different type like the integer `10`.  
+The compiler will generate a warning but will still compile.  
+After that we read the second element using the variable `myStrings`. 
+The variable contains a generic constraint, so we can assign the result to `String secondElement`.  
+When we run the program we get a ClassCastException.
+Remember that after compilation the compiler removes all generics information and inserts casts where ever applicable.  
+Luckily there is a simple rule that if applied eliminates such errors. 
+Always provide the type of a class that supports generics. 
+
+Another caveat is that Arrays and Generics don't mix well.
+The reason being is that arrays are **covariant** and generics are **invariant**.
+
+Let's look at an example that illustrates this difference:
+
+```java
+String[] stringArray = new String[2];
+Object[] objectArray = stringArray; // compiles
+
+List<String> stringList = new ArrayList<>();
+List<Object> objectList = stringList; // does not compile
+```
+
+Note that in this example `String` extends `Object`. 
+Arrays can be assigned to variables that are of a super type while generics can't and trying to do so generates compile time error.
+
+Another major difference between arrays and generics is that arrays are **reified**. 
+Meaning that arrays retain their type information at runtime. Remember that generics are implemented via *type erasure*.
+This introduces some differences when using arrays and generics.
+
+Here is an example that illustrates this:
+
+```java
+Object[] objectArray = new Long[1];
+objectArray[0] = "pizza"; // throws ArrayStoreException at runtime
+
+List<Long> numberList = new ArrayList<Long>();
+List objectList = numberList;
+objectList.add("pizza"); // does not throw an exception
+```
+
+#### Where can we apply Generics?
+
+- Generics can be applied on parameters of methods and constructors.
+
+- The return type of methods can be generic.
+
+- A generic class can have a generic property.
+
+Let's go through an example of making a class generic.
+The example models a cup that can hold different liquids.
+
+![generic_cup](https://data.earthli.com/news/attachments/entry/3166/cupt.jpg)
 
 ```java
 public class Cup {
@@ -348,10 +420,19 @@ public class Cup {
 }
 ```
 
-Тъй като съдържанието на чашата (`content`) е от тип `Object` ние не знаем, какво точно има в нея и какво и как кодът
-използва този клас за да пълни (`fill`) чашата. На едно място в кода може да се слага, вода, на друго кола на трето бонбони.
+Here is how we would use this class:
 
-За да направим този клас Generic ние можем да използваме следния синтаксис.
+```java
+Cup cup = new Cup();
+cup.fill(new Cola()) // we fill in Cola 
+
+Object content = cup.getContent(); // we don't know what is the type of the content
+```
+
+Because the content of the cup is of type `Object` we can fill it with any type. The problem here is when retrieving 
+the content of the cup. We don't know what kind of data to expect.
+
+To make this class generic we use the following syntax.
 
 `class name<T1, T2, ..., Tn> { /* ... */ }`
 
@@ -370,24 +451,41 @@ public class Cup<T> {
 }
 ```
 
-Ако искаме да лимитираме чашата да може да бъде използвана само за течности тога, можем да сложим 
-**горна граница (upper bound)** на generic типът `T`. Това става чрез следния синтаксис.
+Here is how we would use this class:
 
-`class name<T1 extends Foo> { /* ... */ }`
+```java
+Cup<Cola> colaCup = new Cup<>();
+colaCup.fill(new Cola()); // we fill in Cola
+Cola cola = colaCup.getContent(); // we know that the content is Colla
 
-В случая бихме си дефинирали интерфейс `Fluid`, 
-който да репрезентира течности и ще бъде използван за горна граница на `T`.
+Cup<Candy> candyCup = new Cup<>();
+candyCup.fill(new Candy()); // we fill in Candy 
+Candy candy = candyCup.getContent(); // we know that the content is Candy
+```
 
+In this version of the Cup we have added made the content generic. 
+This gives us the type information of the content of the cup at compile time.
+However, there is nothing preventing us from using the cup with Animals, People and etc...
+
+We can use an **upper bound** to constrain on `T` so that the cup can only contain certain type hierarchy. 
+For example, we might want to use our cup only with Fluids. 
+This would allow us to write some fluid specific code in the Cup class and retain type information at compile time.
+
+Here is the syntax for **upper bound** constraints:
+`class name<T extends Foo> { /* ... */ }`
 
 ```java
 interface Fluid {
+    int getMilliliters();
 }
 
 public class Cup<T extends Fluid> {
-
     private T content;
 
     public void fill(T content) {
+        if(content.getMilliliters() > 500) {
+            throw new IllegalArgumentException("Too much fluid");
+        }
         this.content = content;
     }
 
@@ -397,9 +495,20 @@ public class Cup<T extends Fluid> {
 }
 ```
 
-По този начин класът `Cup`, няма да може да бъде използван за нещо различно от течности.
+Here is how the client code would look like:
 
-![generic_cup](https://data.earthli.com/news/attachments/entry/3166/cupt.jpg)
+```java
+Cup<Cola> colaCup = new Cup<>();
+colaCup.fill(new Cola()); // colla implements Fluid so this code compiles
+Cola cola = colaCup.getContent(); // we know that the content is Colla
 
-ℹ️ За повече информация относно **Generics** вижте [това](https://www.youtube.com/watch?v=_dy9JnEXekU) 
-и [това youtube видео](https://www.youtube.com/watch?v=DjJRWroA168).
+Cup<Candy> candyCup = new Cup<>();
+candyCup.fill(new Candy()); // candy does not implement Fluid so this code doesn't compile 
+```
+
+Assuming the class `Cola` implements `Fluid` we can define `Cup<Cola> colaCup` and pass in a Cola Fluid.
+At the same time when retrieving the content we know that the cup contains `Cola`.
+Assuming the class `Candy` doesn't implement `Fluid` we get compile time error.
+
+ℹ️ For more information about **Generics** watch [this](https://www.youtube.com/watch?v=_dy9JnEXekU) 
+and [this youtube video](https://www.youtube.com/watch?v=DjJRWroA168).
