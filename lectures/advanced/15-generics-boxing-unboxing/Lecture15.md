@@ -5,9 +5,8 @@
 
 ### Autoboxing & Unboxing
 
-В Java всеки примитивен тип има свой референтен (сложен) аналог. Това е направено за да може примитивните 
-типове да бъдат моделирани, като обекти.  Тези класове също се наричат **wrapper (обвиващи)** класове. 
-По този начин тези данни могат да имат методи в съответните класове, което прави работата с тях по-лесна.
+Java has a two-part type system. It supports primitive types and reference types.
+Each primitive type has its own corresponding reference wrapper type.
 
 |Primitive type |Reference type |
 |:-------------:|:-------------:|
@@ -19,6 +18,12 @@
 |double         |Double         |
 |char           |Character      |
 |boolean        |Boolean        |
+
+Although these wrapper types are introduced so they can be used in conjunction with primitive types inorder to reduce
+verbosity, there are some differences between the two.
+
+The wrapper types support all possible values that a primitive can have plus one more. A wrapper type can be `null`.
+Wrapper types can be used in classes or methods that use generics while primitive types can't. 
 
 
 - Example reference type.
@@ -34,22 +39,21 @@ x += 2;
 y += 2;
 ```
 
-**Autoboxing** представлява автоматичното конвертиране, което Java компилатора прави м/у примитивните типове и тяхните 
-референтни wrapper класове. Например конвертирането на `int` към `Integer`, `double` към `Double` и тнт. 
-Ако конвертирането е в обратен ред то тогава се нарича **Unboxing**. Например `Double` към `double`.
+![boxing_unboxing](http://i.imgur.com/tuNnNbs.png)
 
-Ето един пример на autoboxing:
+We say that we have **Autoboxing** when the Java compiler automatically converts a primitive type to its corresponding reference typ.
+For example `int` to `Integer`, `double` to `Double` etc... 
+If the conversion is in the opposite direction, from a wrapper type to a primitive type then we have **unboxing**.
+For example `Integer` to `int`, `Double` to `double` etc...
+
+Here is an example of *autoboxing*:
 
 ```java
 Character ch = 'a';
 ```
+> We do not declare the variable as the primitive type `char` instead we use `Character`.
 
-> Не е използван примитивния тип `char` а референтния `Character`.
-
-![boxing_unboxing](http://i.imgur.com/tuNnNbs.png)
-
-
-Нека разгледаме следния пример:
+Let's look at another example.
 
 ```java
 List<Integer> list = new ArrayList<>();
@@ -59,11 +63,10 @@ for (int i = 1; i < 50; i += 2) {
 }
 ```
 
-Въпреки че добавяме `int` стойности, като примитивни типове, вместо `Integer` обекти в списъка `list`, кода се компилира.
-На пръв поглед `int` и `Integer` са различни типове и компилатора трябва да покаже грешка свързана с типовете.
+In the example above the variable `i` is defined as a primitive `int` and is used in the method `add(i)`.
+The method however accepts a reference type. Usually this code wouldn't compile but here the compiler performs autoboxing on `i`.
 
-Причината да се компилира този код е че компилатора конвертира `int` към `Integer` автоматично.
-И горния код бива сведен до следното по време на изпълнение на програмата:
+This code snippet resembles the code that will get executed after compilation.
 
 ```java
 List<Integer> list = new ArrayList<>();
@@ -73,17 +76,9 @@ for (int i = 1; i < 50; i += 2) {
 }
 ```
 
-> Компилаторът добавя `Integer.valueOf(i)` за да компилира примитивния тип до референтен тип.
+> The compiler has added `Integer.valueOf(i)` so that the primitive type can be converted to its wrapper type.
 
-Конвертирането на примитивен тип (например `int`) в съответния wrapper клас (`Integer`) се нарича **autoboxing**.
-
-Компилаторът прилага **autoboxing** на примитивна стойност в следните случаи:
-
-- Когато примитивата е подадена на метод очакващ референтен wrapper еквивалент.
-- Когато примитивата е назначена на променлива от тип кореспондиращ на нейяният wrapper клас.
-
-
-Нека разгледаме следния пример:
+Here is an example of *unboxing*.
 
 ```java
 public static int sumEven(List<Integer> li) {
@@ -97,11 +92,10 @@ public static int sumEven(List<Integer> li) {
 }
 ```
 
-Бихме очаквали операторите за остатък (`%`) и събиране (`+=`) да не могат да бъдат прилагани на референтни типове,
-като `Integer` и Java компилатора да изведе грешка, по време на компилиране. Това не се случва, 
-защото компилатора използва `intValue` метода на `Integer` за да конвертира wrapper класът `Integer` към `int`.
+We know that the mod operator `%` along with `+=` can't be used on reference types. 
+Nonetheless, the code compiles without errors. This is due to the fact that `i` variable is *unboxed* to its primitive type.
 
-Горния пример бива сведен до следното по време на изпълнение на програмата:
+This code snippet resembles the code that will get executed after compilation.
 
 ```java
 public static int sumEven(List<Integer> numbers) {
@@ -115,22 +109,66 @@ public static int sumEven(List<Integer> numbers) {
 }
 ```
 
-> Използван е `Integer.intValue()` метода за да се конвертира `Integer` към `int`.
+> The compiler has added `Integer.intValue()` inorder to convert the `Integer` variable `i` to its primitive equivalent `int`.
 
-В този случай компилаторът прилага **unboxing**.
+##### Caveats
 
-#### Какво още трябва да знаем за boxing/unboxing?
+Although autoboxing tends to reduce code verbosity there are cases that it can cause more bad than good. 
 
-- Boxing позволява използването на референти типове, като примитиви и обратното.
+- Let's look at an example.
 
-- Референтните типове могат да хвърлят `NullPointerException`, докато примитивите не могат.
+```java
+class Foo {
+    private Intager x;
 
-- Конвертирането на типовете не бива да се използва на места където е важно да имаме бързодействие.
-Например използването на **boxing/unboxing**  в цикли може да доведе до забавяне на изпълнението.
+    public boolean bar() {
+        return x == 42;
+    } 
+}
+```
 
-- Референтните типове могат да се използват в Generics, за разлика от примитивните.
+If we invoke `new Foo().bar()` the program would throw `NullPointerException`. The reason being is 
+that `x == 42` requires *unboxing*. At the same time the default value of `x` is `null` and this causes the exception. 
 
-ℹ️ За повече информация относно **boxing/unboxing** вижте това [youtube видео](https://www.youtube.com/watch?v=BKhuXqJyYGc).
+- Let's look at another example.
+
+```java
+static long intSum() {
+    Long sum = 0L;
+    for (int i = 0; i < Integer.MAX_VALUE; i++) {
+        sum += i;
+    }
+    return sum;
+}
+```
+
+The method sums all the positive `int` values. At a first glance there is nothing wrong with the method. 
+Actually it computes the result without any errors. The problem with this method is that it is slower than it should be.    
+The variable `sum` is defined as `Long`. This causes about 2^31 Long instances to be constructed from autoboxing.
+The simple fix is to change the `Long` to `long`.  
+On my machine using `Long` the method runs about ~8 seconds in comparison to ~1 second when using `long`.
+
+- Another troublesome example would involve comparing numbers. 
+Consider the following code.
+
+```java
+Integer x = 700;
+Integer y = 700;
+
+System.out.println(x == y);
+```
+
+Usually we would expect when comparing the same numbers the result to be `true`. However, the above code prints `false`.
+This is because when using the equality operator `==` on reference types it is applied on the references and not on their values.
+We should always use `equals()` when checking for equality on reference types.
+
+To summarize this. Whenever you can prefer primitive types to wrapper types. They are simpler and more efficient.  
+This doesn't however mean wrapper types should be avoided on all costs. There are legitimate cases for them as well,
+some already mentioned. Wrapper classes can be used in parametrized methods and classes that use generics. 
+They are often used as keys in Maps and other data structures from the Collections hierarchy. 
+There are also cases where you can benefit from the nullability of the wrapper types.
+
+ℹ️ For more information regarding **boxing/unboxing** watch this [youtube video](https://www.youtube.com/watch?v=BKhuXqJyYGc).
 
 ### Generics
 
