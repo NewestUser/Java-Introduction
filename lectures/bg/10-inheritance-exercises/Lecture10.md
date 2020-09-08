@@ -333,7 +333,7 @@ Java нарича **Stack Frame** моделировата на извикван
 - Един магазин (Shop) може да бъде зареждана (add) със стока.
     - Когато се зарежда стоката се казва името на стоката (productName) и цената (price).
 
-- От магазина може да бъде купувана (buy) стока, като при закупуването се издава касова бележка (purchase recipe). 
+- От магазина може да бъде купувана (buy) стока, като при закупуването се издава касова бележка (purchase receipt). 
     - Купуването става чрез упоменаване името на стоката и сума пари.
     - При успешно закупуване, магазинът издава касова бележка състояща се от:
         - името на продукта, който е закупен
@@ -765,15 +765,15 @@ public class Shop {
                 continue;
             }
 
-            PurchaseReceipt recipe = item.tryToSell(productQuery, amount, quantity);
+            PurchaseReceipt receipt = item.tryToSell(productQuery, amount, quantity);
 
             if (item.isDepleted()) {
                 inventory[i] = null; // избягваме Memory Leak
             }
 
-            if (recipe != null) {
+            if (receipt != null) {
 
-                return recipe;
+                return receipt;
             }
         }
 
