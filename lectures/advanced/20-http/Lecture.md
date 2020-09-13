@@ -47,7 +47,7 @@ An HTTP Response consists of:
 - Body (optional)
 - Status Code
 
-### URL
+### Request URL
 
 A client issuing an HTTP request needs to provide a URL which servers to identify the receiver of the request and the resource being requested. 
 
@@ -72,7 +72,7 @@ https://www.youtube.com/watch?v=OYjZK_6i37M&ab_channel=GodsmackVEVO
 - **param with value** - v=OYjZK_6i37
 - **param with value** - ab_channel=GodsmackVEVO
 
-### Method
+### Request Method
 
 Each HTTP Requests contains an HTTP method. The method is used to express the intent of the request. 
 For example: **GET** **https://www.youtube.com**.  
@@ -102,6 +102,20 @@ server via the URL and HTTP headers.
 HTTP headers the client can use an HTTP POST method. Such cases can include uploading a file, submitting HTTP forms, 
 passing data between two servers etc... In most cases POST is used when the client wants to create a new entry/resource 
 on the server.
+
+### Request/Response Body
+
+The body is the main means of transferring data between the client and the server. Both the client request and the server response
+can contain a body. Unlike the http headers and URL which are limited the body allows for much larger amounts of data to be transferred.
+
+### Request/Response Headers
+
+The HTTP headers are an additional mechanism for transferring meta information between the client and the server.
+These are key-value pairs. Some of them are standardized and mandatory but an application is free to define custom headers.
+For example when transferring an HTTP body the headers `Content-Lenght` and `Content-Type` can be used to indicate the 
+size of the body and the type of the data. 
+
+### Response Status Code
 
 ### TODO 
 
