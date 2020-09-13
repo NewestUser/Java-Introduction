@@ -1,0 +1,109 @@
+## Hypertext Transfer Protocol (HTTP)
+
+Nowadays communication is in the center of everything.
+Most of the applications that we use on an everyday basis get stuff done by collaborating with
+other applications often located on different networks. This imposes the need of having a 
+reliable communication mechanism that can be used to exchange messages between systems/applications.
+
+There is a variety of commonly used protocols each with its own specifics and use cases. 
+Also in networking it is common for one protocol to encapsulate information from another protocol.
+The **Open Systems Interconnection model (OSI model)** is a conceptual model characterising the communication
+functions of a networking system. It is broken down into 7 layers. Where each layer encapsulates the 
+details of the one beneath it.
+
+![osi_model](assets/osi_model.jpeg)
+
+> An easy mnemonic to remember the OSI Model is **P**lease **D**o **N**ot **T**hrow **S**alami **P**izza **A**way. 
+
+**HTTP** sits on the 7th layer from the OSI model and is build on top of **TCP/IP**.
+TCP on itself is a protocol that establishes a reliable streamed manner for transferring data. Thus, HTTP inherits 
+these characteristics. 
+
+> ℹ️ For more details on networking watch these [youtube videos](https://www.youtube.com/playlist?list=PLowKtXNTBypH19whXTVoG3oKSuOcw_XeW).
+
+As of this time of writing there are two major versions of the HTTP protocol.
+[HTTP/1](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol),
+[HTTP/2](https://en.wikipedia.org/wiki/HTTP/2) and even 
+[HTTP/3](https://en.wikipedia.org/wiki/HTTP/3) (which is still in a draft state). 
+
+![http](./assets/http.png)
+
+HTTP is a request-response communication protocol which involves two parties a **client** and a **server**. 
+The client is the one issuing the **HTTP Request**. This can be for an example a web browser requesting an HTML page from a web server. 
+The server is responsible for accepting the request issued by the client acting upon it and returning an **HTTP Response**.
+
+![client_server](./assets/client_server.png)
+
+An HTTP Request consists of:
+
+- Method
+- URL
+- Headers
+- Body (optional)
+
+An HTTP Response consists of:
+
+- Headers
+- Body (optional)
+- Status Code
+
+### URL
+
+A client issuing an HTTP request needs to provide a URL which servers to identify the receiver of the request and the resource being requested. 
+
+![URL_syntax_diagram](./assets/URL_syntax_diagram.svg)
+
+- **schema** - used to identify how the resource will be accessed, in this case http.
+- **host** - identifies the receiving machine, it can be a hostname or ip address.
+- **port** - used to identify which process on the host machine will receive the request, by default http uses port 80.
+- **path** - used to identify a resource within the application that has accepted the request.
+- **query params** - optional parameters that can be passed in the url.
+- **fragment** - an optional parameter used as a secondary resource identifier.
+
+Example:
+
+```
+https://www.youtube.com/watch?v=OYjZK_6i37M&ab_channel=GodsmackVEVO
+```
+
+- **schema** - https
+- **host** - www.youtube.com
+- **path** - watch
+- **param with value** - v=OYjZK_6i37
+- **param with value** - ab_channel=GodsmackVEVO
+
+### Method
+
+Each HTTP Requests contains an HTTP method. The method is used to express the intent of the request. 
+For example: **GET** **https://www.youtube.com**.  
+Sometimes the HTTP method is referred to as a verb.
+
+Here is a list of HTTP methods:
+- **GET**
+- **HEAD**
+- **POST**
+- **PUT**
+- **DELETE**
+- **CONNECT**
+- **OPTIONS**
+- **TRACE**
+- **PATCH**
+
+> You can find some of them documented in [RFC 2616](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html).
+
+Some methods are absent of an HTTP Request Body like **GET**, **HEAD**, **DELETE**, **TRACE**.
+
+The most frequently used methods are **GET** and **POST**.
+
+**GET** should be used when a client is requesting information from the server. The client can pass parameters to the 
+server via the URL and HTTP headers.
+
+**POST** can be used in cases where the client needs to pass data to the server that is not applicable for the URL or 
+HTTP headers the client can use an HTTP POST method. Such cases can include uploading a file, submitting HTTP forms, 
+passing data between two servers etc... In most cases POST is used when the client wants to create a new entry/resource 
+on the server.
+
+### TODO 
+
+- HTTPS
+- DNS
