@@ -89,7 +89,7 @@ Here is a list of HTTP methods:
 - **TRACE**
 - **PATCH**
 
-> You can find some of them documented in [RFC 2616](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html).
+> ℹ️ You can find some of them documented in [RFC 2616](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html).
 
 Some methods are absent of an HTTP Request Body like **GET**, **HEAD**, **DELETE**, **TRACE**.
 
@@ -117,7 +117,42 @@ size of the body and the type of the data.
 
 ### Response Status Code
 
-### TODO 
+Each HTTP response contains a numerical status code that can be used to identify whether the request has been processed 
+successfully by the server, or some kind of error has occurred. 
+
+The status codes are separated into several groups.
+
+##### Informational **1xx** 
+These status codes indicate a provisional response.
+
+##### Successful **2xx**
+These status codes are used to indicate that the request of the client has been successfully processed.
+
+##### Redirection **3xx**
+These status codes are used to indicate that the client may need to perform another action inorder to fulfil the initial request.
+
+##### Client Error **4xx**
+These status codes indicate cases where the client has erred.
+
+##### Server Error **5xx**
+These status codes are returned when the server is aware that is has errered. In those cases the server is unable to fulfil the request.  
+
+> ℹ️ For a detailed explanation of each of the status codes checkout [RFC 2616](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html).
+
+
+## HTTPS overview 
+
+The **S** in HTTPS stands for **secure**. HTTPS uses TLS (or SSL) to encrypt the data transferred by the two parties. 
+This way HTTPS solves the following problems: 
+
+![http_vs_https](assets/http_vs_https.svg)
+
+> ℹ️ If you want to learn more about what makes HTTPS a secure protocol watch this youtube video:
+ [What is CA](https://www.youtube.com/watch?v=T4Df5_cojAs&ab_channel=kubucation)
+
+### TODO
+
+- CIA triad (https://www.coursera.org/lecture/cybersecurity-roles-processes-operating-system-security/confidentiality-integrity-and-availability-CJmiA)
 
 - HTTPS
 - DNS
