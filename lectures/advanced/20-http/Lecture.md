@@ -143,7 +143,6 @@ These status codes are returned when the server is aware that is has errered. In
 ## HTTPS overview 
 
 The **S** in HTTPS stands for **secure**. HTTPS uses TLS (or SSL) to encrypt the data transferred by the two parties. 
-This way HTTPS solves the following problems: 
 
 ![http_vs_https](assets/http_vs_https.svg)
 
@@ -152,7 +151,8 @@ This way HTTPS solves the following problems:
 
 ### TODO
 
-- CIA triad (https://www.coursera.org/lecture/cybersecurity-roles-processes-operating-system-security/confidentiality-integrity-and-availability-CJmiA)
+- CIA triad (https://www.coursera.org/lecture/cybersecurity-roles-processes-operating-system-security/confidentiality-integrity-and-availability-CJmiA
+https://www.coursera.org/lecture/cybersecurity-roles-processes-operating-system-security/confidentiality-integrity-and-availability-CJmiA
 
 - HTTPS
 - DNS
