@@ -217,7 +217,7 @@ public class Main2 {
 
         String input = myScanner.nextLine(); // използваме myScanner за да вземем данни от клавиатурата и ги записваме в променливата input
 
-        System.out.println("Hello " + input); // принтираме слято Hello и въведената стойност от потребителя
+        System.out.println("Hello " + input); // принтираме заедно Hello и въведената стойност от потребителя
     }
 }
 ```
