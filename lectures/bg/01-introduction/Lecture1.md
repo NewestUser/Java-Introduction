@@ -180,7 +180,7 @@ Java всъщност е вид кафе.
 - `>` - по-голямо (greater than)
 - `>=` - по-голямо или равно (greater than or equal)
 - `<` - по-малко (less than)
-- `>=` - по-малко или равно (less than or equal)
+- `<=` - по-малко или равно (less than or equal)
 
 ## Hello World
 
